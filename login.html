@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catchy Food Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f8ede3, #e2f0e9);
+            color: #444;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(90deg, #f0d9c8, #c8e6df);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav .logo img {
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo img:hover {
+            transform: scale(1.15);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 1.2rem;
+            letter-spacing: 0.8px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #6d9773;
+            transform: scale(1.1);
+        }
+
+        nav ul li::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            height: 3px;
+            width: 100%;
+            background: #6d9773;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav .login a {
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            background: #ffc5a1;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border-radius: 30px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        nav .login a:hover {
+            background: #ffe5d1;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li i {
+            margin-right: 0.5rem;
+            color: #6d9773;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li:hover i {
+            color: #4f705d;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            overflow: auto;
+            padding-top: 60px;
+        }
+
+        .modal:target {
+            display: block;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 60%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-content .btn {
+            background-color: #6d9773;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content .btn:hover {
+            background-color: #5a7e59;
+        }
+
+        .modal-content .options {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .modal-content .options a {
+            text-decoration: none;
+            color: #6d9773;
+            font-weight: 500;
+        }
+
+        .modal-content .options a:hover {
+            text-decoration: underline;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="P1.jpg" alt="P1.jpg"></a>        
+        </div>
+        
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+            <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+            <li><a href="#"><i class="fa-solid fa-gift"></i> Reward</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+        </ul>
+        <div class="login">
+            <a href="#loginModal"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Modal for Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Login</h2>
+            <form action="#" method="post">
+                <input type="text" placeholder="Username" name="username" required><br>
+                <input type="password" placeholder="Password" name="password" required><br>
+                <button type="submit" class="btn">Login</button>
+            </form>
+
+            <div class="options">
+                <p><a href="#forgotPasswordModal">Forgot Password?</a></p>
+                <p>Don't have an account? <a href="#signupModal">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Forgot Password -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <a href="#loginModal" class="close">&times;</a>
+            <h2>Forgot Password</h2>
+            <form action="#" method="post">
+                <input type="email" placeholder="Enter your email" name="email" required><br>
+                <button type="submit" class="btn">Reset Password</button>
+            </form>
+            <p>Remembered your password? <a href="#loginModal">Back to Login</a></p>
+        </div>
+    </div>
+
+    <!-- Modal for Sign Up -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <a href="#loginModal" class="close">&times;</a>
+            <h2>Sign Up</h2>
+            <form action="#" method="post">
+                <input type="text" placeholder="Username" name="username" required><br>
+                <input type="email" placeholder="Email" name="email" required><br>
+                <input type="password" placeholder="Password" name="password" required><br>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#loginModal">Log in</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
+
