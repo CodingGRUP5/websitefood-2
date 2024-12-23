@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reward Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f7f5f2, #eaf9f0);
+            color: #444;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(90deg, #f0d9c8, #c8e6df);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav .logo img {
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo img:hover {
+            transform: scale(1.15);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 1.2rem;
+            letter-spacing: 0.8px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #6d9773;
+            transform: scale(1.1);
+        }
+
+        nav ul li::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            height: 3px;
+            width: 100%;
+            background: #6d9773;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav .login a {
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            background: #ffc5a1;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border-radius: 30px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        nav .login a:hover {
+            background: #ffe5d1;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li i {
+            margin-right: 0.5rem;
+            color: #6d9773;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li:hover i {
+            color: #4f705d;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(90deg, #f0d9c8, #c8e6df);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 15px 15px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        .rewards-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .reward-card {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .reward-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .reward-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .reward-card .info {
+            flex: 1;
+        }
+
+        .reward-card .info h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .reward-card .info p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 0.5rem 0 0;
+        }
+
+        .reward-card .btn {
+            padding: 1.6rem;
+            background: #ffc5a1;
+            color: #333;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .reward-card .btn:hover {
+            background: #ffe5d1;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f0d9c8;
+            border-radius: 15px 15px 0 0;
+            color: #333;
+        }
+
+        footer a {
+            color: #6d9773;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.jpg" alt="P1.jpg"></a>        
+        </div>
+        
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+            <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+        </ul>
+        <div class="login">
+            <a href="#"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Welcome to Our Rewards Program</h1>
+        <p>Earn points and redeem exclusive rewards just for you!</p>
+    </header>
+
+    <div class="rewards-container">
+        <div class="reward-card">
+            <img src="iced coffee 2.jpeg" alt="Reward Image 1">
+            <div class="info">
+                <h2>Free Coffee</h2>
+                <p>Redeem 100 points to enjoy a freshly brewed coffee on us.</p>
+            </div>
+            <a href="#" class="btn" onclick="redeemReward('Free Coffee', 100)">Redeem Now</a>
+        </div>
+
+        <div class="reward-card">
+            <img src="voucher.jpg" alt="Reward Image 2">
+            <div class="info">
+                <h2>Discount Voucher</h2>
+                <p>Save $10 on your next order with 200 points.</p>
+            </div>
+            <a href="#" class="btn" onclick="redeemReward('Discount Voucher', 200)">Get Voucher</a>
+        </div>
+
+        <div class="reward-card">
+            <img src="merchandise 2.jpg" alt="Reward Image 3">
+            <div class="info">
+                <h2>Exclusive Merchandise</h2>
+                <p>Use 500 points to grab our limited edition merchandise.</p>
+            </div>
+            <a href="#" class="btn" onclick="redeemReward('Exclusive Merchandise', 500)">Claim Now</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Want to know more? Visit our <a href="about.html">About Us</a> page.</p>
+    </footer>
+
+    <script>
+        let userPoints = 500; // Mata pengguna
+        let redeemedRewards = []; // Senarai ganjaran yang telah ditebus
+
+        function redeemReward(rewardName, pointsRequired) {
+            if (userPoints >= pointsRequired) {
+                userPoints -= pointsRequired; // Kurangkan mata pengguna
+                redeemedRewards.push(rewardName); // Simpan rekod ganjaran
+                alert(`Congratulations! You have redeemed: ${rewardName}. You now have ${userPoints} points left.`);
+                displayRedeemedRewards();
+            } else {
+                alert(`Sorry, you need ${pointsRequired - userPoints} more points to redeem ${rewardName}.`);
+            }
+        }
+
+        function displayRedeemedRewards() {
+            if (redeemedRewards.length > 0) {
+                let rewardList = redeemedRewards.join(", ");
+                alert(`You have redeemed the following rewards: ${rewardList}.`);
+            } else {
+                alert("You have not redeemed any rewards yet.");
+            }
+        }
+    </script>
+</body>
+</html>

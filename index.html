@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catchy Food Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f8ede3, #e2f0e9);
+            color: #444;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(90deg, #f0d9c8, #c8e6df);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav .logo img {
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo img:hover {
+            transform: scale(1.15);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333; /* Darker text color for better readability */
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 1.2rem;
+            letter-spacing: 0.8px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #6d9773; /*green for hover */
+            transform: scale(1.1);
+        }
+
+        nav ul li::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            height: 3px;
+            width: 100%;
+            background: #6d9773;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav .login a {
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            background: #ffc5a1;
+            color: #333; /* Darker text for button */
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border-radius: 30px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        nav .login a:hover {
+            background: #ffe5d1;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li i {
+            margin-right: 0.5rem;
+            color: #6d9773; /* Attractive green for icons */
+            transition: color 0.3s ease;
+        }
+
+        nav ul li:hover i {
+            color: #4f705d; /* Darker green on hover for icons */
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: #fff;
+        }
+
+        .main_text {
+            max-width: 50%;
+        }
+
+        .main_text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .main_text h1 span {
+            color: #6d9773;
+            font-style: italic; /* Adds emphasis */
+        }
+
+        .main_text p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8; /* Increased line height for better readability */
+            color: #555;
+            font-weight: 500;
+            margin-top: 1rem;
+            text-align: justify;
+            text-transform: capitalize; /* Makes the text more elegant */
+        }
+
+        .main_text p span {
+            font-weight: bold;
+            color: #6d9773;
+        }
+        
+
+        .main_text .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #ffc5a1;
+            color: #333;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .main_text .btn:hover {
+            background: #ffe5d1;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    animation: slide-animation 12s infinite;
+}
+
+.slide {
+    min-width: 50%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Continuous sliding animation */
+@keyframes slide-animation {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-90%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    75% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    
+}
+        @keyframes slide-animation {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-90%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .slideshow-container {
+            animation: slide-animation 9s infinite;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="P1.jpg" alt="P1.jpg"></a>        
+        </div>
+        
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+            <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+        </ul>
+        <div class="login">
+            <a href="#"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="main_text">
+            <div class="main_image" style="background: url('P4.jpg') no-repeat center center/cover; 
+                padding: 5rem; border-radius: 30px;">
+                <h1>
+                    <span class="word1">Fresh,</span> 
+                    <span class="word2">Fast</span><br>
+                    <span class="word3"> and Full of Flavor</span>
+                </h1>
+                <p>
+                    Discover the joy of effortless dining! From farm-fresh ingredients to your table, we bring meals bursting with flavor.
+                    Your cravings, your way—anytime, anywhere. 
+                    Dive into a world where deliciousness meets convenience.
+                </p>
+                <a href="#" class="btn"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+        </div>
+        </div>
+        <div class="slideshow-container">
+            <div class="slides">
+                <div class="slide">
+                    <img src="P5.jpg" alt="P5">
+                </div>
+                <div class="slide">
+                    <img src="P6.jpg" alt="P6">
+                </div>
+                <div class="slide">
+                    <img src="P7.jpg" alt="P7">
+                </div>
+                <div class="slide">
+                    <img src="P88.jpg" alt="P88">
+                </div>
+            </div>
+        </div>
+    </div>
