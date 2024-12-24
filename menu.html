@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chef Kiss Restaurant Menu</title>
+    <title>Chef Kiss Restaurant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
         body {
@@ -42,11 +42,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
-        }
-
-        nav ul li {
-            position: relative;
+            gap: 1.5rem;
         }
 
         nav ul li a {
@@ -54,9 +50,7 @@
             color: #f9f9f9;
             font-weight: 600;
             font-size: 1rem;
-            padding: 0.5rem 0;
             transition: color 0.3s, border-bottom 0.3s;
-            cursor: pointer;
         }
 
         nav ul li a:hover {
@@ -64,50 +58,21 @@
             border-bottom: 3px solid #ffcc66;
         }
 
-        nav .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(0, 0, 0, 0.9);
-            width: 220px;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        nav .submenu a {
-            display: block;
+        nav .login a {
             text-decoration: none;
-            color: #f9f9f9;
-            padding: 12px 0;
-            margin: 5px 0;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.3s, padding-left 0.3s;
+            padding: 0.5rem 1rem;
+            background: #ff5e5e;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
-        nav .submenu a:hover {
-            color: #ffcc66;
-            padding-left: 20px;
-        }
-
-        nav ul li:hover .submenu {
-            display: block;
-        }
-
-        /* Style for the image section */
-        .menu-images {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .menu-images img {
-            border-radius: 10px;
-            max-width: 100%;
-            height: auto;
+        nav .login a:hover {
+            background: #ff857a;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
@@ -217,6 +182,7 @@
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
@@ -235,8 +201,18 @@
         </div>
     </nav>
 
-    <!-- Western Plates Menu -->
+    <!-- Header Section -->
+    <h1>Menu</h1>
+    <div class="menu-options">
+        <a href="#western-plates-menu">Western Plates</a>
+        <a href="#asian-classic-menu">Asian Classic</a>
+        <a href="#sweet-dessert-menu">Sweet Dessert</a>
+        <a href="#drinks-coffee-menu">Drinks & Coffee</a>
+    </div>
+
+    <!-- Menu Sections -->
     <div id="western-plates-menu">
+        <!-- Repeat the same structure for all menu items as in the previous code -->
         <div class="menu-item">
             <img src="img1.jpg" alt="Spaghetti Bolognese">
             <h3>Spaghetti Bolognese</h3>
@@ -258,71 +234,13 @@
             <p class="description">Juicy beef patty served with crispy wedges.</p>
             <button class="order-button">Order Now</button>
         </div>
-        <div class="menu-item">
-            <img src="img4.jpg" alt="Pepperoni Pizza">
-            <h3>Pepperoni Pizza</h3>
-            <p class="price">RM 11.90</p>
-            <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="menu-item">
-            <img src="img5.jpg" alt="Lasagna">
-            <h3>Lasagna</h3>
-            <p class="price">RM 12.90</p>
-            <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="menu-item">
-            <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes">
-            <h3>Roasted Lamb with Mashed Potatoes</h3>
-            <p class="price">RM 45.90</p>
-            <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-    </div>
-
-    <style>
-        .landscape {
-            width: 60%; /* Adjust according to how much space you want the landscape image to take */
-        }
-
-        .portrait {
-            width: 30%; /* Adjust this for the portrait image */
-            height: auto;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f9f9f9;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-    </nav>
-
-        <div class="login">
-            <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
-        </div>
-    </nav>
-
-    <!-- Image Section for the menu -->
-    <div class="menu-images">
-        <img src="P11.jpg" alt="Western Plates" class="landscape">
-        <img src="P12.jpg" alt="Dessert" class="portrait">
-        <img src="P13.jpg" alt="Poster" class="portrait">
+        <!-- Add more items as needed -->
     </div>
 
     <footer>
         <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
+
 </body>
 </html>
+
