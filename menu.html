@@ -75,6 +75,7 @@
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
 
+        
         h1 {
             text-align: center;
             margin-top: 2rem;
@@ -305,6 +306,15 @@
             margin-top: 3rem;
         }
     </style>
+
+<script>
+    function toggleMenu() {
+        const activitySection = document.getElementById('activity-section');
+        const menuOptions = document.getElementById('menu-options');
+        activitySection.style.display = 'block';
+        menuOptions.style.display = 'block';
+    }
+</script>
 </head>
 <body>
 
@@ -326,7 +336,6 @@
         </div>
     </nav>
 
-
     <h1>Menu</h1>
     <div class="menu-options">
         <a href="#western-plates-menu">Western Plates</a>
@@ -334,6 +343,22 @@
         <a href="#sweet-dessert-menu">Sweet Dessert</a>
         <a href="#drinks-coffee-menu">Drinks & Coffee</a>
     </div>
+
+    <!-- Image Section for the menu -->
+    <div class="menu-images">
+        <img src="P11.jpg" alt="Western Plates" class="landscape">
+        <img src="P12.jpg" alt="Dessert" class="portrait">
+        <img src="P13.jpg" alt="Poster" class="portrait">
+    </div>
+    
+    
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- Western Plates Menu -->
     <div id="western-plates-menu">
@@ -392,93 +417,10 @@
     </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">
-            <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
-        </div>
-
-        <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
-            <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
-            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
-            <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
-        </ul>
-
-        <div class="login">
-            <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
-        </div>
-    </nav>
-
-    <!-- Header Section -->
-    <h1>Menu</h1>
-    <div class="menu-options">
-        <a href="#western-plates-menu">Western Plates</a>
-        <a href="#asian-classic-menu">Asian Classic</a>
-        <a href="#sweet-dessert-menu">Sweet Dessert</a>
-        <a href="#drinks-coffee-menu">Drinks & Coffee</a>
-    </div>
-
-    <!-- Menu Sections -->
-    <div id="western-plates-menu">
-        <!-- Repeat the same structure for all menu items as in the previous code -->
-        <div class="menu-item">
-            <img src="img1.jpg" alt="Spaghetti Bolognese">
-            <h3>Spaghetti Bolognese</h3>
-            <p class="price">RM 14.90</p>
-            <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="menu-item">
-            <img src="img2.jpg" alt="Chicken Wings">
-            <h3>Chicken Wings (6 Pcs)</h3>
-            <p class="price">RM 10.90</p>
-            <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="menu-item">
-            <img src="img3.jpg" alt="Beef Burger">
-            <h3>Beef Burger with Wedges</h3>
-            <p class="price">RM 13.90</p>
-            <p class="description">Juicy beef patty served with crispy wedges.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="menu-item">
-            <img src="img4.jpg" alt="Pepperoni Pizza">
-            <h3>Pepperoni Pizza</h3>
-            <p class="price">RM 15.90</p>
-            <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="menu-item">
-            <img src="img5.jpg" alt="Lasagna">
-            <h3>Lasagna</h3>
-            <p class="price">RM 11.90</p>
-            <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="menu-item">
-            <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes">
-            <h3>Roasted Lamb with Mashed Potatoe</h3>
-            <p class="price">RM 45.90</p>
-            <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
-            <button class="order-button">Order Now</button>
-        </div>
-    </div>
-
-    <!-- Image Section for the menu -->
-    <div class="menu-images">
-        <img src="P11.jpg" alt="Western Plates" class="landscape">
-        <img src="P12.jpg" alt="Dessert" class="portrait">
-        <img src="P13.jpg" alt="Poster" class="portrait">
-    </div>
-
+    
     <footer>
         <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
 
 </body>
 </html>
-
