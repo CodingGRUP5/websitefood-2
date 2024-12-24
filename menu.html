@@ -16,115 +16,99 @@
             scroll-behavior: smooth;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-radius: 0 0 15px 15px;
+        h1 {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 2.5rem;
+            color: #ffcc66;
         }
 
-        nav .logo img {
-            height: 50px;
-            border-radius: 50%;
-            transition: transform 0.3s;
+        .menu-options {
+            text-align: center;
+            margin: 2rem 0;
         }
 
-        nav .logo img:hover {
-            transform: rotate(360deg);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav ul li {
-            position: relative;
-        }
-
-        nav ul li a {
+        .menu-options a {
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
             text-decoration: none;
             color: #f9f9f9;
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            transition: color 0.3s, border-bottom 0.3s;
-            cursor: pointer;
-        }
-
-        nav ul li a:hover {
-            color: #ffcc66;
-            border-bottom: 3px solid #ffcc66;
-        }
-
-        nav .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(0, 0, 0, 0.9);
-            width: 220px;
-            padding: 1rem;
+            background: #ffcc66;
             border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .menu-options a:hover {
+            background: #ff5e5e;
+        }
+
+        #western-plates-menu,
+        #asian-classic-menu,
+        #sweet-dessert-menu,
+        #drinks-coffee-menu {
+            display: none;
+            padding: 2rem;
+        }
+
+        #western-plates-menu:target,
+        #asian-classic-menu:target,
+        #sweet-dessert-menu:target,
+        #drinks-coffee-menu:target {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-item {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 1rem;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        nav .submenu a {
-            display: block;
-            text-decoration: none;
-            color: #f9f9f9;
-            padding: 12px 0;
-            margin: 5px 0;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.3s, padding-left 0.3s;
-        }
-
-        nav .submenu a:hover {
-            color: #ffcc66;
-            padding-left: 20px;
-        }
-
-        nav ul li:hover .submenu {
-            display: block;
-        }
-
-        /* Style for the scrollable image section */
-        .menu-images {
-            display: flex;
-            scroll-snap-type: x mandatory; /* Enable scroll snapping */
-            overflow-x: auto; /* Horizontal scrolling */
-            height: 100vh; /* Full viewport height */
-            width: 100vw; /* Full viewport width */
-            padding: 0; /* Remove padding for alignment */
-            margin: 0;
-        }
-
-        .menu-images img {
-            width: 100vw; /* Each image fits the full viewport width */
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 10px;
             height: auto;
-            object-fit: cover;
-            scroll-snap-align: center; /* Center the image in the viewport during scrolling */
+            border: 3px solid #ffcc66;
         }
 
-        .menu-images::-webkit-scrollbar {
-            height: 10px; /* Horizontal scrollbar height */
+        .menu-item h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
         }
 
-        .menu-images::-webkit-scrollbar-thumb {
-            background: #ffcc66;
+        .menu-item .price {
+            color: #ffcc66;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .menu-item .description {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item .order-button {
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #ff5e5e;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
 
-        .menu-images::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.2);
+        .menu-item .order-button:hover {
+            background: #ff857a;
         }
 
         footer {
@@ -133,46 +117,63 @@
             background: rgba(0, 0, 0, 0.8);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             color: #f9f9f9;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
+    <h1>Menu</h1>
+    <div class="menu-options">
+        <a href="#western-plates-menu">Western Plates</a>
+        <a href="#asian-classic-menu">Asian Classic</a>
+        <a href="#sweet-dessert-menu">Sweet Dessert</a>
+        <a href="#drinks-coffee-menu">Drinks & Coffee</a>
+    </div>
+
+    <!-- Western Plates Menu -->
+    <div id="western-plates-menu">
+        <div class="menu-item">
+            <img src="img1.jpg" alt="Spaghetti Bolognese">
+            <h3>Spaghetti Bolognese</h3>
+            <p class="price">RM 14.90</p>
+            <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
+            <button class="order-button">Order Now</button>
         </div>
-
-        <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li class="menu-item-holder">
-                <a href="javascript:void(0);"><i class="fa-solid fa-utensils"></i> Menu</a>
-                <div class="submenu">
-                    <a href="#">Western Plates</a>
-                    <a href="#">Asian Classic</a>
-                    <a href="#">Sweet Dessert</a>
-                    <a href="#">Drinks & Coffee</a>
-                </div>
-            </li>
-            <li><a href="promotion.html"><i class="fa-solid fa-tags"></i> Promotion</a></li>
-            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
-        </ul>
-
-        <div class="login">
-            <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+        <div class="menu-item">
+            <img src="img2.jpg" alt="Chicken Wings">
+            <h3>Chicken Wings (6 Pcs)</h3>
+            <p class="price">RM 10.90</p>
+            <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
+            <button class="order-button">Order Now</button>
         </div>
-    </nav>
-
-    <!-- Scrollable Image Section -->
-    <div class="menu-images">
-        <img src="P11.jpg" alt="Western Plates">
-        <img src="P12.jpg" alt="Dessert">
-        <img src="P13.jpg" alt="Poster">
+        <div class="menu-item">
+            <img src="img3.jpg" alt="Beef Burger">
+            <h3>Beef Burger with Wedges</h3>
+            <p class="price">RM 13.90</p>
+            <p class="description">Juicy beef patty served with crispy wedges.</p>
+            <button class="order-button">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="img4.jpg" alt="Pepperoni Pizza">
+            <h3>Pepperoni Pizza</h3>
+            <p class="price">RM 11.90</p>
+            <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
+            <button class="order-button">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="img5.jpg" alt="Lasagna">
+            <h3>Lasagna</h3>
+            <p class="price">RM 12.90</p>
+            <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
+            <button class="order-button">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes">
+            <h3>Roasted Lamb with Mashed Potatoes</h3>
+            <p class="price">RM 45.90</p>
+            <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
+            <button class="order-button">Order Now</button>
+        </div>
     </div>
 
     <footer>
@@ -180,3 +181,10 @@
     </footer>
 </body>
 </html>
+
+
+
+
+
+
+
