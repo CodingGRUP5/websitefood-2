@@ -96,13 +96,22 @@
             display: block;
         }
 
-        /* Style for the image section with horizontal scrolling */
+        /* Style for the scrollable image section */
         .menu-images {
             display: flex;
-            gap: 2rem;
-            overflow-x: auto; /* Enable horizontal scrolling */
-            padding: 2rem;
-            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory; /* Enable scroll snapping */
+            overflow-x: auto; /* Horizontal scrolling */
+            height: 100vh; /* Full viewport height */
+            width: 100vw; /* Full viewport width */
+            padding: 0; /* Remove padding for alignment */
+            margin: 0;
+        }
+
+        .menu-images img {
+            width: 100vw; /* Each image fits the full viewport width */
+            height: auto;
+            object-fit: cover;
+            scroll-snap-align: center; /* Center the image in the viewport during scrolling */
         }
 
         .menu-images::-webkit-scrollbar {
@@ -118,28 +127,12 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .menu-images img {
-            border-radius: 10px;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .landscape {
-            width: 60%; /* Adjust according to how much space you want the landscape image to take */
-        }
-
-        .portrait {
-            width: 30%; /* Adjust this for the portrait image */
-            height: auto;
-        }
-
         footer {
             text-align: center;
             padding: 1rem;
             background: rgba(0, 0, 0, 0.8);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             color: #f9f9f9;
-            margin-top: 3rem;
         }
 
         footer p {
@@ -175,11 +168,11 @@
         </div>
     </nav>
 
-    <!-- Image Section for the menu -->
+    <!-- Scrollable Image Section -->
     <div class="menu-images">
-        <img src="P11.jpg" alt="Western Plates" class="landscape">
-        <img src="P12.jpg" alt="Dessert" class="portrait">
-        <img src="P13.jpg" alt="Poster" class="portrait">
+        <img src="P11.jpg" alt="Western Plates">
+        <img src="P12.jpg" alt="Dessert">
+        <img src="P13.jpg" alt="Poster">
     </div>
 
     <footer>
