@@ -141,59 +141,32 @@
             box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .login-form {
-            display: none;
+        .stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
             text-align: center;
-            margin: 3rem auto;
-            max-width: 400px;
-            padding: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stats .stat {
             background: rgba(0, 0, 0, 0.6);
             border-radius: 15px;
+            padding: 1rem;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+            max-width: 200px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .login-form h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .stats .stat:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .stats .stat h2 {
             color: #ffcc66;
-        }
-
-        .login-form input {
-            width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-            border: none;
-            background: #f1f1f1;
-        }
-
-        .login-form button {
-            width: 100%;
-            padding: 1rem;
-            background: #ff5e5e;
-            border: none;
-            color: white;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .login-form button:hover {
-            background: #ff857a;
-        }
-
-        .social-login a {
-            padding: 0.8rem;
-            font-size: 1.2rem;
-            border-radius: 50%;
-            background: #333;
-            color: white;
-            transition: background 0.3s;
-        }
-
-        .social-login a:hover {
-            background: #555;
+            margin: 0.5rem 0;
         }
 
         footer {
@@ -209,6 +182,18 @@
             margin: 0;
             font-size: 0.9rem;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -226,9 +211,26 @@
         </ul>
 
         <div class="login">
-            <a href="#" id="show-login"><i class="fa-solid fa-user"></i> Login</a>
+            <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
         </div>
     </nav>
+
+    <div class="slideshow-container">
+        <div class="slides">
+            <div class="slide">
+                <img src="P5.jpg" alt="Delicious Dish 1">
+            </div>
+            <div class="slide">
+                <img src="P6.jpg" alt="Delicious Dish 2">
+            </div>
+            <div class="slide">
+                <img src="P7.jpg" alt="Delicious Dish 3">
+            </div>
+            <div class="slide">
+                <img src="P88.jpg" alt="Delicious Dish 4">
+            </div>
+        </div>
+    </div>
 
     <div class="main">
         <h1>Welcome to Chef Kiss Restaurant!</h1>
@@ -237,62 +239,37 @@
             <i class="fa-solid fa-cart-shopping"></i> Order Now
         </a>
     </div>
+    
 
-    <div class="login-form" id="login-form">
-        <h2>Login</h2>
-        <form action="login-action.php" method="POST">
-            <input type="text" placeholder="Enter Username" name="username" required>
-            <input type="email" placeholder="Enter Email" name="email" required>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <button type="submit">Sign In</button>
-        </form>
-
-        <div class="social-login">
-            <a href="#" title="Login with Google"><i class="fab fa-google"></i></a>
-            <a href="#" title="Login with Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" title="Login with Microsoft"><i class="fab fa-microsoft"></i></a>
+    <div class="stats">
+        <div class="stat">
+            <h2>🌍 Earth in Need</h2>
+            <p>Our planet is facing critical environmental challenges. Take action now to help restore our Earth!</p>
         </div>
-
-        <p><a href="#">Forgot Password?</a></p>
-        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-    </div>
-    
-<script>
-        // Show the appropriate form based on the clicked link
-        document.getElementById("show-login").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("login-form").style.display = "block";
-            document.getElementById("forgot-password-form").style.display = "none";
-            document.getElementById("signup-form").style.display = "none";
-        });
-
-        document.getElementById("show-forgot-password").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("forgot-password-form").style.display = "block";
-            document.getElementById("login-form").style.display = "none";
-            document.getElementById("signup-form").style.display = "none";
-        });
-
-        document.getElementById("show-signup").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("signup-form").style.display = "block";
-            document.getElementById("login-form").style.display = "none";
-            document.getElementById("forgot-password-form").style.display = "none";
-        });
-    </script>
-    
+        <div class="stat">
+            <h2>💧 1M+</h2>
+            <p>Trees Planted to Combat Climate Change</p>
+        </div>
+        <div class="stat">
+            <h2>♻️ 500+</h2>
+            <p>Cleanups Organized Around the World</p>
+        </div>
+        <div class="stat">
+            <h2>🌍 200+</h2>
+            <p>Countries Engaged in the Cause</p>
+        </div>
+        <<div class="stat">
+            <h2>💖 Donate Today</h2>
+            <p>Make a Difference. Every Contribution Helps!</p>
+            <a href="https://www.support-our-mission.com" target="_blank" class="btn">
+                Donate Now
+                <br>
+                <img src="frame1.jpg" alt="QR Code to Donate" width="100" height="100">
+            </a>
+        </div>        
+    </div> 
     <footer>
         <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        const loginForm = document.getElementById("login-form");
-        const showLoginBtn = document.getElementById("show-login");
-
-        showLoginBtn.addEventListener("click", function() {
-            loginForm.style.display = loginForm.style.display === "block" ? "none" : "block";
-        });
-    </script>
 </body>
 </html>
-
