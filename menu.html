@@ -96,12 +96,26 @@
             display: block;
         }
 
-        /* Style for the image section */
+        /* Style for the image section with horizontal scrolling */
         .menu-images {
             display: flex;
             gap: 2rem;
-            justify-content: center;
+            overflow-x: auto; /* Enable horizontal scrolling */
             padding: 2rem;
+            scroll-behavior: smooth;
+        }
+
+        .menu-images::-webkit-scrollbar {
+            height: 10px; /* Horizontal scrollbar height */
+        }
+
+        .menu-images::-webkit-scrollbar-thumb {
+            background: #ffcc66;
+            border-radius: 5px;
+        }
+
+        .menu-images::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .menu-images img {
