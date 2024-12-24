@@ -268,6 +268,251 @@
             </a>
         </div>        
     </div> 
+
+    <style>
+        /* Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('P10.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav .logo img {
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        nav .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f9f9f9;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc66;
+            border-bottom: 3px solid #ffcc66;
+        }
+
+        nav .login a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: #ff5e5e;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        nav .login a:hover {
+            background: #ff857a;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-form, .forgot-password, .signup {
+            display: none;
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 400px;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-form h2, .forgot-password h2, .signup h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffcc66;
+        }
+
+        .login-form input, .forgot-password input, .signup input {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        .login-form button, .forgot-password button, .signup button {
+            width: 100%;
+            padding: 1rem;
+            background: #ff5e5e;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-form button:hover, .forgot-password button:hover, .signup button:hover {
+            background: #ff857a;
+        }
+
+        .login-form .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-login a {
+            padding: 0.8rem;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            background: #333;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-login a:hover {
+            background: #555;
+        }
+
+        .login-form .links {
+            margin-top: 1.5rem;
+        }
+
+        .login-form .links a {
+            text-decoration: none;
+            color: #ffcc66;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f9f9f9;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
+        </div>
+
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+            <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+        </ul>
+
+        <div class="login">
+            <a href="#" id="show-login"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="login-form" id="login-form">
+        <h2>Login</h2>
+        <form action="login-action.php" method="POST">
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <button type="submit">Sign In</button>
+        </form>
+
+        <div class="social-login">
+            <a href="#" title="Login with Google"><i class="fab fa-google"></i></a>
+            <a href="#" title="Login with Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Login with Microsoft"><i class="fab fa-microsoft"></i></a>
+        </div>
+
+        <div class="links">
+            <a href="#forgot-password-form" id="show-forgot-password">Forgot Password?</a><br>
+            <a href="#signup-form" id="show-signup">Don't have an account? Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div class="forgot-password" id="forgot-password-form">
+        <h2>Forgot Password</h2>
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="Password">Send Password Reset Link</button>
+        </form>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="signup" id="signup-form">
+        <h2>Sign Up</h2>
+        <form>
+            <input type="text" placeholder="Enter Username" required>
+            <input type="email" placeholder="Enter Email" required>
+            <input type="password" placeholder="Create Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        // Show the appropriate form based on the clicked link
+        document.getElementById("show-login").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("login-form").style.display = "block";
+            document.getElementById("forgot-password-form").style.display = "none";
+            document.getElementById("signup-form").style.display = "none";
+        });
+
+        document.getElementById("show-forgot-password").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("forgot-password-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("signup-form").style.display = "none";
+        });
+
+        document.getElementById("show-signup").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("signup-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("forgot-password-form").style.display = "none";
+        });
+    </script>   
+
     <footer>
         <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
