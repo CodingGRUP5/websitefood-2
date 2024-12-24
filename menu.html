@@ -178,6 +178,29 @@
             color: #f9f9f9;
             margin-top: 3rem;
         }
+        .landscape {
+            width: 60%; /* Adjust according to how much space you want the landscape image to take */
+        }
+
+        .portrait {
+            width: 30%; /* Adjust this for the portrait image */
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f9f9f9;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
     </style>
 </head>
 <body>
@@ -200,6 +223,12 @@
             <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
         </div>
     </nav>
+
+ <!-- Image Section for the menu -->
+    <div class="menu-images">
+        <img src="P11.jpg" alt="Western Plates" class="landscape">
+        <img src="P12.jpg" alt="Dessert" class="portrait">
+    </div>
 
     <!-- Header Section -->
     <h1>Menu</h1>
@@ -234,7 +263,27 @@
             <p class="description">Juicy beef patty served with crispy wedges.</p>
             <button class="order-button">Order Now</button>
         </div>
-        <!-- Add more items as needed -->
+        <div class="menu-item">
+            <img src="img4.jpg" alt="Pepperoni Pizza">
+            <h3>Pepperoni Pizza</h3>
+            <p class="price">RM 15.90</p>
+            <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
+            <button class="order-button">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="img5.jpg" alt="Lasagna">
+            <h3>Lasagna</h3>
+            <p class="price">RM 11.90</p>
+            <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
+            <button class="order-button">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes">
+            <h3>Roasted Lamb with Mashed Potatoe</h3>
+            <p class="price">RM 45.90</p>
+            <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
+            <button class="order-button">Order Now</button>
+        </div>
     </div>
 
     <footer>
