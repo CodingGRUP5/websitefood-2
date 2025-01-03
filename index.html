@@ -47,7 +47,7 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #f9f9f9;
+            color: #ece3e3;
             font-weight: 600;
             font-size: 1rem;
             transition: color 0.3s, border-bottom 0.3s;
@@ -55,13 +55,13 @@
 
         nav ul li a:hover {
             color: #ffcc66;
-            border-bottom: 3px solid #ffcc66;
+            border-bottom: 8px solid #ffcc66;
         }
 
         nav .login a {
             text-decoration: none;
             padding: 0.5rem 1rem;
-            background: #ff5e5e;
+            background: #95a033;
             color: white;
             font-weight: 600;
             font-size: 0.9rem;
@@ -71,129 +71,146 @@
         }
 
         nav .login a:hover {
-            background: #ff857a;
+            background: #2c5724;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
 
         .slideshow-container {
             margin: 2rem auto;
-            width: 95%;
-            max-width: 1200px;
-            overflow: hidden;
-            border-radius: 15px;
+            width: 100%;
+            max-width: 100%;
             position: relative;
+            overflow: hidden;
+            border: 3px solid #6e4d0b;
+            border-radius: 15px;
             box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.6);
         }
 
-        .slides {
-            display: flex;
-            transition: transform 0.8s ease-in-out;
-            animation: slider 12s infinite;
+        .mySlides {
+            display: none;
         }
 
-        .slide img {
+        .mySlides img {
             width: 100%;
             border-radius: 15px;
         }
 
-        .main {
-            text-align: center;
-            margin: 3rem auto;
-            max-width: 800px;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 25px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .main h1 {
-            font-size: 2.8rem;
-            font-family: 'Playfair Display', serif;
-            color: #ffcc66;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-        }
-
-        .main p {
-            font-size: 1.1rem;
-            color: #f9f9f9;
-            line-height: 1.8;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.8rem 2rem;
-            background: #ff5e5e;
-            color: white;
-            border-radius: 30px;
-            font-size: 1.2rem;
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: rgb(20, 19, 19);
             font-weight: bold;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
         }
 
-        .btn:hover {
-            background: #ff857a;
-            transform: translateY(-5px);
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .text {
+            color: #b0eb1e;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #b0eb1e;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #b0e61e;
+        }
+
+        @media only screen and (max-width: 300px) {
+            .prev, .next,.text {font-size: 11px;}
         }
 
         .stats {
             display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem;
             justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
             text-align: center;
-            margin: 3rem 0;
         }
 
-        .stats .stat {
-            background: rgba(0, 0, 0, 0.6);
+        .stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border: 3px solid #ffcc66;
             border-radius: 15px;
-            padding: 1rem;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-            max-width: 200px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            flex: 1 1 calc(25% - 2rem);
+            min-width: 250px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .stats .stat:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .stats .stat h2 {
-            color: #ffcc66;
-            margin: 0.5rem 0;
+        .stat:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
         }
 
         footer {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f9f9f9;
-            margin-top: 3rem;
+        text-align: center;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.8);
+        border-top: 5px solid #31974b;
+        color: #030303;
+        font-size: 0.9rem;
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .main {
+        text-align: center;
+        margin: 3rem auto;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.1);
+        border: 4px solid #31974b;
+        border-radius: 15px;
+        max-width: 800px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    }
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: 31974b;
+            color: rgb(8, 8, 8);
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
         }
 
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
+        .btn:hover {
+            background: #ff857a;
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -216,20 +233,40 @@
     </nav>
 
     <div class="slideshow-container">
-        <div class="slides">
-            <div class="slide">
-                <img src="P5.jpg" alt="Delicious Dish 1">
-            </div>
-            <div class="slide">
-                <img src="P6.jpg" alt="Delicious Dish 2">
-            </div>
-            <div class="slide">
-                <img src="P7.jpg" alt="Delicious Dish 3">
-            </div>
-            <div class="slide">
-                <img src="P88.jpg" alt="Delicious Dish 4">
-            </div>
+
+        <div class="mySlides fade">
+            <video controls style="width: 100%; height: auto;">
+                <source src="video A.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
+        <div class="mySlides fade">
+            <img src="P40.jpg" alt="Slide 2">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="P41.jpg" alt="Slide 3">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="P11.jpg" alt="Slide 4">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="P42.jpg" alt="Slide 5">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span> 
     </div>
 
     <div class="main">
@@ -239,7 +276,6 @@
             <i class="fa-solid fa-cart-shopping"></i> Order Now
         </a>
     </div>
-    
 
     <div class="stats">
         <div class="stat">
@@ -258,7 +294,7 @@
             <h2>🌍 200+</h2>
             <p>Countries Engaged in the Cause</p>
         </div>
-        <<div class="stat">
+        <div class="stat">
             <h2>💖 Donate Today</h2>
             <p>Make a Difference. Every Contribution Helps!</p>
             <a href="https://www.support-our-mission.com" target="_blank" class="btn">
@@ -266,10 +302,40 @@
                 <br>
                 <img src="frame1.jpg" alt="QR Code to Donate" width="100" height="100">
             </a>
-        </div>        
-    </div> 
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
 </body>
 </html>
