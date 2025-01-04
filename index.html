@@ -1,127 +1,341 @@
-<nav>
-    <div class="logo">
-        <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
-    </div>
-
-    <ul>
-        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
-        <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
-        <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
-        <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
-    </ul>
-
-    <div class="login">
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a> <!-- Shopping cart icon -->
-        <a href="#" id="login-btn"><i class="fa-solid fa-user"></i> Login</a>
-    </div>
-</nav>
-
-<!-- Login form (hidden by default) -->
-<div id="login-form" class="login-form">
-    <form action="#" method="POST">
-        <h2>Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        
-        <button type="submit">Sign In</button>
-        
-        <div class="links">
-            <a href="#">Forgot Password?</a> | 
-            <a href="signup.html">Sign Up</a>
-        </div>
-    </form>
-</div>
-
-<style>
-    .login-form {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 1.5rem;
-        border-radius: 15px;
-        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-        width: 300px;
-        z-index: 1000;
-    }
-
-    .login-form h2 {
-        text-align: center;
-        margin-bottom: 1rem;
-        color: #333;
-    }
-
-    .login-form label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        color: #333;
-    }
-
-    .login-form input {
-        width: 100%;
-        padding: 0.5rem;
-        margin-bottom: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    .login-form button {
-        width: 100%;
-        padding: 0.75rem;
-        background: #31974b;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-
-    .login-form button:hover {
-        background: #276c38;
-    }
-
-    .login-form .links {
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    .login-form .links a {
-        color: #31974b;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
-
-    .login-form .links a:hover {
-        color: #276c38;
-    }
-</style>
-
-<script>
-    // Toggle login form visibility
-    const loginBtn = document.getElementById('login-btn');
-    const loginForm = document.getElementById('login-form');
-
-    loginBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginForm.style.display = loginForm.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Close the login form when clicking outside it
-    window.addEventListener('click', (e) => {
-        if (!loginForm.contains(e.target) && e.target !== loginBtn) {
-            loginForm.style.display = 'none';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Flavors - Food for Every Mood</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('P10.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f9f9f9;
+            scroll-behavior: smooth;
         }
-    });
-</script>
 
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav .logo img {
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        nav .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ece3e3;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc66;
+            border-bottom: 8px solid #ffcc66;
+        }
+
+        nav .login a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: #95a033;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        nav .login a:hover {
+            background: #2c5724;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .slideshow-container {
+            margin: 2rem auto;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #6e4d0b;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: rgb(20, 19, 19);
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .text {
+            color: #b0eb1e;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #b0eb1e;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #b0e61e;
+        }
+
+        @media only screen and (max-width: 300px) {
+            .prev, .next,.text {font-size: 11px;}
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border: 3px solid #ffcc66;
+            border-radius: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            flex: 1 1 calc(25% - 2rem);
+            min-width: 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+        text-align: center;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.8);
+        border-top: 5px solid #31974b;
+        color: #030303;
+        font-size: 0.9rem;
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .main {
+        text-align: center;
+        margin: 3rem auto;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.1);
+        border: 4px solid #31974b;
+        border-radius: 15px;
+        max-width: 800px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    }
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: 31974b;
+            color: rgb(8, 8, 8);
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: #ff857a;
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
+        </div>
+
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+            <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+        </ul>
+
+        <div class="login">
+            <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <video controls style="width: 100%; height: auto;">
+                <source src="video A.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="mySlides fade">
+            <img src="P40.jpg" alt="Slide 2">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="P41.jpg" alt="Slide 3">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="P11.jpg" alt="Slide 4">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="P42.jpg" alt="Slide 5">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span> 
+    </div>
+
+    <div class="main">
+        <h1>Welcome to Chef Kiss Restaurant!</h1>
+        <p>Your one-stop destination for mouthwatering meals crafted with passion and premium ingredients. Explore our diverse menu that guarantees a delightful experience for every bite. Join us on this flavorful journey now!</p>
+        <a href="#" class="btn">
+            <i class="fa-solid fa-cart-shopping"></i> Order Now
+        </a>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <h2>🌍 Earth in Need</h2>
+            <p>Our planet is facing critical environmental challenges. Take action now to help restore our Earth!</p>
+        </div>
+        <div class="stat">
+            <h2>💧 1M+</h2>
+            <p>Trees Planted to Combat Climate Change</p>
+        </div>
+        <div class="stat">
+            <h2>♻️ 500+</h2>
+            <p>Cleanups Organized Around the World</p>
+        </div>
+        <div class="stat">
+            <h2>🌍 200+</h2>
+            <p>Countries Engaged in the Cause</p>
+        </div>
+        <div class="stat">
+            <h2>💖 Donate Today</h2>
+            <p>Make a Difference. Every Contribution Helps!</p>
+            <a href="https://www.support-our-mission.com" target="_blank" class="btn">
+                Donate Now
+                <br>
+                <img src="frame1.jpg" alt="QR Code to Donate" width="100" height="100">
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
