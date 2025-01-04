@@ -58,7 +58,12 @@
             border-bottom: 3px solid #ffcc66;
         }
 
-        nav .login a {
+        nav .cart-login {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .cart-login a {
             text-decoration: none;
             padding: 0.5rem 1rem;
             background: #ff5e5e;
@@ -70,12 +75,11 @@
             transition: background 0.3s, box-shadow 0.3s;
         }
 
-        nav .login a:hover {
+        nav .cart-login a:hover {
             background: #ff857a;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        
         h1 {
             text-align: center;
             margin-top: 2rem;
@@ -135,6 +139,7 @@
             border-radius: 10px;
             height: auto;
             border: 3px solid #ffcc66;
+            cursor: pointer;
         }
 
         .menu-item h3 {
@@ -154,12 +159,18 @@
             margin-bottom: 0.5rem;
         }
 
-        .menu-item .order-button {
-            margin-top: 0.5rem;
+        .menu-item .order-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .order-controls button {
             padding: 0.5rem 1rem;
             background: #ff5e5e;
-            color: #fff;
-            font-size: 1rem;
+            color: white;
             font-weight: bold;
             border: none;
             border-radius: 5px;
@@ -167,17 +178,18 @@
             transition: background 0.3s;
         }
 
-        .menu-item .order-button:hover {
+        .order-controls button:hover {
             background: #ff857a;
         }
 
-        footer {
+        .order-controls input {
+            width: 40px;
             text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f9f9f9;
-            margin-top: 3rem;
+            border: 2px solid #ffcc66;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
         }
 
         footer {
@@ -194,159 +206,46 @@
             font-size: 0.9rem;
         }
 
-        h1 {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 2.5rem;
-            color: #ffcc66;
-        }
-
-        .menu-options {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .menu-options a {
-            margin: 0 1rem;
-            padding: 0.5rem 1rem;
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: #f9f9f9;
-            background: #ffcc66;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .menu-options a:hover {
-            background: #ff5e5e;
-        }
-
-        #western-plates-menu,
-        #asian-classic-menu,
-        #sweet-dessert-menu,
-        #drinks-coffee-menu {
+        /* Modal styles */
+        .modal {
             display: none;
-            padding: 2rem;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
         }
 
-        #western-plates-menu:target,
-        #asian-classic-menu:target,
-        #sweet-dessert-menu:target,
-        #drinks-coffee-menu:target {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
         }
 
-        .menu-item {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            padding: 1rem;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .menu-item img {
-            max-width: 100%;
-            border-radius: 10px;
-            height: auto;
-            border: 3px solid #ffcc66;
-        }
-
-        .menu-item h3 {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-
-        .menu-item .price {
-            color: #ffcc66;
-            font-weight: 600;
-            margin: 0.5rem 0;
-        }
-
-        .menu-item .description {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-bottom: 0.5rem;
-        }
-
-        .menu-item .order-button {
-            margin-top: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: #ff5e5e;
-            color: #fff;
-            font-size: 1rem;
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
             font-weight: bold;
-            border: none;
-            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
             cursor: pointer;
-            transition: background 0.3s;
         }
-
-        .menu-item .order-button:hover {
-            background: #ff857a;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f9f9f9;
-            margin-top: 3rem;
-        }
-
-        a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 16px;
-}
-
-a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.previous {
-  background-color: #f1f1f1;
-  color: black;
-}
-
-.next {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.round {
-  border-radius: 50%;
-}
-</style>
+    </style>
 </head>
 <body>
-
-<script>
-    function toggleMenu() {
-        const activitySection = document.getElementById('activity-section');
-        const menuOptions = document.getElementById('menu-options');
-        activitySection.style.display = 'block';
-        menuOptions.style.display = 'block';
-    }
-</script>
-
-<body>
-    <script>
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        };
-    </script>
-</body>
-</head>
-<body>
-    
 
     <nav>
         <div class="logo">
@@ -355,20 +254,17 @@ a:hover {
 
         <ul>
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-utensils"></i> Menu</a></li>
             <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
             <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
             <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
         </ul>
 
-        <div class="login">
+        <div class="cart-login">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
             <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
         </div>
     </nav>
-
-    <a href="index.html" class="previous">&laquo; Previous</a>
-    <a href="" class="next">Next &raquo;</a>
-    
 
     <h1>Menu</h1>
     <div class="menu-options">
@@ -377,261 +273,223 @@ a:hover {
         <a href="#sweet-dessert-menu">Sweet Dessert</a>
         <a href="#drinks-coffee-menu">Drinks & Coffee</a>
     </div>
-    
-    <!-- The Modal -->
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
-  </div>
-  
-    
-  <!-- Add this script at the bottom -->
-  <script>
-    // Modal functionality
-    const modal = document.getElementById("myModal");
-    const modalImg = document.getElementById("img01");
-    const captionText = document.getElementById("caption");
-  
-    function openModal(img) {
-      modal.style.display = "block";
-      modalImg.src = img.src;
-      captionText.innerHTML = img.alt;
-    }
-  
-    // Close the modal
-    const span = document.getElementsByClassName("close")[0];
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
-  </script>
-  
-  <!-- Add these styles -->
-  <style>
-    .menu-images img {
-      width: 150px;
-      height: 150px;
-      margin: 10px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-  
-    .menu-images img:hover {
-      transform: scale(1.1);
-    }
-  
-    /* Modal styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      padding-top: 100px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, 0.9);
-    }
-  
-    .modal-content {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 700px;
-    }
-  
-    .modal-content:hover {
-      cursor: zoom-out;
-    }
-  
-    .close {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-  
-    .close:hover,
-    .close:focus {
-      color: #bbb;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  
-  </style>
-  
-
-
-
-    <br>
-    <br>
-    <br>
-    <br>
 
     <!-- Western Plates Menu -->
     <div id="western-plates-menu">
         <div class="menu-item">
-            <img src="img1.jpg" alt="Spaghetti Bolognese" class="menu-image" onclick="openModal(this)">
+            <img src="img1.jpg" alt="Spaghetti Bolognese" onclick="openModal(this)">
             <h3>Spaghetti Bolognese</h3>
             <p class="price">RM 14.90</p>
             <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
-            <button class="order-button">Add To Cart</button>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty1')">-</button>
+                <input type="text" value="1" id="qty1" readonly>
+                <button onclick="increaseQuantity('qty1')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
         </div>
+
         <div class="menu-item">
-            <img src="img2.jpg" alt="Chicken Wings (6 Pcs)" class="menu-image" onclick="openModal(this)">
+            <img src="img2.jpg" alt="Chicken Wings" onclick="openModal(this)">
             <h3>Chicken Wings (6 Pcs)</h3>
             <p class="price">RM 10.90</p>
             <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
-            <button class="order-button">Add To Cart</button>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty2')">-</button>
+                <input type="text" value="1" id="qty2" readonly>
+                <button onclick="increaseQuantity('qty2')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
         </div>
+        
+
         <div class="menu-item">
-            <img src="img3.jpg" alt="Beef Burger with Wedges" class="menu-image" onclick="openModal(this)">
+            <img src="img3.jpg" alt="Beef Burger with Wedges" onclick="openModal(this)">
             <h3>Beef Burger with Wedges</h3>
             <p class="price">RM 13.90</p>
             <p class="description">Juicy beef patty served with crispy wedges.</p>
-            <button class="order-button">Add To Cart</button>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty3')">-</button>
+                <input type="text" value="1" id="qty3" readonly>
+                <button onclick="increaseQuantity('qty3')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
         </div>
+
         <div class="menu-item">
-            <img src="img4.jpg" alt="Pepperoni Pizza" class="menu-image" onclick="openModal(this)">
+            <img src="img4.jpg" alt="Pepperoni Pizza" onclick="openModal(this)">
             <h3>Pepperoni Pizza</h3>
             <p class="price">RM 11.90</p>
             <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
-            <button class="order-button">Add To Cart</button>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty4')">-</button>
+                <input type="text" value="1" id="qty4" readonly>
+                <button onclick="increaseQuantity('qty4')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
         </div>
+
         <div class="menu-item">
-            <img src="img5.jpg" alt="Lasagna" class="menu-image" onclick="openModal(this)">
+            <img src="img5.jpg" alt="Lasagna" onclick="openModal(this)">
             <h3>Lasagna</h3>
             <p class="price">RM 12.90</p>
             <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
-            <button class="order-button">Add To Cart</button>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty5')">-</button>
+                <input type="text" value="1" id="qty5" readonly>
+                <button onclick="increaseQuantity('qty5')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
         </div>
+
         <div class="menu-item">
-            <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes" class="menu-image" onclick="openModal(this)">
+            <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes" onclick="openModal(this)">
             <h3>Roasted Lamb with Mashed Potatoes</h3>
             <p class="price">RM 45.90</p>
             <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
-            <button class="order-button">Add To Cart</button>
-        </div>
-    </div>
-
-
-    <!-- Drinks and Coffee Menu -->
-<div id="drinks-coffee-menu">
-    <div class="menu-item">
-        <img src="img7.jpg" alt="Iced Coffee" class="menu-image" onclick="openModal(this)">
-        <h3>Iced Coffee</h3>
-        <p class="price">RM 10.90</p>
-        <p class="description">A refreshing and bold iced coffee blend, perfect for a cool and energizing treat during any time of the day.</p>
-        <button class="order-button">Add To Cart</button>
-    </div>
-    <div class="menu-item">
-        <img src="img8.jpg" alt="Coffee Milkshake" class="menu-image" onclick="openModal(this)">
-        <h3>Coffee Milkshake</h3>
-        <p class="price">RM 13.90</p>
-        <p class="description">A creamy, sweet combination of rich coffee and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
-        <button class="order-button">Add To Cart</button>
-    </div>
-    <div class="menu-item">
-        <img src="img9.jpg" alt="Hot Espresso" class="menu-image" onclick="openModal(this)">
-        <h3>Hot Espresso</h3>
-        <p class="price">RM 8.90</p>
-        <p class="description">A strong and aromatic espresso, made with the finest beans to offer a bold and invigorating coffee experience.</p>
-        <button class="order-button">Add To Cart</button>
-    </div>
-    <div class="menu-item">
-        <img src="img10.jpg" alt="Apple Juice" class="menu-image" onclick="openModal(this)">
-        <h3>Apple Juice</h3>
-        <p class="price">RM 15.00</p>
-        <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, offering a natural and refreshing beverage perfect for any occasion.</p>
-        <button class="order-button">Add To Cart</button>
-    </div>
-    <div class="menu-item">
-        <img src="img11.jpg" alt="Pineapple Juice" class="menu-image" onclick="openModal(this)">
-        <h3>Pineapple Juice</h3>
-        <p class="price">RM 15.00</p>
-        <p class="description">A tropical delight with a tangy and sweet flavor, made from fresh pineapples to transport you to a sunny paradise.</p>
-        <button class="order-button">Add To Cart</button>
-    </div>
-    <div class="menu-item">
-        <img src="img12.jpg" alt="Mango Juice" class="menu-image" onclick="openModal(this)">
-        <h3>Mango Juice</h3>
-        <p class="price">RM 15.00</p>
-        <p class="description">A smooth, sweet, and refreshing mango juice made from ripe, juicy mangoes, perfect for quenching your thirst on a hot day.</p>
-        <button class="order-button">Add To Cart</button>
-    </div>
-</div>
-        
-    </style>
-</head>
-<body>
-
-     <!--cart sidebar section-->
-<div class=""sidebar" id="sidebar">
-    <div class="sidebar-close">
-        <i class="fa-solid fa-close"></i>
-    <div class="card--price">
-        <span class="price">RM 5.50</span>
-        <i class="fa-solid fa-plus add-to-cart"></i>
-        </div>
-        </div>
-        <div>
-    
-        <!-- cart sidebar section -->
-         <div class="sidevar" id="sidebar">
-            <div class="sidebar-close">
-                <i class="fa-solid fa-close"></i>
-                <div class="cart-menu">
-                    <h3>My Cart</h3>
-                    <div class="cart-terms">test 1</div>
-                </div>
-    
-                <div class="sidebar--footer">
-                    <div class="total--amount">
-                        <h5>Total</h5>
-                        <div class="cart-total">RM 0.00</div>
-                </div>
-                <button class="checkout-btn">Checkout</button>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty6')">-</button>
+                <input type="text" value="1" id="qty6" readonly>
+                <button onclick="increaseQuantity('qty6')">+</button>
+                <button class="order-button">Add To Cart</button>
             </div>
         </div>
-    </div>
-    </main>
-    </body>
-    </html>
-    
+
+        
+
+        <!-- Drinks and Coffee Menu -->
+        <div id="drinks-coffee-menu">
+        <div class="menu-item">
+            <img src="img7.jpg" alt="Iced Coffee" onclick="openModal(this)">
+            <h3>Iced Coffee</h3>
+            <p class="price">RM 10.90</p>
+            <p class="description">A refreshing and bold iced coffee blend, perfect for a cool and energizing treat during any time of the day.</p>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty7')">-</button>
+                <input type="text" value="1" id="qty7" readonly>
+                <button onclick="increaseQuantity('qty7')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="img8.jpg" alt="Coffee Milkshake" onclick="openModal(this)">
+            <h3>Coffee Milkshake</h3>
+            <p class="price">RM 13.90</p>
+            <p class="description">A creamy, sweet combination of rich coffee and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty8')">-</button>
+                <input type="text" value="1" id="qty8" readonly>
+                <button onclick="increaseQuantity('qty8')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="img9.jpg" alt="Hot Espresso" onclick="openModal(this)">
+            <h3>Hot Espresso</h3>
+            <p class="price">RM 8.90</p>
+            <p class="description">A strong and aromatic espresso, made with the finest beans to offer a bold and invigorating coffee experience.</p>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty9')">-</button>
+                <input type="text" value="1" id="qty9" readonly>
+                <button onclick="increaseQuantity('qty9')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="img10.jpg" alt="Apple Juice" onclick="openModal(this)">
+            <h3>Apple Juice</h3>
+            <p class="price">RM 15.00</p>
+            <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, offering a natural and refreshing beverage perfect for any occasion.</p>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty10')">-</button>
+                <input type="text" value="1" id="qty10" readonly>
+                <button onclick="increaseQuantity('qty10')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="img11.jpg" alt="Pineapple Juice" onclick="openModal(this)">
+            <h3>Pineapple Juice</h3>
+            <p class="price">RM 15.00</p>
+            <p class="description">A tropical delight with a tangy and sweet flavor, made from fresh pineapples to transport you to a sunny paradise.</p>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty11')">-</button>
+                <input type="text" value="1" id="qty11" readonly>
+                <button onclick="increaseQuantity('qty11')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="img12.jpg" alt="Mango Juice" onclick="openModal(this)">
+            <h3>Mango Juice</h3>
+            <p class="price">RM 15.00</p>
+            <p class="description">A smooth, sweet, and refreshing mango juice made from ripe, juicy mangoes, perfect for quenching your thirst on a hot day.</p>
+            <div class="order-controls">
+                <button onclick="decreaseQuantity('qty12')">-</button>
+                <input type="text" value="1" id="qty12" readonly>
+                <button onclick="increaseQuantity('qty12')">+</button>
+                <button class="order-button">Add To Cart</button>
+            </div>
+        </div>
 
 
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
     <footer>
-        <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
+        <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // Modal function
+        var modal = document.getElementById("myModal");
+        var img = document.getElementsByTagName("img");
+        var modalImg = document.getElementById("img01");
+        var span = document.getElementsByClassName("close")[0];
+
+        function openModal(image) {
+            modal.style.display = "block";
+            modalImg.src = image.src;
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Quantity Controls for Multiple Menus
+        function increaseQuantity(id) {
+            var qty = document.getElementById(id);
+            qty.value = parseInt(qty.value) + 1;
+        }
+
+        function decreaseQuantity(id) {
+            var qty = document.getElementById(id);
+            if (parseInt(qty.value) > 1) {
+                qty.value = parseInt(qty.value) - 1;
+            }
+        }
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
