@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chef Kiss Restaurant</title>
+    <title>Chef Kiss Restaurant - Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
         body {
@@ -66,7 +66,7 @@
         nav .cart-login a {
             text-decoration: none;
             padding: 0.5rem 1rem;
-            background: #ff5e5e;
+            background: #757e02;
             color: white;
             font-weight: 600;
             font-size: 0.9rem;
@@ -76,122 +76,129 @@
         }
 
         nav .cart-login a:hover {
-            background: #ff857a;
+            background: #2d5023;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        h1 {
+        .menu-section {
+            padding: 3rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu-section h2 {
             text-align: center;
-            margin-top: 2rem;
-            font-size: 2.5rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             color: #ffcc66;
         }
 
-        .menu-options {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .menu-options a {
-            margin: 0 1rem;
-            padding: 0.5rem 1rem;
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: #f9f9f9;
-            background: #ffcc66;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .menu-options a:hover {
-            background: #ff5e5e;
-        }
-
-        #western-plates-menu,
-        #asian-classic-menu,
-        #sweet-dessert-menu,
-        #drinks-coffee-menu {
-            display: none;
-            padding: 2rem;
-        }
-
-        #western-plates-menu:target,
-        #asian-classic-menu:target,
-        #sweet-dessert-menu:target,
-        #drinks-coffee-menu:target {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-            gap: 2rem;
+        .menu-categories {
+            display: flex;
             justify-content: center;
-            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-categories button {
+            padding: 0.5rem 1rem;
+            background: #ffcc66;
+            color: #000;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .menu-categories button:hover {
+            background: #e69005;
+            color: white;
+        }
+
+        .menu-image {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .menu-image img {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 15px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .menu-item {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            padding: 1rem;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #ffcc00; /* Add a yellow border */
+}
+
+.menu-item:hover {
+    transform: scale(1.05); /* Optional: Add hover effect */
+    box-shadow: 0 6px 15px rgba(255, 204, 0, 0.5); /* Optional: Yellow glow on hover */
+}
+
+        .menu-item.active {
+            display: block;
         }
 
         .menu-item img {
-            max-width: 100%;
-            border-radius: 10px;
-            height: auto;
-            border: 3px solid #ffcc66;
-            cursor: pointer;
+            width: 100%;
+            border-radius: 15px;
+            height: 200px;
+            object-fit: cover;
         }
 
         .menu-item h3 {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-
-        .menu-item .price {
+            margin: 1rem 0 0.5rem;
+            font-size: 1.5rem;
             color: #ffcc66;
-            font-weight: 600;
-            margin: 0.5rem 0;
         }
 
-        .menu-item .description {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-bottom: 0.5rem;
-        }
-
-        .menu-item .order-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .order-controls button {
-            padding: 0.5rem 1rem;
-            background: #ff5e5e;
-            color: white;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .order-controls button:hover {
-            background: #ff857a;
-        }
-
-        .order-controls input {
-            width: 40px;
-            text-align: center;
-            border: 2px solid #ffcc66;
-            border-radius: 5px;
+        .menu-item p {
             font-size: 1rem;
-            background: rgba(0, 0, 0, 0.6);
             color: #fff;
         }
 
+        .menu-item .price {
+            font-size: 1.2rem;
+            color: #c9c612;
+            font-weight: bold;
+        }
+
+        .menu-item button {
+            padding: 0.5rem 1rem;
+            background: #41571d;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .order-controls input {
+            width: 40px; /* Set the width to be shorter */
+            text-align: center;
+            background: #ccff7a;
+        }
+        .menu-item button:hover {
+            background: #ccff7a;
+        }
         footer {
             text-align: center;
             padding: 1rem;
@@ -205,48 +212,9 @@
             margin: 0;
             font-size: 0.9rem;
         }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="logo">
             <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
@@ -265,233 +233,391 @@
             <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
         </div>
     </nav>
-
-    <h1>Menu</h1>
-    <div class="menu-options">
-        <a href="#western-plates-menu">Western Plates</a>
-        <a href="#asian-classic-menu">Asian Classic</a>
-        <a href="#sweet-dessert-menu">Sweet Dessert</a>
-        <a href="#drinks-coffee-menu">Drinks & Coffee</a>
-    </div>
-
-    <!-- Western Plates Menu -->
-    <div id="western-plates-menu">
-        <div class="menu-item">
-            <img src="img1.jpg" alt="Spaghetti Bolognese" onclick="openModal(this)">
-            <h3>Spaghetti Bolognese</h3>
-            <p class="price">RM 14.90</p>
-            <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty1')">-</button>
-                <input type="text" value="1" id="qty1" readonly>
-                <button onclick="increaseQuantity('qty1')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
+    <section class="menu-section" id="menu">
+        <h2>OUR MENU</h2>
+        <div class="menu-categories">
+            <button onclick="showCategory('western')">Western Plates</button>
+            <button onclick="showCategory('asian')">Asian Choices</button>
+            <button onclick="showCategory('desserts')">Sweet Desserts</button>
+            <button onclick="showCategory('drinks')">Drinks & Coffee</button>
         </div>
 
-        <div class="menu-item">
-            <img src="img2.jpg" alt="Chicken Wings" onclick="openModal(this)">
-            <h3>Chicken Wings (6 Pcs)</h3>
-            <p class="price">RM 10.90</p>
-            <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty2')">-</button>
-                <input type="text" value="1" id="qty2" readonly>
-                <button onclick="increaseQuantity('qty2')">+</button>
-                <button class="order-button">Add To Cart</button>
+        <!-- Image Dynamically Changes Based on Category -->
+<div class="menu-image">
+    <img id="category-image" alt="Category Image">
+</div>
+
+        <div class="menu-grid">
+            <!-- Western Plates -->
+                <div class="menu-item western">
+                    <img src="img1.jpg" alt="Spaghetti Bolognese" />
+                    <h3>Spaghetti Bolognese</h3>
+                    <p class="price">RM 14.90</p>
+                    <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty1')">-</button>
+                        <input type="text" value="1" id="qty1" readonly>
+                        <button onclick="increaseQuantity('qty1')">+</button>
+                        <button class="order-button">Add To Cart</button>
+                    </div>
+                </div>
+    
+                <div class="menu-item western">
+                    <img src="img2.jpg" alt="Chicken Wings" />
+                    <h3>Chicken Wings (6 Pcs)</h3>
+                    <p class="price">RM 10.90</p>
+                    <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty2')">-</button>
+                        <input type="text" value="1" id="qty2" readonly>
+                        <button onclick="increaseQuantity('qty2')">+</button>
+                        <button class="order-button">Add To Cart</button>
+                    </div>
+                </div>
+    
+                <div class="menu-item western">
+                    <img src="img3.jpg" alt="Beef Burger with Wedges" />
+                    <h3>Beef Burger with Wedges</h3>
+                    <p class="price">RM 13.90</p>
+                    <p class="description">Juicy beef patty served with crispy wedges.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty3')">-</button>
+                        <input type="text" value="1" id="qty3" readonly>
+                        <button onclick="increaseQuantity('qty3')">+</button>
+                        <button class="order-button">Add To Cart</button>
+                    </div>
+                </div>
+    
+                <div class="menu-item western">
+                    <img src="img4.jpg" alt="Pepperoni Pizza" />
+                    <h3>Pepperoni Pizza</h3>
+                    <p class="price">RM 11.90</p>
+                    <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty4')">-</button>
+                        <input type="text" value="1" id="qty4" readonly>
+                        <button onclick="increaseQuantity('qty4')">+</button>
+                        <button class="order-button">Add To Cart</button>
+                    </div>
+                </div>
+    
+                <div class="menu-item western">
+                    <img src="img5.jpg" alt="Lasagna" />
+                    <h3>Lasagna</h3>
+                    <p class="price">RM 12.90</p>
+                    <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty5')">-</button>
+                        <input type="text" value="1" id="qty5" readonly>
+                        <button onclick="increaseQuantity('qty5')">+</button>
+                        <button class="order-button">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="menu-item western">
+                    <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes" />
+                    <h3>Roasted Lamb with Mashed Potatoes</h3>
+                    <p class="price">RM 12.00</p>
+                    <p class="description"> Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty6')">-</button>
+                        <input type="text" value="1" id="qty6" readonly>
+                        <button onclick="increaseQuantity('qty6')">+</button>
+                        <button class="order-button">Add To Cart</button>
+                    </div>
+                </div>
+
+            <!-- Asian Choices -->
+            <div class="menu-item asian ">
+                <img src="P35.jpg" alt="Nasi Lemak Delight" />
+                <h3>Nasi Lemak Delight</h3>
+                <p class="price">RM 12.00</p>
+                <p class="description"> Classic coconut rice served with sambal, boiled egg, peanuts, and anchovies.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty7')">-</button>
+                    <input type="text" value="1" id="qty7" readonly>
+                    <button onclick="increaseQuantity('qty7')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+            <div class="menu-item asian">
+                <img src="P15.jpg" alt="Festive Banana Leaf Treat" />
+                <h3>Festive Banana Leaf Treat</h3>
+                <p class="price">RM 18.90</p>
+                <p class="description">Rice with curries, chutneys, and crispy papadom, served on a banana leaf.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty8')">-</button>
+                    <input type="text" value="1" id="qty8" readonly>
+                    <button onclick="increaseQuantity('qty8')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item asian">
+                <img src="P18.jpg" alt="Spicy Kampung Platter"/>
+                <h3>Spicy Kampung Platter</h3>
+                <p class="price">RM 15.00</p>
+                <p class="description">A mix of rice, grilled fish, sambal, and assorted fresh veggies.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty9')">-</button>
+                    <input type="text" value="1" id="qty9" readonly>
+                    <button onclick="increaseQuantity('qty9')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item asian">
+                <img src="P16.jpg" alt="Tangy Asam Pedas Bowl" />
+                <h3>Tangy Asam Pedas Bowl</h3>
+                <p class="price">RM 14.00</p>
+                <p class="description">A spicy and sour fish curry with vibrant flavors.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty10')">-</button>
+                    <input type="text" value="1" id="qty10" readonly>
+                    <button onclick="increaseQuantity('qty10')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item asian">
+                <img src="P17.jpg" alt="Sweet Rendang Bliss" />
+                <h3>Sweet Rendang Bliss</h3>
+                <p class="price">RM 20.00</p>
+                <p class="description"> Tender beef rendang coated in rich, creamy spices.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty11')">-</button>
+                    <input type="text" value="1" id="qty11" readonly>
+                    <button onclick="increaseQuantity('qty11')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+            <div class="menu-item asian">
+                <img src="P14.jpg" alt="Golden Laksa Supreme" />
+                <h3>Golden Laksa Supreme</h3>
+                <p class="price">RM 7.90</p>
+                <p class="description"> Fragrant curry noodles with prawns, tofu, and fresh herbs.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty12')">-</button>
+                    <input type="text" value="1" id="qty12" readonly>
+                    <button onclick="increaseQuantity('qty12')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+              <!-- Sweet Desserts-->
+              <div class="menu-item sweet desserts">
+                <img src="P21.jpg" alt="Strawberry Dream Pavlova"  />
+                <h3>Strawberry Dream Pavlova</h3>
+                <p class="price">RM 8.00</p>
+                <p class="description"> Crispy meringue topped with whipped cream and fresh strawberries.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty13')">-</button>
+                    <input type="text" value="1" id="qty13" readonly>
+                    <button onclick="increaseQuantity('qty13')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item sweet desserts">
+                <img src="P22.jpg" alt="Molten Choco Bliss" />
+                <h3>Molten Choco Bliss</h3>
+                <p class="price">RM 9.00</p>
+                <p class="description">Warm chocolate lava cake served with a drizzle of chocolate syrup.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty14')">-</button>
+                    <input type="text" value="1" id="qty14" readonly>
+                    <button onclick="increaseQuantity('qty14')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item sweet desserts">
+                <img src="P24.jpg" alt="Fantasy Sundae Boat"/>
+                <h3>Fantasy Sundae Boat</h3>
+                <p class="price">RM 5.50</p>
+                <p class="description">A mix of rice, grilled fish, sambal, and assorted fresh veggies.
+                                      Creamy ice cream topped with berries, sprinkles, and wafer sticks.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty15')">-</button>
+                    <input type="text" value="1" id="qty15" readonly>
+                    <button onclick="increaseQuantity('qty15')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item sweet desserts">
+                <img src="P27.jpg" alt="Festive Fruit Bundt(3 pcs)"/>
+                <h3>Festive Fruit Bundt(3 pcs)</h3>
+                <p class="price">RM 10.00</p>
+                <p class="description">Mini bundt cakes garnished with pomegranate seeds and glaze.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty16')">-</button>
+                    <input type="text" value="1" id="qty16" readonly>
+                    <button onclick="increaseQuantity('qty16')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item sweet desserts">
+                <img src="P29.jpg" alt="Tropical Mango Sago Delight" />
+                <h3>Tropical Mango Sago Delight</h3>
+                <p class="price">RM 7.00</p>
+                <p class="description">Chilled sago dessert with mango cubes and creamy coconut milk.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty17')">-</button>
+                    <input type="text" value="1" id="qty17" readonly>
+                    <button onclick="increaseQuantity('qty17')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+            <div class="menu-item sweet desserts">
+                <img src="P26.jpg" alt="Caramel Custard Perfection"  />
+                <h3>=Caramel Custard Perfection</h3>
+                <p class="price">RM 8.30</p>
+                <p class="description"> Silky smooth flan topped with golden caramel.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty18')">-</button>
+                    <input type="text" value="1" id="qty18" readonly>
+                    <button onclick="increaseQuantity('qty18')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+             <!-- Drinks & Coffee-->
+             <div class="menu-item drinks">
+                <img src="img7.jpg" alt="Iced Coffee" />
+                <h3>Iced Coffee</h3>
+                <p class="price">RM 10.90</p>
+                <p class="description"> A refreshing and bold iced coffee blend, 
+                     perfect for a cool and energizing treat during any time of the day.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty19')">-</button>
+                    <input type="text" value="1" id="qty19" readonly>
+                    <button onclick="increaseQuantity('qty19')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item drinks">
+                <img src="img8.jpg" alt="Coffee Milkshake"  />
+                <h3>Coffee Milkshake</h3>
+                <p class="price">RM 13.90</p>
+                <p class="description">A creamy, sweet combination of rich coffee 
+                and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty20')">-</button>
+                    <input type="text" value="1" id="qty20" readonly>
+                    <button onclick="increaseQuantity('qty20')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item drinks">
+                <img src="img9.jpg" alt="Hot Espresso"/>
+                <h3>Hot Espresso</h3>
+                <p class="price">RM 8.90</p>
+                <p class="description">A strong and aromatic espresso, 
+                    made with the finest beans to offer a bold and invigorating coffee experience.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty21')">-</button>
+                    <input type="text" value="1" id="qty21" readonly>
+                    <button onclick="increaseQuantity('qty21')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item drinks">
+                <img src="img10.jpg"  alt="Apple Juice"/>
+                <h3>Apple Juice</h3>
+                <p class="price">RM 15.00</p>
+                <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, 
+                    offering a natural and refreshing beverage perfect for any occasion.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty22')">-</button>
+                    <input type="text" value="1" id="qty22" readonly>
+                    <button onclick="increaseQuantity('qty22')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-item drinks">
+                <img src="img11.jpg" alt="Pineapple Juice" />
+                <h3>Pineapple Juice</h3>
+                <p class="price">RM 13.00</p>
+                <p class="description">A tropical delight with a tangy and sweet flavor,
+                     made from fresh pineapples to transport you to a sunny paradise.</p>
+                     <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty23')">-</button>
+                        <input type="text" value="1" id="qty23" readonly>
+                        <button onclick="increaseQuantity('qty23')">+</button>
+                        <button class="order-button">Add To Cart</button>
+               </div>
+            </div>
+
+            <div class="menu-item drinks">
+                <img src="img12.jpg" alt="Mango Juice" />
+                <h3>=Mango Juice</h3>
+                <p class="price">RM 15.00</p>
+                <p class="description">>A smooth, sweet, and refreshing mango juice made from ripe, 
+                    juicy mangoes, perfect for quenching your thirst on a hot day.</p>
+                <div class="order-controls">
+                    <button onclick="decreaseQuantity('qty24')">-</button>
+                    <input type="text" value="1" id="qty24" readonly>
+                    <button onclick="increaseQuantity('qty24')">+</button>
+                    <button class="order-button">Add To Cart</button>
+                </div>
             </div>
         </div>
-        
-
-        <div class="menu-item">
-            <img src="img3.jpg" alt="Beef Burger with Wedges" onclick="openModal(this)">
-            <h3>Beef Burger with Wedges</h3>
-            <p class="price">RM 13.90</p>
-            <p class="description">Juicy beef patty served with crispy wedges.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty3')">-</button>
-                <input type="text" value="1" id="qty3" readonly>
-                <button onclick="increaseQuantity('qty3')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img4.jpg" alt="Pepperoni Pizza" onclick="openModal(this)">
-            <h3>Pepperoni Pizza</h3>
-            <p class="price">RM 11.90</p>
-            <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty4')">-</button>
-                <input type="text" value="1" id="qty4" readonly>
-                <button onclick="increaseQuantity('qty4')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img5.jpg" alt="Lasagna" onclick="openModal(this)">
-            <h3>Lasagna</h3>
-            <p class="price">RM 12.90</p>
-            <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty5')">-</button>
-                <input type="text" value="1" id="qty5" readonly>
-                <button onclick="increaseQuantity('qty5')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes" onclick="openModal(this)">
-            <h3>Roasted Lamb with Mashed Potatoes</h3>
-            <p class="price">RM 45.90</p>
-            <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty6')">-</button>
-                <input type="text" value="1" id="qty6" readonly>
-                <button onclick="increaseQuantity('qty6')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        
-
-        <!-- Drinks and Coffee Menu -->
-        <div id="drinks-coffee-menu">
-        <div class="menu-item">
-            <img src="img7.jpg" alt="Iced Coffee" onclick="openModal(this)">
-            <h3>Iced Coffee</h3>
-            <p class="price">RM 10.90</p>
-            <p class="description">A refreshing and bold iced coffee blend, perfect for a cool and energizing treat during any time of the day.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty7')">-</button>
-                <input type="text" value="1" id="qty7" readonly>
-                <button onclick="increaseQuantity('qty7')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img8.jpg" alt="Coffee Milkshake" onclick="openModal(this)">
-            <h3>Coffee Milkshake</h3>
-            <p class="price">RM 13.90</p>
-            <p class="description">A creamy, sweet combination of rich coffee and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty8')">-</button>
-                <input type="text" value="1" id="qty8" readonly>
-                <button onclick="increaseQuantity('qty8')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img9.jpg" alt="Hot Espresso" onclick="openModal(this)">
-            <h3>Hot Espresso</h3>
-            <p class="price">RM 8.90</p>
-            <p class="description">A strong and aromatic espresso, made with the finest beans to offer a bold and invigorating coffee experience.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty9')">-</button>
-                <input type="text" value="1" id="qty9" readonly>
-                <button onclick="increaseQuantity('qty9')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img10.jpg" alt="Apple Juice" onclick="openModal(this)">
-            <h3>Apple Juice</h3>
-            <p class="price">RM 15.00</p>
-            <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, offering a natural and refreshing beverage perfect for any occasion.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty10')">-</button>
-                <input type="text" value="1" id="qty10" readonly>
-                <button onclick="increaseQuantity('qty10')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img11.jpg" alt="Pineapple Juice" onclick="openModal(this)">
-            <h3>Pineapple Juice</h3>
-            <p class="price">RM 15.00</p>
-            <p class="description">A tropical delight with a tangy and sweet flavor, made from fresh pineapples to transport you to a sunny paradise.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty11')">-</button>
-                <input type="text" value="1" id="qty11" readonly>
-                <button onclick="increaseQuantity('qty11')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="menu-item">
-            <img src="img12.jpg" alt="Mango Juice" onclick="openModal(this)">
-            <h3>Mango Juice</h3>
-            <p class="price">RM 15.00</p>
-            <p class="description">A smooth, sweet, and refreshing mango juice made from ripe, juicy mangoes, perfect for quenching your thirst on a hot day.</p>
-            <div class="order-controls">
-                <button onclick="decreaseQuantity('qty12')">-</button>
-                <input type="text" value="1" id="qty12" readonly>
-                <button onclick="increaseQuantity('qty12')">+</button>
-                <button class="order-button">Add To Cart</button>
-            </div>
-        </div>
-
+    </section>
 
     <footer>
         <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Modal function
-        var modal = document.getElementById("myModal");
-        var img = document.getElementsByTagName("img");
-        var modalImg = document.getElementById("img01");
-        var span = document.getElementsByClassName("close")[0];
 
-        function openModal(image) {
-            modal.style.display = "block";
-            modalImg.src = image.src;
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Quantity Controls for Multiple Menus
-        function increaseQuantity(id) {
-            var qty = document.getElementById(id);
-            qty.value = parseInt(qty.value) + 1;
-        }
-
+        // Functions to handle quantity changes
         function decreaseQuantity(id) {
-            var qty = document.getElementById(id);
-            if (parseInt(qty.value) > 1) {
-                qty.value = parseInt(qty.value) - 1;
+            const qtyInput = document.getElementById(id);
+            let currentQty = parseInt(qtyInput.value);
+            if (currentQty > 1) {
+                qtyInput.value = currentQty - 1;
             }
         }
+    
+        function increaseQuantity(id) {
+            const qtyInput = document.getElementById(id);
+            let currentQty = parseInt(qtyInput.value);
+            qtyInput.value = currentQty + 1;
+        }
+    
+        // Function to show specific category
+        function showCategory(category) {
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (item.classList.contains(category)) {
+                    item.style.display = 'block'; // Show items of the selected category
+                } else {
+                    item.style.display = 'none'; // Hide items of other categories
+                }
+            });
+    
+            // Update the image based on category
+            const image = document.getElementById('category-image');
+            if (category === 'western') {
+                image.src = 'P65.jpg';
+            } else if (category === 'asian') {
+                image.src = 'P66.jpg';
+            } else if (category === 'desserts') {
+                image.src = 'P64.jpg';
+            } else if (category === 'drinks') {
+                image.src = 'P67.jpg';
+            }
+        }
+    
+        // Set default view for the menu
+        document.addEventListener('DOMContentLoaded', () => {
+            showCategory('western'); // Default category
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
