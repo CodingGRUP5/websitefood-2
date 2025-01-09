@@ -162,15 +162,22 @@
         </div>
     </nav>
 
-    <div class="login-container">
+    <!-- Login Form -->
+    <div class="login-form" id="login-form">
         <h2>Login</h2>
-        <form id="login-form">
-            <input type="text" placeholder="Enter Username" required>
-            <input type="email" placeholder="Enter Email" required>
-            <input type="password" placeholder="Enter Password" required>
+        <form action="login-action.php" method="POST">
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
             <button type="submit">Sign In</button>
         </form>
-
+        
+      <div class="links">
+            <a href="#forgot-password-form" id="show-forgot-password">Forgot Password?</a><br>
+            <a href="#signup-form" id="show-signup">Don't have an account? Sign Up</a>
+        </div>
+    </div>
+    
         <!-- Forgot Password Form -->
     <div class="forgot-password" id="forgot-password-form">
         <h2>Forgot Password</h2>
@@ -217,7 +224,7 @@
     
 
     <footer>
-        <p>&copy; 2024 Fresh Flavors. All Rights Reserved.</p>
+        <p>&copy; 2024 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
