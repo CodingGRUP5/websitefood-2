@@ -166,6 +166,7 @@
         <h2>Login</h2>
         <form id="login-form">
             <input type="text" placeholder="Enter Username" required>
+            <input type="email" placeholder="Enter Email" required>
             <input type="password" placeholder="Enter Password" required>
             <button type="submit">Sign In</button>
         </form>
@@ -173,7 +174,57 @@
             <a href="#">Forgot Password?</a><br>
             <a href="#">Don't have an account? Sign Up</a>
         </div>
+
+        <div class="links">
+            <a href="#forgot-password-form" id="show-forgot-password">Forgot Password?</a><br>
+            <a href="#signup-form" id="show-signup">Don't have an account? Sign Up</a>
+        </div>
     </div>
+
+        <!-- Forgot Password Form -->
+    <div class="forgot-password" id="forgot-password-form">
+        <h2>Forgot Password</h2>
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="Password">Send Password Reset Link</button>
+        </form>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="signup" id="signup-form">
+        <h2>Sign Up</h2>
+        <form>
+            <input type="text" placeholder="Enter Username" required>
+            <input type="email" placeholder="Enter Email" required>
+            <input type="password" placeholder="Create Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        // Show the appropriate form based on the clicked link
+        document.getElementById("show-login").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("login-form").style.display = "block";
+            document.getElementById("forgot-password-form").style.display = "none";
+            document.getElementById("signup-form").style.display = "none";
+        });
+
+        document.getElementById("show-forgot-password").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("forgot-password-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("signup-form").style.display = "none";
+        });
+
+        document.getElementById("show-signup").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("signup-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("forgot-password-form").style.display = "none";
+        });
+    </script>
+    
 
     <footer>
         <p>&copy; 2024 Fresh Flavors. All Rights Reserved.</p>
