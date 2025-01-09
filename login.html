@@ -129,7 +129,12 @@
             display: inline-block;
             margin: 0.5rem 0;
         }
-
+        
+    #forgot-password-form,
+    #signup-form {
+        display: none; /* Hide by default */
+    }
+        
         footer {
             text-align: center;
             padding: 1rem;
@@ -194,28 +199,21 @@
     </div>
 
     <script>
-        // Show the appropriate form based on the clicked link
-        document.getElementById("show-login").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("login-form").style.display = "block";
-            document.getElementById("forgot-password-form").style.display = "none";
-            document.getElementById("signup-form").style.display = "none";
-        });
+    // Ensure only one form is visible at a time
+    document.getElementById("show-forgot-password").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("forgot-password-form").style.display = "block";
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("signup-form").style.display = "none";
+    });
 
-        document.getElementById("show-forgot-password").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("forgot-password-form").style.display = "block";
-            document.getElementById("login-form").style.display = "none";
-            document.getElementById("signup-form").style.display = "none";
-        });
-
-        document.getElementById("show-signup").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("signup-form").style.display = "block";
-            document.getElementById("login-form").style.display = "none";
-            document.getElementById("forgot-password-form").style.display = "none";
-        });
-    </script>
+    document.getElementById("show-signup").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("signup-form").style.display = "block";
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("forgot-password-form").style.display = "none";
+    });
+</script>
     
 <br>
     <footer>
