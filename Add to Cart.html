@@ -205,12 +205,12 @@
                             <div class="item-info">
                                 <p><strong>${item.name}</strong></p>
                                 <p>RM ${item.price.toFixed(2)}</p>
-                                <p>Quantity: <span id="quantity-${item.id}">${item.quantity}</span></p>
+                                <p>Quantity: <span id="quantity-${item.Id}">${item.quantity}</span></p>
                             </div>
                             <div class="quantity-controls">
-                                <button onclick="updateQuantity('${id.item)}', -1)">-</button>
-                                <span id="quantity-display-${id.item)}">${item.quantity}</span>
-                                <button onclick="updateQuantity('${id.item)}', 1)">+</button>
+                                <button onclick="updateQuantity('${item.Id)}', -1)">-</button>
+                                <span id="quantity-display-${item.Id)}">${item.quantity}</span>
+                                <button onclick="updateQuantity('${item.Id)}', 1)">+</button>
                             </div>
                             <button onclick="removeFromCart('${item.id}')">Remove</button>
                         </div>`;
@@ -224,7 +224,7 @@
         // Update item quantity
         function updateQuantity(iditem, change) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cart.find(i => i.id === iditem);
+            const item = cart.find(i => i.id === itemId);
             if (item) {
                 item.quantity = Math.max(1, item.quantity + change); // Prevent quantity from going below 1
                 localStorage.setItem('cart', JSON.stringify(cart));
@@ -235,7 +235,7 @@
         // Remove item from cart
         function removeFromCart(iditem) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart = cart.filter(item => id.item) !== iditem));
+            cart = cart.filter(item => item.Id) !== item.Id));
             localStorage.setItem('cart', JSON.stringify(cart));
             displayCart();  // Refresh cart display
         }
