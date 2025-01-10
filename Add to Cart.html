@@ -45,12 +45,44 @@
         .cart-item button:hover {
             background-color: #1E3932;
         }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            padding: 5px 10px;
+            background-color: #2F4F4F;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        .quantity-controls button:hover {
+            background-color: #1E3932;
+        }
         .cart-total {
             text-align: center;
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
             color: #2F4F4F;
+        }
+        .notes-section {
+            margin-top: 20px;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .notes-section textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            resize: vertical;
         }
         .checkout-btn {
             display: block;
@@ -92,6 +124,11 @@
         <p>Total: RM <span id="total-price">0.00</span></p>
     </div>
 
+    <div class="notes-section">
+        <h3>Special Notes</h3>
+        <textarea id="notes" placeholder="Write any special instructions here..."></textarea>
+    </div>
+
     <button class="checkout-btn" onclick="window.location.href='payment.html'">Proceed to Payment</button>
 
     <a href="menu.html">Back to Menu</a>
@@ -116,7 +153,12 @@
                             <div class="item-info">
                                 <p><strong>${item.name}</strong></p>
                                 <p>RM ${item.price.toFixed(2)}</p>
-                                <p>Quantity: ${item.quantity}</p>
+                                <p>Quantity: <span id="quantity-${item.id}">${item.quantity}</span></p>
+                            </div>
+                            <div class="quantity-controls">
+                                <button onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span id="quantity-display-${item.id}">${item.quantity}</span>
+                                <button onclick="updateQuantity('${item.id}', 1)">+</button>
                             </div>
                             <button onclick="removeFromCart('${item.id}')">Remove</button>
                         </div>
@@ -125,6 +167,17 @@
                     totalPrice += item.price * item.quantity;
                 });
                 totalPriceContainer.textContent = totalPrice.toFixed(2);
+            }
+        }
+
+        // Update item quantity
+        function updateQuantity(itemId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(i => i.id === itemId);
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change); // Prevent quantity from going below 1
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart();  // Refresh cart display
             }
         }
 
@@ -142,7 +195,6 @@
 
 </body>
 </html>
-
 
 
 
