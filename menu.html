@@ -253,8 +253,8 @@
 
         <div class="menu-grid">
             <!-- Western Plates -->
-                <div class="menu-item western">
-                    <img src="img1.jpg" alt="Spaghetti Bolognese" />
+                <div class="menu-item western" id="item-1">
+                    <img src="img1.jpg" alt="Dish 1 />
                     <h3>Spaghetti Bolognese</h3>
                     <p class="price">RM 14.90</p>
                     <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
@@ -262,12 +262,12 @@
                         <button onclick="decreaseQuantity('qty1')">-</button>
                         <input type="text" value="0" id="qty1" readonly>
                         <button onclick="increaseQuantity('qty1')">+</button>
-                        <button class="order-button">Add To Cart</button>
+                        <button class="add-to-cart" onclick="addToCart(1, 'Dish 1', 14.90)">Add to Cart</button>
                     </div>
                 </div>
     
-                <div class="menu-item western">
-                    <img src="img2.jpg" alt="Chicken Wings" />
+                <div class="menu-item western" id="item-2">
+                    <img src="img2.jpg" alt="Dish 2" />
                     <h3>Chicken Wings (6 Pcs)</h3>
                     <p class="price">RM 10.90</p>
                     <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
@@ -275,7 +275,7 @@
                         <button onclick="decreaseQuantity('qty2')">-</button>
                         <input type="text" value="0" id="qty2" readonly>
                         <button onclick="increaseQuantity('qty2')">+</button>
-                        <button class="order-button">Add To Cart</button>
+                        <button class="add-to-cart" onclick="addToCart(2, 'Dish 2', 10.90)">Add to Cart</button>
                     </div>
                 </div>
     
@@ -288,7 +288,7 @@
                         <button onclick="decreaseQuantity('qty3')">-</button>
                         <input type="text" value="1" id="qty3" readonly>
                         <button onclick="increaseQuantity('qty3')">+</button>
-                        <button class="order-button">Add To Cart</button>
+                        <button class="add-to-cart" onclick="addToCart(3, 'Dish 3', 13.90)">Add To Cart</button>
                     </div>
                 </div>
     
