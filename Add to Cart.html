@@ -176,7 +176,7 @@
 
         <div class="notes-section">
             <h3>Special Notes</h3>
-            <textarea id="notes" placeholder="Write any special instructions here..."></textarea>
+            <textarea id="notes" placeholder="Write any special requests here..."></textarea>
         </div>
 
         <button class="checkout-btn" onclick="window.location.href='payment.html'">Proceed to Payment</button>
@@ -208,9 +208,9 @@
                                 <p>Quantity: <span id="quantity-${item.id}">${item.quantity}</span></p>
                             </div>
                             <div class="quantity-controls">
-                                <button onclick="updateQuantity('${item.id}', -1)">-</button>
-                                <span id="quantity-display-${item.id}">${item.quantity}</span>
-                                <button onclick="updateQuantity('${item.id}', 1)">+</button>
+                                <button onclick="updateQuantity('${id.item)}', -1)">-</button>
+                                <span id="quantity-display-${id.item)}">${item.quantity}</span>
+                                <button onclick="updateQuantity('${id.item)}', 1)">+</button>
                             </div>
                             <button onclick="removeFromCart('${item.id}')">Remove</button>
                         </div>`;
@@ -222,9 +222,9 @@
         }
 
         // Update item quantity
-        function updateQuantity(itemId, change) {
+        function updateQuantity(iditem, change) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cart.find(i => i.id === itemId);
+            const item = cart.find(i => i.id === iditem);
             if (item) {
                 item.quantity = Math.max(1, item.quantity + change); // Prevent quantity from going below 1
                 localStorage.setItem('cart', JSON.stringify(cart));
@@ -233,9 +233,9 @@
         }
 
         // Remove item from cart
-        function removeFromCart(itemId) {
+        function removeFromCart(iditem) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart = cart.filter(item => item.id !== itemId);
+            cart = cart.filter(item => id.item) !== iditem));
             localStorage.setItem('cart', JSON.stringify(cart));
             displayCart();  // Refresh cart display
         }
