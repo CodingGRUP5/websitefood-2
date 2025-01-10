@@ -91,45 +91,56 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="left">
-            <h3>Billing Details</h3>
-            <form>
-                <label for="full-name">Full Name</label>
-                <input type="text" id="full-name" aria-label="Full Name" placeholder="Enter your name">
-                
-                <label for="email">Email</label>
-                <input type="text" id="email" aria-label="Email Address" placeholder="Enter your email">
-            </form>
-        </div>
+    <div id="payment-items"></div>
+<p id="total-price"></p>
 
-        <div class="right">
-            <h3>Payment Method</h3>
-            <form>
-                <label>Accepted Cards</label>
-                <div class="card-icons">
-                    <img src="img21.png" alt="Visa" width="60">
-                    <img src="img22.png" alt="MasterCard" width="60">
-                </div>
-                
-                <label for="card-number">Credit Card Number</label>
-                <input type="text" id="card-number" aria-label="Credit Card Number" placeholder="Enter card number">
-                
-                <label for="exp-month">Exp Month</label>
-                <input type="text" id="exp-month" aria-label="Expiration Month" placeholder="Enter month">
-                
-                <label for="exp-year">Exp Year</label>
-                <select id="exp-year" aria-label="Expiration Year">
-                    <option value="" disabled selected>Choose Year...</option>
-                    <option>2024</option>
-                    <option>2025</option>
-                    <option>2026</option>
-                    <option>2027</option>
-                </select>
-            </form>
-            <input type="submit" value="Proceed to Checkout">
-        </div>
-    </div>
+<script>
+    // Display cart items on the payment page
+    function displayPayment() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const paymentItemsContainer = document.getElementById('payment-items');
+        let totalPrice = 0;
+
+        // Clear previous items
+        paymentItemsContainer.innerHTML = '';
+        
+        if (cart.length === 0) {
+            paymentItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        } else {
+            cart.forEach(item => {
+                const itemHTML = `
+                    <div class="payment-item">
+                        <p>${item.name}</p>
+                        <p>RM ${item.price.toFixed(2)} x ${item.quantity}</p>
+                        <p>Total: RM ${(item.price * item.quantity).toFixed(2)}</p>
+                    </div>
+                `;
+                paymentItemsContainer.innerHTML += itemHTML;
+                totalPrice += item.price * item.quantity;
+            });
+            document.getElementById('total-price').textContent = `Total: RM ${totalPrice.toFixed(2)}`;
+        }
+    }
+
+    // Call displayPayment when the page loads
+    document.addEventListener('DOMContentLoaded', displayPayment);
+</script>
+
+    <button onclick="proceedToPayment()">Proceed to Payment</button>
+
+<script>
+    function proceedToPayment() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart.length === 0) {
+            alert('Your cart is empty. Please add items to your cart before proceeding.');
+        } else {
+            // Here you can integrate with a payment gateway API (e.g., PayPal, Stripe)
+            alert('Proceeding to payment...');
+            // Redirect to payment gateway or another page
+        }
+    }
+</script>
+
 </body>
 </html>
 
