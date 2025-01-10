@@ -1,3 +1,33 @@
+// Wait until the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Add event listeners to all "Add to Cart" buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+
+    function addToCart(event) {
+        // Get the item details from the data attributes
+        const item = {
+            id: event.target.getAttribute('data-id'),
+            name: event.target.getAttribute('data-name'),
+            price: event.target.getAttribute('data-price')
+        };
+
+        // Get the existing cart from localStorage (or initialize an empty cart)
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Add the new item to the cart
+        cart.push(item);
+
+        // Store the updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`${item.name} added to cart!`);
+    }
+});
+
 // Function to add items to the cart
 function addToCart(itemId, name, price, quantity) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
