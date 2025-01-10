@@ -163,14 +163,14 @@
             <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
         </ul>
         <div class="login">
-            <a href="#"><i class="fa-solid fa-user"></i> Login</a>
+            <a href="#" id="login-link"><i class="fa-solid fa-user"></i> Login</a>
         </div>
     </nav>
 
    <div class="login-container">
        <h2>Login</h2>
     <div class="login-form" id="login-form">
-        <form action="login-action.php" method="POST">
+        <form action="login-action.php" method="POST" onsubmit="loginUser(event)">
             <input type="text" placeholder="Enter Username" name="username" required>
             <input type="email" placeholder="Enter Email" name="email" required>
             <input type="password" placeholder="Enter Password" name="password" required>
@@ -197,29 +197,23 @@
             <button type="submit">Sign Up</button>
         </form>
     </div>
-
-    <!-- Forgot Password Form -->
-    <div class="forgot-password" id="forgot-password-form">
-        <h2>Forgot Password</h2>
-        <form>
-            <input type="email" placeholder="Enter your email" required>
-            <button type="Password">Send Password Reset Link</button>
-        </form>
     </div>
-
-    <!-- Sign Up Form -->
-    <div class="signup" id="signup-form">
-        <h2>Sign Up</h2>
-        <form>
-            <input type="text" placeholder="Enter Username" required>
-            <input type="email" placeholder="Enter Email" required>
-            <input type="password" placeholder="Create Password" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    </div>
-
     <script>
-    // Ensure only one form is visible at a time
+    // Function to handle user login and set session
+    function loginUser(event) {
+        event.preventDefault(); // Prevent form submission
+        // Simulating successful login
+        localStorage.setItem('isLoggedIn', 'true'); // Set login status in local storage
+        window.location.href = "index.html"; // Redirect to homepage after login
+    }
+
+    // Check if user is logged in before showing the homepage
+    window.onload = function() {
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html'; // Redirect to login page if not logged in
+        }
+    };
+
     document.getElementById("show-forgot-password").addEventListener("click", function(event) {
         event.preventDefault();
         document.getElementById("forgot-password-form").style.display = "block";
@@ -241,3 +235,4 @@
     </footer>
 </body>
 </html>
+
