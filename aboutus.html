@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Chef Kiss Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('P10.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        /* Video Background */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        /* Navigation Styles */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background:#092215;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 0px 0px;
+        }
+
+        nav .logo img {
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        nav .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ece3e3;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc66;
+            border-bottom: 8px solid #ffcc66;
+        }
+
+        nav .login a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: #95a033;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        nav .login a:hover {
+            background: #2c5724;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+    /* About Section */
+    .story-box {
+    max-width: 1050px;
+    background: #fff;
+    color: #333;
+    padding: 20px 40px;
+    margin: -100px auto 30px;
+    border-radius: 0px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden; /* Ensures content fits neatly */
+}
+
+/* Titles for Chef Kiss and Purpose */
+.chef-kiss-title, .purpose-title h1 {
+    font-family: 'Verdana', sans-serif; /* Add a stylish serif font for elegance */
+    font-size: 1.5rem; /* Adjust size as needed */
+    font-style: italic;
+    color: #2a7142; /* Complementary green color */
+    margin-top: 0rem; /* Space above the title */
+    margin-bottom: 0rem; /* Space below the title */
+    text-align: center;
+    line-height: 1.6; /* Adjust line spacing for multi-line titles */
+}
+
+
+/* Subtitle Styling */
+.story-box h2 {
+    font-family: 'Vogue', serif;
+    font-size: 2.5rem;
+    color: #2e4d2c;
+    margin-top: 1rem; /* Space above the subtitle */
+    margin-bottom: 1rem; /* Space below the subtitle */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    line-height: 1.4; /* Adjust line spacing */
+    letter-spacing: 0.05em; /* Add slight spacing between characters */
+}
+
+/* Paragraph Styling */
+.story-box p {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    color: #0a0a0a;
+    line-height: 1.8; /* Improved readability */
+    text-align: justify;
+    margin-bottom: 1rem; /* Adds space between paragraphs */
+}
+
+/* Story Icon */
+.image-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
+    margin: 0 auto; /* Centers the content */
+    text-align: center;
+}
+
+/* Story Icon Image */
+.story-icon-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.story-icon-img:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+}
+
+.customer-reviews-container {
+      width: 100%;
+      max-width: 100px; /* Adjust to fit your layout */
+      margin: 0 auto; /* Centers the container */
+      padding: 20px;
+      background-color: #ffffff; /* White background for the container */
+      border: 2px solid #ddd; /* Light border for the container */
+      border-radius: 10px; /* Optional rounded corners for the container */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the container */
+    }
+    .customer-reviews {
+    text-align: center;
+    padding: 20px; /* Adjust padding to control internal spacing */
+    background-color: #f9f9f9;
+    font-family: 'Vogue', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    margin: 0 auto 50px; /* Add space between the box and the footer */
+    width: 70%; /* Set a smaller width (e.g., 70% of the parent container) */
+    max-width: 1050px; /* Optional: Limit the maximum width */
+    border: 1px solid #ddd; /* Optional: Add a border to see the box clearly */
+}
+
+    .customer-reviews h2 {
+      font-family: 'Playfair Display',serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: #11513a;;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+
+    .reviews-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 245px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .review-image {
+    width: 250px; /* Increase the size */
+    height: 250px; /* Increase the size */
+    border-radius: 50%; /* Keeps the circular shape */
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 3px solid #14513b;
+}
+
+.review-text {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-style: italic;
+    text-align: justify;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+
+    .review-author {
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: bold;
+}
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            background: url('background_image.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #f9f9f9;
+            opacity: 0; /* Start invisible */
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Animation Keyframes */
+        @keyframes text-fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Active Animation Class */
+        .animate {
+            animation: text-fade-in 2s ease-in-out forwards;
+        }
+
+        .story-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .text-content {
+            max-width: 50%;
+            margin-right: 20px;
+        }
+
+        .image-content {
+            max-width: 40%;
+            text-align: center;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #092215;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        footer .social-icons a img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        footer .social-icons a img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <video class="video-bg" autoplay loop muted>
+        <source src="bg_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
+            </div>
+    
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+                <li><a href="style reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+                <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+            </ul>
+    
+            <div class="login">
+                <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+            </div>
+        </nav>    
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>About Us</h1>
+        </div>
+    </section>
+
+    <section class="story-box" id="aboutus">
+        <div class="story-content">
+            <div class="text-content">
+                <h1 class="chef-kiss-story">THE CHEF KISS STORY</h1>
+                <h2 class="fusion-flavours">A FUSION OF FLAVOURS</h2>
+                <p>We bring together the best of global cuisine, offering a delightful mix of Western plates, Asian classics, indulgent desserts, and premium coffee. From succulent steaks and fresh seafood to aromatic curries and stir-fries made with local produce, our menu satisfies every craving. End your meal with creamy cheesecakes or rich chocolate mousse, paired with expertly brewed espresso or cappuccino. Each dish is a flavorful masterpiece, blending taste, tradition, and innovation to make every bite worth celebrating.</p>
+            </div>
+            <div class="image-content">
+                <img src="steak.jpg" alt="Chef Kiss Story Icon" class="story-icon-img">
+            </div>
+        </div>
+
+        <div class="story-content reverse">
+            <div class="image-content">
+                <img src="burger.jpg" alt="Our Purpose Icon" class="story-icon-img">
+            </div>
+            <div class="text-content">
+                <h1 class="our-purpose">OUR PURPOSE</h1>
+                <h2 class="create-exceptional-dining">TO CREATE AN EXCEPTIONAL DINING</h2>
+                <p>We want to create memorable dining experiences by blending global culinary traditions with innovation and passion. We prioritize quality ingredients, expertly crafted dishes, and a welcoming atmosphere where guests can savor delicious food, share meaningful moments, and celebrate the joy of dining together.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="customer-reviews">
+        <h2>‧͙⁺˚*･༓☾ CUSTOMER TESTIMONIALS ☽༓･*˚⁺‧͙</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <img src="customer1.jpg" alt="Farah Adriana" class="review-image">
+                <p class="review-text">"Chef Kiss Restaurant truly lives up to its name! The food was absolutely divine and every dish was perfectly seasoned.The service was top-notch, and the ambiance made it a memorable evening. Highly recommend the lasagna and matcha milkshake!"</p>
+                <p class="review-author">➻ FARAH ADRIANA</p>
+                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="review-card">
+                <img src="customer2.jpg" alt="Nurul Natasha" class="review-image">
+                <p class="review-text">"This is my new favorite spot in town! The menu offers a perfect blend of creativity and comfort, with every bite bursting with flavor. The staff went above and beyond to make sure we had a wonderful experience. Can't wait to come back!"</p>
+                <p class="review-author">➻ NURUL NATASHA</p>
+                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="review-card">
+                <img src="customer3.jpg" alt="Salsabila Suhaime" class="review-image">
+                <p class="review-text">"The food was spectacular, and the presentation was Instagram-worthy! The only reason I'm giving 4.5 stars instead of 5 is the wait time for our table. But once seated, it was an amazing dining experience. Definitely try the chef's special!"</p>
+                <p class="review-author">➻ SALSABILA SUHAIME</p>
+                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo"></a>
+            <a href="#"><img src="fb.png" alt="Facebook"></a>
+            <a href="#"><img src="ig.jpg" alt="Instagram"></a>
+            <a href="#"><img src="tt.png" alt="TikTok"></a>
+            <a href="#"><img src="x.png" alt="Twitter"></a>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const heroContent = document.querySelector(".hero-content");
+        
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                heroContent.classList.add("animate");
+                            }
+                        });
+                    },
+                    { threshold: 0.1 } // Trigger when 10% of the element is visible
+                );
+        
+                observer.observe(heroContent);
+            });
+        </script>
+        
+        <p>&copy; 2024 Chef Kiss Restaurant | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
