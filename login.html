@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Flavors - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('P10.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #092215;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 0px 0px;
+            width: 100%;
+            max-width: 1465px; 
+            margin: 0 auto; 
+        }
+
+        nav .logo img {
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        nav .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f9f9f9;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc66;
+            border-bottom: 3px solid #ffcc66;
+        }
+
+        nav .cart-login {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .cart-login a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: #2d5023;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        nav .cart-login a:hover {
+            background: #2d5023;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            animation: slideDown 0.3s ease-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .form-container h2 {
+            margin-bottom: 1.5rem;
+            color: #2d5023;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #2d5023;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-container button:hover {
+            background: #2d5023;
+        }
+
+        .form-container .social-login a {
+            margin: 0 5px;
+            font-size: 1.5rem;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        .form-container .social-login a:hover {
+            color: #2d5023;
+        }
+
+        .form-container .links {
+            margin-top: 1.5rem;
+        }
+
+        .form-container .links a {
+            color: #2d5023;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2d5023;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #2d5023;
+        }
+
+        footer {
+            margin-top: 100px;
+            width: 100vw; 
+            background-color: #092215;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box; 
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        footer .social-icons a img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        footer .social-icons a img:hover {
+            transform: scale(1.2);
+        
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <nav>
+        <div class="cart-login">
+            <a href="Add-to-Cart.html"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
+            <a href="#" id="show-login"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Overlay and Form -->
+    <div class="overlay" id="overlay">
+        <div class="form-container" id="login-form">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <h2>Login</h2>
+            <form action="login-action.php" method="POST">
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <input type="email" placeholder="Enter Email" name="email" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            
+            <div class="links">
+                <a href="#">Forgot Password?</a><br>
+                <a href="#">Don't have an account? Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="ig.jpg" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="tt.png" alt="TikTok">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="x.png" alt="Twitter">
+            </a>
+        </div>
+        <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const loginBtn = document.getElementById('show-login');
+        const closeBtn = document.getElementById('close-btn');
+
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            overlay.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
