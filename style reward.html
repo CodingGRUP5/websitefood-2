@@ -6,11 +6,11 @@
     <title>Reward Program</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
-        body {
+         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('background1.jpg') no-repeat center center fixed;
+            background: url('P10.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #f9f9f9;
             scroll-behavior: smooth;
@@ -21,12 +21,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
+            background: #092215;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 0px 0px;
+            width: 100%;
+            max-width: 1465px; 
+            margin: 0 auto; 
         }
 
         nav .logo img {
@@ -58,10 +61,15 @@
             border-bottom: 3px solid #ffcc66;
         }
 
-        nav .login a {
+        nav .cart-login {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .cart-login a {
             text-decoration: none;
             padding: 0.5rem 1rem;
-            background: #95a033;
+            background: #757e02;
             color: white;
             font-weight: 600;
             font-size: 0.9rem;
@@ -70,11 +78,11 @@
             transition: background 0.3s, box-shadow 0.3s;
         }
 
-        nav .login a:hover {
-            background: #95a033;
+        nav .cart-login a:hover {
+            background: #2d5023;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
-
+	    
         header {
             text-align: center;
             padding: 2rem 1rem;
@@ -268,7 +276,23 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Rewards Program. All rights reserved. | <a href="#">Terms & Conditions</a></p>
+        <div class="social-icons">
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="ig.jpg" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="tt.png" alt="TikTok">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="x.png" alt="Twitter">
+            </a>
+        </div>
+        <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
 
     <script>
