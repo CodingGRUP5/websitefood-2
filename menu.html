@@ -6,7 +6,7 @@
     <title>Chef Kiss Restaurant - Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
-        body {
+           body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
@@ -21,12 +21,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
+            background: #092215;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 0px 0px;
+            width: 100%;
+            max-width: 1465px; 
+            margin: 0 auto; 
         }
 
         nav .logo img {
@@ -204,17 +207,32 @@
             background: #ccff7a;
         }
         footer {
+            margin-top: 100px;
+            width: 100vw; 
+            background-color: #092215;
+            padding: 20px 0;
+            color: #fff;
             text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f9f9f9;
-            margin-top: 3rem;
+            box-sizing: border-box; 
         }
 
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        footer .social-icons a img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        footer .social-icons a img:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -228,7 +246,7 @@
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
             <li><a href="#menu"><i class="fa-solid fa-utensils"></i> Menu</a></li>
             <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
-            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+            <li><a href="style reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
             <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
         </ul>
 
@@ -680,6 +698,22 @@
     </section>
 
     <footer>
+        <div class="social-icons">
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="ig.jpg" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="tt.png" alt="TikTok">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="x.png" alt="Twitter">
+            </a>
+        </div>
         <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
 
