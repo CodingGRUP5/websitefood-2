@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+
     <style>
         body { 
             font-family: 'Arial', sans-serif; 
@@ -163,84 +165,65 @@
             color: #000000;
         }
     </style>
+
 </head>
 <body>
 
     <div class="cart-container">
-        <h1>Your Cart</h1>
-        <div id="cart-items"></div>
+    <h2>Your Shopping Cart</h2>
 
-        <div class="cart-total">
-            <p>Total : RM <span id="total-price">0.00</span></p>
-        </div>
+    <div id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+    </div>
 
-        <div class="notes-section">
+    <div id="total">
+        <p>Total : RM <span id="total-price">0.00</span></p>
+    </div>
+
+    <div class="notes-section">
             <h3>Special Notes</h3>
             <textarea id="notes" placeholder="Write any special requests here..."></textarea>
         </div>
+        
+    <button onclick="clearCart()">Clear Cart</button>
+    <button onclick="window.location.href='payment.html'">Proceed to Checkout</button>
 
-        <button class="checkout-btn" onclick="window.location.href='payment.html'">Proceed to Payment</button>
-
-        <a href="menu.html">Back to Menu</a>
-    </div>
+    <footer>
+        <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
+    </footer>
 
     <script>
-        // Retrieve and display cart items
+        // Function to display cart items
         function displayCart() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartItemsContainer = document.getElementById('cart-items');
-            const totalPriceContainer = document.getElementById('total-price');
+            const cartItemsDiv = document.getElementById('cart-items');
+            const totalPriceDiv = document.getElementById('total-price');
+            let total = 0;
+            cartItemsDiv.innerHTML = '';
 
-            // Clear previous cart items
-            cartItemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `
+                    <p>${item.name}</p>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>RM ${item.price.toFixed(2)}</p>
+                    <p>Subtotal: RM ${(item.quantity * item.price).toFixed(2)}</p>
+                `;
+                cartItemsDiv.appendChild(cartItemDiv);
+                total += item.quantity * item.price;
+            });
 
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p>Your cart is empty. Please add some items!</p>';
-            } else {
-                let totalPrice = 0;
-                cart.forEach(item => {
-                    const itemHTML = 
-                        `<div class="cart-item">
-                            <img src="${item.image}" alt="${item.name}">
-                            <div class="item-info">
-                                <p><strong>${item.name}</strong></p>
-                                <p>RM ${item.price.toFixed(2)}</p>
-                                <p>Quantity: <span id="quantity-${item.Id}">${item.quantity}</span></p>
-                            </div>
-                            <div class="quantity-controls">
-                                <button onclick="updateQuantity('${item.Id)}', -1)">-</button>
-                                <span id="quantity-display-${item.Id)}">${item.quantity}</span>
-                                <button onclick="updateQuantity('${item.Id)}', 1)">+</button>
-                            </div>
-                            <button onclick="removeFromCart('${item.id}')">Remove</button>
-                        </div>`;
-                    cartItemsContainer.innerHTML += itemHTML;
-                    totalPrice += item.price * item.quantity;
-                });
-                totalPriceContainer.textContent = totalPrice.toFixed(2);
-            }
+            totalPriceDiv.textContent = total.toFixed(2);
         }
 
-        // Update item quantity
-        function updateQuantity(iditem, change) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cart.find(i => i.id === itemId);
-            if (item) {
-                item.quantity = Math.max(1, item.quantity + change); // Prevent quantity from going below 1
-                localStorage.setItem('cart', JSON.stringify(cart));
-                displayCart();  // Refresh cart display
-            }
+        // Function to clear cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            displayCart();
         }
 
-        // Remove item from cart
-        function removeFromCart(iditem) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart = cart.filter(item => item.Id) !== item.Id));
-            localStorage.setItem('cart', JSON.stringify(cart));
-            displayCart();  // Refresh cart display
-        }
-
-        // Display the cart when the page loads
+        // Display cart when the page loads
         document.addEventListener('DOMContentLoaded', displayCart);
     </script>
 
