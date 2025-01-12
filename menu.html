@@ -730,43 +730,34 @@
         });
 
         <script>
-        // Functions to handle quantity changes
-        function decreaseQuantity(id) {
-            const qtyInput = document.getElementById(id);
-            let currentQty = parseInt(qtyInput.value);
-            if (currentQty > 1) {
-                qtyInput.value = currentQty - 1;
-            }
-        }
+       function addToCart(itemId, name, price, quantity) {
+    // Retrieve the cart from localStorage (or create a new one if it doesn't exist)
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Check if the item already exists in the cart
+    const existingItemIndex = cart.findIndex(item => item.id === itemId);
+    
+    if (existingItemIndex >= 0) {
+        // Update quantity if item already exists in the cart
+        cart[existingItemIndex].quantity += quantity;
+    } else {
+        // Add new item to the cart
+        cart.push({ id: itemId, name: name, price: price, quantity: quantity });
+    }
 
-        function increaseQuantity(id) {
-            const qtyInput = document.getElementById(id);
-            let currentQty = parseInt(qtyInput.value);
-            qtyInput.value = currentQty + 1;
-        }
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
 
-        // Function to show specific category
-        function showCategory(category) {
-            const items = document.querySelectorAll('.menu-items');
-            items.forEach(item => {
-                item.style.display = item.id === category ? 'block' : 'none'; // Show selected category
-            });
-        }
+    // Optional: Update cart count on the page
+    updateCartCount();
+}
 
-        // Add to Cart functionality
-        function addToCart(itemId, name, price) {
-            const qty = document.getElementById(`qty${itemId}`).value;
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById('cart-count').textContent = cartCount;
+}
 
-            const existingItemIndex = cart.findIndex(item => item.id === itemId);
-            if (existingItemIndex >= 0) {
-                cart[existingItemIndex].quantity += parseInt(qty);
-            } else {
-                cart.push({ id: itemId, name, price, quantity: parseInt(qty) });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
     </script>
     <script src="scripts.js" defer></script>
 </body>
