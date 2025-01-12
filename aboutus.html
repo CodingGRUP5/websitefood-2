@@ -6,18 +6,17 @@
     <title>About Us - Chef Kiss Restaurant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
-        /* Global Styles */
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('P10.jpg') no-repeat center center fixed;
+            background: url('P10.jpeg') no-repeat center center fixed;
             background-size: cover;
             color: #f9f9f9;
             scroll-behavior: smooth;
         }
 
-        /* Video Background */
         .video-bg {
             position: fixed;
             top: 0;
@@ -30,19 +29,20 @@
             pointer-events: none;
         }
 
-        /* Navigation Styles */
-
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background:#092215;
+            background: #092215;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-radius: 0 0 0px 0px;
+            width: 100%;
+            max-width: 1465px; 
+            margin: 0 auto; 
         }
 
         nav .logo img {
@@ -63,7 +63,7 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #ece3e3;
+            color: #f9f9f9;
             font-weight: 600;
             font-size: 1rem;
             transition: color 0.3s, border-bottom 0.3s;
@@ -71,13 +71,18 @@
 
         nav ul li a:hover {
             color: #ffcc66;
-            border-bottom: 8px solid #ffcc66;
+            border-bottom: 3px solid #ffcc66;
         }
 
-        nav .login a {
+        nav .cart-login {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .cart-login a {
             text-decoration: none;
             padding: 0.5rem 1rem;
-            background: #95a033;
+            background: #757e02;
             color: white;
             font-weight: 600;
             font-size: 0.9rem;
@@ -86,168 +91,292 @@
             transition: background 0.3s, box-shadow 0.3s;
         }
 
-        nav .login a:hover {
-            background: #2c5724;
+        nav .cart-login a:hover {
+            background: #2d5023;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
         
-    /* About Section */
-    .story-box {
-    max-width: 1050px;
-    background: #fff;
-    color: #333;
-    padding: 20px 40px;
-    margin: -100px auto 30px;
-    border-radius: 0px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    overflow: hidden; /* Ensures content fits neatly */
+        .story-box {
+            max-width: 1050px;
+            background: #fff;
+            color: #333;
+            padding: 20px 40px;
+            margin: -100px auto 30px;
+            border-radius: 0px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            overflow: hidden; 
+        }
+
+        .chef-kiss-title, .purpose-title h1 {
+            font-family: 'Verdana', sans-serif; 
+            font-size: 1.5rem; 
+            font-style: italic;
+            color: #2a7142;
+            margin-top: 0rem; 
+            margin-bottom: 0rem; 
+            text-align: center;
+            line-height: 1.6; 
+        }
+
+        .story-box h2 {
+            font-family: 'Vogue', serif;
+            font-size: 2.5rem;
+            color: #2e4d2c;
+            margin-top: 1rem; 
+            margin-bottom: 1rem; 
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            line-height: 1.4; 
+            letter-spacing: 0.05em; 
+        }
+
+        .story-box p {
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            color: #0a0a0a;
+            line-height: 1.8; 
+            text-align: justify;
+            margin-bottom: 1rem; 
+        }
+
+        .image-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 40%;
+            margin: 0 auto; 
+            text-align: center;
+        }
+
+        .story-icon-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+
+        .story-icon-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4); 
+        }
+
+        .customer-reviews-container {
+            width: 100%;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background-color: #ffffff; 
+            border: 2px solid #ddd; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+        .customer-reviews {
+            text-align: center;
+            padding: 20px; 
+            background-color: #f9f9f9;
+            font-family: 'Vogue', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+            margin: 0 auto 50px; 
+            width: 70%;
+            max-width: 1050px;
+            border: 1px solid #ddd; 
+        }
+
+        .customer-reviews h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #11513a;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .reviews-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 245px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+            border: 3px solid #14513b;
+        }
+
+        .review-text {
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+            font-style: italic;
+            text-align: justify;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-author {
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .contact-us {
+            background-color: #ffffff;
+            padding: 60px;
+            margin: 40px auto;
+            border-radius: 0px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            max-width: 1000px;
+        }
+
+        .contact-us h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #11513a;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px; 
+            flex-wrap: nowrap; /
+        }
+
+        .contact-info {
+            flex: 1 1 50%; 
+            padding-right: 20px; 
+            text-align: left;
+        }
+
+        .contact-details {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .contact-details strong {
+            color: #333;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .contact-form .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .contact-picture {
+            flex: 1 1 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-image {
+            width: 100%; /* Ensure image is responsive */
+            max-width: 90%; /* Restrict maximum width of the image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded corners for elegance */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+
+        .contact-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4); 
+        }
+
+        @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column; /* Stack sections vertically */
+        }
+
+        .contact-info, .contact-picture {
+            flex: 1 1 100%; /* Full width for both sections */
+            max-width: 100%;
+        }
+
+        .contact-picture {
+            margin-top: 20px;
+        }
+
+        .contact-image {
+            max-width: 100%; /* Image adapts to smaller screens */
+  }
 }
 
-/* Titles for Chef Kiss and Purpose */
-.chef-kiss-title, .purpose-title h1 {
-    font-family: 'Verdana', sans-serif; /* Add a stylish serif font for elegance */
-    font-size: 1.5rem; /* Adjust size as needed */
-    font-style: italic;
-    color: #2a7142; /* Complementary green color */
-    margin-top: 0rem; /* Space above the title */
-    margin-bottom: 0rem; /* Space below the title */
-    text-align: center;
-    line-height: 1.6; /* Adjust line spacing for multi-line titles */
-}
-
-
-/* Subtitle Styling */
-.story-box h2 {
-    font-family: 'Vogue', serif;
-    font-size: 2.5rem;
-    color: #2e4d2c;
-    margin-top: 1rem; /* Space above the subtitle */
-    margin-bottom: 1rem; /* Space below the subtitle */
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    line-height: 1.4; /* Adjust line spacing */
-    letter-spacing: 0.05em; /* Add slight spacing between characters */
-}
-
-/* Paragraph Styling */
-.story-box p {
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
-    color: #0a0a0a;
-    line-height: 1.8; /* Improved readability */
-    text-align: justify;
-    margin-bottom: 1rem; /* Adds space between paragraphs */
-}
-
-/* Story Icon */
-.image-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 40%;
-    margin: 0 auto; /* Centers the content */
-    text-align: center;
-}
-
-/* Story Icon Image */
-.story-icon-img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-}
-
-.story-icon-img:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
-}
-
-.customer-reviews-container {
-      width: 100%;
-      max-width: 100px; /* Adjust to fit your layout */
-      margin: 0 auto; /* Centers the container */
-      padding: 20px;
-      background-color: #ffffff; /* White background for the container */
-      border: 2px solid #ddd; /* Light border for the container */
-      border-radius: 10px; /* Optional rounded corners for the container */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the container */
-    }
-    .customer-reviews {
-    text-align: center;
-    padding: 20px; /* Adjust padding to control internal spacing */
-    background-color: #f9f9f9;
-    font-family: 'Vogue', serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    margin: 0 auto 50px; /* Add space between the box and the footer */
-    width: 70%; /* Set a smaller width (e.g., 70% of the parent container) */
-    max-width: 1050px; /* Optional: Limit the maximum width */
-    border: 1px solid #ddd; /* Optional: Add a border to see the box clearly */
-}
-
-    .customer-reviews h2 {
-      font-family: 'Playfair Display',serif;
-      font-size: 3rem;
-      font-weight: 600;
-      color: #11513a;;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    }
-
-    .reviews-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .review-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      max-width: 245px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-
-    .review-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .review-image {
-    width: 250px; /* Increase the size */
-    height: 250px; /* Increase the size */
-    border-radius: 50%; /* Keeps the circular shape */
-    margin-bottom: 15px;
-    object-fit: cover;
-    border: 3px solid #14513b;
-}
-
-.review-text {
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 10px;
-    font-style: italic;
-    text-align: justify;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}
-
-
-    .review-author {
-      font-size: 0.9rem;
-      color: #888;
-      font-weight: bold;
-}
-
-        /* Hero Section */
         .hero-section {
             position: relative;
             height: 80vh;
@@ -262,7 +391,7 @@
             position: relative;
             z-index: 2;
             color: #f9f9f9;
-            opacity: 0; /* Start invisible */
+            opacity: 0;
         }
 
         .hero-content h1 {
@@ -279,7 +408,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
-        /* Animation Keyframes */
         @keyframes text-fade-in {
             0% {
                 opacity: 0;
@@ -291,7 +419,6 @@
             }
         }
 
-        /* Active Animation Class */
         .animate {
             animation: text-fade-in 2s ease-in-out forwards;
         }
@@ -312,15 +439,22 @@
             max-width: 40%;
             text-align: center;
         }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden; 
+        }
 
         footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            margin-top: 100px;
+            width: 100vw; 
             background-color: #092215;
             padding: 20px 0;
             color: #fff;
             text-align: center;
+            box-sizing: border-box; 
         }
 
         footer .social-icons {
@@ -339,8 +473,9 @@
         }
 
         footer .social-icons a img:hover {
-            transform: scale(1.2);
+        transform: scale(1.2);
         }
+        
     </style>
 </head>
 <body>
@@ -357,16 +492,17 @@
     
             <ul>
                 <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="#menu"><i class="fa-solid fa-utensils"></i> Menu</a></li>
                 <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
-                <li><a href="style reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
-                <li><a href="#"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+                <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+                <li><a href="aboutus.html"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
             </ul>
     
-            <div class="login">
+            <div class="cart-login">
+                <a href="Add to Cart.html"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
                 <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
             </div>
-        </nav>    
+        </nav>
     </header>
 
     <section class="hero-section">
@@ -402,34 +538,80 @@
     <section class="customer-reviews">
         <h2>‧͙⁺˚*･༓☾ CUSTOMER TESTIMONIALS ☽༓･*˚⁺‧͙</h2>
         <div class="reviews-container">
-            <div class="review-card">
-                <img src="customer1.jpg" alt="Farah Adriana" class="review-image">
-                <p class="review-text">"Chef Kiss Restaurant truly lives up to its name! The food was absolutely divine and every dish was perfectly seasoned.The service was top-notch, and the ambiance made it a memorable evening. Highly recommend the lasagna and matcha milkshake!"</p>
-                <p class="review-author">➻ FARAH ADRIANA</p>
-                <div class="review-rating">⭐⭐⭐⭐⭐</div>
-            </div>
-            <div class="review-card">
-                <img src="customer2.jpg" alt="Nurul Natasha" class="review-image">
-                <p class="review-text">"This is my new favorite spot in town! The menu offers a perfect blend of creativity and comfort, with every bite bursting with flavor. The staff went above and beyond to make sure we had a wonderful experience. Can't wait to come back!"</p>
-                <p class="review-author">➻ NURUL NATASHA</p>
-                <div class="review-rating">⭐⭐⭐⭐⭐</div>
-            </div>
-            <div class="review-card">
-                <img src="customer3.jpg" alt="Salsabila Suhaime" class="review-image">
-                <p class="review-text">"The food was spectacular, and the presentation was Instagram-worthy! The only reason I'm giving 4.5 stars instead of 5 is the wait time for our table. But once seated, it was an amazing dining experience. Definitely try the chef's special!"</p>
-                <p class="review-author">➻ SALSABILA SUHAIME</p>
-                <div class="review-rating">⭐⭐⭐⭐⭐</div>
-            </div>
+          <div class="review-card">
+            <img src="customer1.jpg" alt="Farah Adriana" class="review-image">
+            <p class="review-text">"Chef Kiss Restaurant truly lives up to its name! The food was absolutely divine and every dish was perfectly seasoned. The service was top-notch, and the ambiance made it a memorable evening. Highly recommend the lasagna and matcha milkshake!"</p>
+            <p class="review-author">➻ FARAH ADRIANA</p>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+          </div>
+          <div class="review-card">
+            <img src="customer2.jpg" alt="Nurul Natasha" class="review-image">
+            <p class="review-text">"This is my new favorite spot in town! The menu offers a perfect blend of creativity and comfort, with every bite bursting with flavor. The staff went above and beyond to make sure we had a wonderful experience. Can't wait to come back!"</p>
+            <p class="review-author">➻ NURUL NATASHA</p>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+          </div>
+          <div class="review-card">
+            <img src="customer3.jpg" alt="Salsabila Suhaime" class="review-image">
+            <p class="review-text">"The food was spectacular, and the presentation was Instagram-worthy! The only reason I'm giving 4.5 stars instead of 5 is the wait time for our table. But once seated, it was an amazing dining experience. Definitely try the chef's special!"</p>
+            <p class="review-author">➻ SALSABILA SUHAIME</p>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+          </div>
         </div>
+      </section>
 
-    <footer>
-        <div class="social-icons">
-            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo"></a>
-            <a href="#"><img src="fb.png" alt="Facebook"></a>
-            <a href="#"><img src="ig.jpg" alt="Instagram"></a>
-            <a href="#"><img src="tt.png" alt="TikTok"></a>
-            <a href="#"><img src="x.png" alt="Twitter"></a>
+      <section class="contact-us">
+        <h2>CONTACT US</h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="contact-details">
+              <p><strong>Address:</strong>  23 Jalan Kiara 5, Mont Kiara, 50480 Kuala Lumpur, Malaysia</p>
+              <p><strong>Phone:</strong> +05 042 345 621</p>
+              <p><strong>Email:</strong> chefkissrestaurant@gmail.com</p>
+              <p><strong>Working Hours:</strong> Monday - Saturday: 10:00 AM - 10:00 PM. Closed on Sunday</p> 
+            </div>
+            <div class="contact-form">
+              <form action="#" method="post">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+      
+                <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+            </div>
+          </div>
+      
+          <div class="contact-picture">
+            <img src="contact.jpg" alt="Chef Kiss Restaurant" class="contact-image" />
+          </div>
         </div>
+      </section>      
+    
+      <footer>
+        <div class="social-icons">
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="ig.jpg" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="tt.png" alt="TikTok">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="x.png" alt="Twitter">
+            </a>
+        </div>
+        <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
+    </footer>
+
+
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const heroContent = document.querySelector(".hero-content");
@@ -442,14 +624,11 @@
                             }
                         });
                     },
-                    { threshold: 0.1 } // Trigger when 10% of the element is visible
+                    { threshold: 0.1 } 
                 );
         
                 observer.observe(heroContent);
             });
         </script>
-        
-        <p>&copy; 2024 Chef Kiss Restaurant | All Rights Reserved</p>
-    </footer>
 </body>
 </html>
