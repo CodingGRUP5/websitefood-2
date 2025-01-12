@@ -150,7 +150,7 @@
         </div>
 
         <div class="cart-total">
-            <p>Total : RM <span id="total-price">0.00</span></p>
+            <p>Total: RM <span id="total-price">0.00</span></p>
         </div>
 
         <div class="notes-section">
@@ -160,11 +160,6 @@
 
         <button onclick="clearCart()">Clear Cart</button>
         <button class="checkout-btn" onclick="window.location.href='payment.html'">Proceed to Checkout</button>
-
-        <footer>
-            <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
-        </footer>
-    </div>
 
     <script>
         // Function to display cart items
@@ -180,7 +175,6 @@
                 cartItemDiv.classList.add('cart-item');
                 cartItemDiv.innerHTML = `
                     <div class="item-info">
-                        <img src="${item.image}" alt="${item.name}">
                         <p>${item.name}</p>
                         <p>RM ${item.price.toFixed(2)}</p>
                         <p>Quantity: ${item.quantity}</p>
@@ -213,9 +207,13 @@
         document.addEventListener('DOMContentLoaded', displayCart);
     </script>
 
+<footer>
+            <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
-
 
 
 
