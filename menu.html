@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<style>
+    <title>Chef Kiss Restaurant - Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -238,150 +237,126 @@
             <a href="login.html"><i class="fa-solid fa-user"></i>Login</a>
         </div>
     </nav>
-
-
-    <!-- Menu Section -->
-    <section id="menu">
+    <section class="menu-section" id="menu">
         <h2>OUR MENU</h2>
-        
-        <div class="menu-category">
+        <div class="menu-categories">
             <button onclick="showCategory('western')">Western Plates</button>
-            <button onclick="showCategory('asian')">Asian Classic</button>
-            <button onclick="showCategory('sweet')">Sweet Desserts</button>
+            <button onclick="showCategory('asian')">Asian Choices</button>
+            <button onclick="showCategory('desserts')">Sweet Desserts</button>
             <button onclick="showCategory('drinks')">Drinks & Coffee</button>
         </div>
+
         <!-- Image Dynamically Changes Based on Category -->
 <div class="menu-image">
     <img id="category-image" alt="Category Image">
 </div>
-        
+
         <div class="menu-grid">
-        <!-- Western Plates Section -->
-        <div class="menu-items" id="western">
-            <!-- Example Menu Item: Spaghetti Bolognese -->
-            <div class="menu-item" id="item-1">
-                <img src="img1.jpg" alt="Spaghetti Bolognese">
-                <h3>Spaghetti Bolognese</h3>
-                <p class="price">RM 14.90</p>
-                <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty1')">-</button>
-                    <input type="text" value="1" id="qty1" readonly>
-                    <button onclick="increaseQuantity('qty1')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(1, 'Spaghetti Bolognese', 14.90)">Add To Cart</button>
+            <!-- Western Plates -->
+                <div class="menu-item western" id="item-1">
+                    <img src="img1.jpg" alt="Dish 1"/>
+                    <h3>Spaghetti Bolognese</h3>
+                    <p class="price">RM 14.90</p>
+                    <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty1')">-</button>
+                        <input type="text" value="0" id="qty1" readonly>
+                        <button onclick="increaseQuantity('qty1')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(1, 'Dish 1', 14.90)">Add to Cart</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="menu-items" id="western">
-            <!-- Example Menu Item: Chicken Wings (6 Pcs) -->
-            <div class="menu-item" id="item-2">
-                <img src="img2.jpg" alt="Chicken Wings (6 Pcs)">
-                <h3>Chicken Wings (6 Pcs)</h3>
-                <p class="price">RM 10.90</p>
-                <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty2')">-</button>
-                    <input type="text" value="1" id="qty2" readonly>
-                    <button onclick="increaseQuantity('qty2')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(2, 'Chicken Wings (6 Pcs)', 10.90)">Add To Cart</button>
+    
+                <div class="menu-item western" id="item-2">
+                    <img src="img2.jpg" alt="Dish 2" />
+                    <h3>Chicken Wings (6 Pcs)</h3>
+                    <p class="price">RM 10.90</p>
+                    <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty2')">-</button>
+                        <input type="text" value="0" id="qty2" readonly>
+                        <button onclick="increaseQuantity('qty2')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(2, 'Dish 2', 10.90)">Add to Cart</button>
+                    </div>
                 </div>
-            </div>
-
-                <div class="menu-items" id="western">
-            <!-- Example Menu Item: Beef Burger with Wedges -->
-            <div class="menu-item" id="item-3">
-                <img src="img3.jpg" alt="Beef Burger with Wedges">
-                <h3>Beef Burger with Wedges</h3>
-                <p class="price">RM 13.90</p>
-                <p class="description">Juicy beef patty served with crispy wedges.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty3')">-</button>
-                    <input type="text" value="1" id="qty3" readonly>
-                    <button onclick="increaseQuantity('qty3')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(3, 'Beef Burger with Wedges', 13.90)">Add To Cart</button>
+    
+                <div class="menu-item western" id="item-3">
+                    <img src="img3.jpg" alt="Dish 3" />
+                    <h3>Beef Burger with Wedges</h3>
+                    <p class="price">RM 13.90</p>
+                    <p class="description">Juicy beef patty served with crispy wedges.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty3')">-</button>
+                        <input type="text" value="1" id="qty3" readonly>
+                        <button onclick="increaseQuantity('qty3')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(3, 'Dish 3', 13.90)">Add To Cart</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="menu-items" id="western">
-            <!-- Example Menu Item: Pepperoni Pizza -->
-            <div class="menu-item" id="item-4">
-                <img src="img4.jpg" alt="Pepperoni Pizza">
-                <h3>Pepperoni Pizza</h3>
-                <p class="price">RM 11.90</p>
-                <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty4')">-</button>
-                    <input type="text" value="1" id="qty4" readonly>
-                    <button onclick="increaseQuantity('qty4')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(4, 'Pepperoni Pizza', 11.90)">Add To Cart</button>
+    
+                <div class="menu-item western" id="item-4">
+                    <img src="img4.jpg" alt="Dish 4" />
+                    <h3>Pepperoni Pizza</h3>
+                    <p class="price">RM 11.90</p>
+                    <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty4')">-</button>
+                        <input type="text" value="1" id="qty4" readonly>
+                        <button onclick="increaseQuantity('qty4')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(4, 'Dish 4', 11.90)">Add To Cart</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="menu-items" id="western">
-            <!-- Example Menu Item: Lasagna -->
-            <div class="menu-item" id="item-5">
-                <img src="img5.jpg" alt="Lasagna">
-                <h3>Lasagna</h3>
-                <p class="price">RM 12.90</p>
-                <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty5')">-</button>
-                    <input type="text" value="1" id="qty5" readonly>
-                    <button onclick="increaseQuantity('qty5')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(5, 'Lasagna', 12.90)">Add To Cart</button>
+    
+                <div class="menu-item western" id="item-5">
+                    <img src="img5.jpg" alt=Dish 5" />
+                    <h3>Lasagna</h3>
+                    <p class="price">RM 12.90</p>
+                    <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty5')">-</button>
+                        <input type="text" value="1" id="qty5" readonly>
+                        <button onclick="increaseQuantity('qty5')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(5, 'Dish 5', 12.90)">Add To Cart</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="menu-items" id="western">
-            <!-- Example Menu Item: Roasted Lamb with Mashed Potatoes -->
-            <div class="menu-item" id="item-6">
-                <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes">
-                <h3>Roasted Lamb with Mashed Potatoes</h3>
-                <p class="price">RM 25.90</p>
-                <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty6')">-</button>
-                    <input type="text" value="1" id="qty6" readonly>
-                    <button onclick="increaseQuantity('qty6')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(6, 'Roasted Lamb with Mashed Potatoes', 25.90)">Add To Cart</button>
+                <div class="menu-item western" id="item-6">
+                    <img src="img6.jpg" alt="Dish 6" />
+                    <h3>Roasted Lamb with Mashed Potatoes</h3>
+                    <p class="price">RM 12.00</p>
+                    <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty6')">-</button>
+                        <input type="text" value="1" id="qty6" readonly>
+                        <button onclick="increaseQuantity('qty6')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(6, 'Dish 6', 12.00)">Add To Cart</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="menu-items" id="western">
-            <!-- Example Menu Item: Chicken Tenders -->
-            <div class="menu-item" id="item-7">
-                <img src="img13.jpg" alt="Chicken Tenders">
-                <h3>Chicken Tenders</h3>
-                <p class="price">RM 12.90</p>
-                <p class="description">Crispy, golden-brown chicken tenders marinated in spices, served with a side of tangy dipping sauce.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty7')">-</button>
-                    <input type="text" value="1" id="qty7" readonly>
-                    <button onclick="increaseQuantity('qty7')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(7, 'Chicken Tenders', 12.90)">Add To Cart</button>
+                <div class="menu-item western" id="item-7">
+                    <img src="img13.jpg" alt="Dish 7"/>
+                    <h3>Chicken Tenders</h3>
+                    <p class="price">RM 12.90</p>
+                    <p class="description">Crispy, golden-brown chicken tenders marinated in spices, served with a side of tangy dipping sauce.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty7')">-</button>
+                        <input type="text" value="1" id="qty7" readonly>
+                        <button onclick="increaseQuantity('qty7')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(7, 'Dish 7', 12.90)">Add To Cart</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="menu-items" id="western">
-            <!-- Example Menu Item: Beef Tacos -->
-            <div class="menu-item" id="item-8">
-                <img src="img14.jpg" alt="Beef Tacos">
-                <h3>Beef Tacos</h3>
-                <p class="price">RM 14.90</p>
-                <p class="description">Soft tortillas filled with seasoned minced beef, fresh lettuce, diced tomatoes, onions, grated cheese, and a drizzle of sour cream.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty8')">-</button>
-                    <input type="text" value="1" id="qty8" readonly>
-                    <button onclick="increaseQuantity('qty8')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(8, 'Beef Tacos', 14.90)">Add To Cart</button>
+                <div class="menu-item western" id="item-8">
+                    <img src="img14.jpg" alt="Dish 8"/>
+                    <h3>Beef Tacos</h3>
+                    <p class="price">RM 14.90</p>
+                    <p class="description">Soft tortillas filled with seasoned minced beef, fresh lettuce, diced tomatoes, onions, grated cheese, and a drizzle of sour cream.</p>
+                    <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty8')">-</button>
+                        <input type="text" value="1" id="qty8" readonly>
+                        <button onclick="increaseQuantity('qty8')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(8, 'Dish 8', 14.90)">Add To Cart</button>
+                    </div>
                 </div>
-            </div>
 
-        <!-- Asian Classic Section -->
-        <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Nasi Lemak Delight -->
-            <div class="menu-item" id="item-9">
-                <img src="P35.jpg" alt="Nasi Lemak Delight">
+            <!-- Asian Choices -->
+            <div class="menu-item asian" id="item-9">
+                <img src="P35.jpg" alt="Dish 9" />
                 <h3>Nasi Lemak Delight</h3>
                 <p class="price">RM 12.00</p>
                 <p class="description">Classic coconut rice served with sambal, boiled egg, peanuts, and anchovies.</p>
@@ -389,14 +364,11 @@
                     <button onclick="decreaseQuantity('qty9')">-</button>
                     <input type="text" value="1" id="qty9" readonly>
                     <button onclick="increaseQuantity('qty9')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(9, 'Nasi Lemak Delight', 12.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(9, 'Dish 9', 12.00)">Add To Cart</button>
                 </div>
             </div>
-            
-            <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Festive Banana Leaf Treat -->
-            <div class="menu-item" id="item-10">
-                <img src="P15.jpg" alt="Festive Banana Leaf Treat">
+            <div class="menu-item asian" id="item-10">
+                <img src="P15.jpg" alt="Dish 10" />
                 <h3>Festive Banana Leaf Treat</h3>
                 <p class="price">RM 18.90</p>
                 <p class="description">Rice with curries, chutneys, and crispy papadom, served on a banana leaf.</p>
@@ -404,14 +376,12 @@
                     <button onclick="decreaseQuantity('qty10')">-</button>
                     <input type="text" value="1" id="qty10" readonly>
                     <button onclick="increaseQuantity('qty10')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(10, 'Festive Banana Leaf Treat', 18.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(10, 'Dish 10', 18.90)">Add To Cart</button>
                 </div>
             </div>
 
-            <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Spicy Kampung Platter -->
-            <div class="menu-item" id="item-11">
-                <img src="P18.jpg" alt="Spicy Kampung Platter">
+            <div class="menu-item asian" id="item-11">
+                <img src="P18.jpg" alt="Dish 11"/>
                 <h3>Spicy Kampung Platter</h3>
                 <p class="price">RM 15.00</p>
                 <p class="description">A mix of rice, grilled fish, sambal, and assorted fresh veggies.</p>
@@ -419,14 +389,12 @@
                     <button onclick="decreaseQuantity('qty11')">-</button>
                     <input type="text" value="1" id="qty11" readonly>
                     <button onclick="increaseQuantity('qty11')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(11, 'Spicy Kampung Platter', 15.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(11, 'Dish 11', 15.00)">Add To Cart</button>
                 </div>
             </div>
 
-            <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Tangy Asam Pedas Bowl -->
-            <div class="menu-item" id="item-12">
-                <img src="P16.jpg" alt="Tangy Asam Pedas Bowl">
+            <div class="menu-item asian" id="item-12">
+                <img src="P16.jpg" alt="Dish 12" />
                 <h3>Tangy Asam Pedas Bowl</h3>
                 <p class="price">RM 14.00</p>
                 <p class="description">A spicy and sour fish curry with vibrant flavors.</p>
@@ -434,14 +402,12 @@
                     <button onclick="decreaseQuantity('qty12')">-</button>
                     <input type="text" value="1" id="qty12" readonly>
                     <button onclick="increaseQuantity('qty12')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(12, 'Tangy Asam Pedas Bowl', 14.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(12, 'Dish 12', 14.00)">Add To Cart</button>
                 </div>
             </div>
 
-            <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Sweet Rendang Bliss -->
-            <div class="menu-item" id="item-13">
-                <img src="P17.jpg" alt="Sweet Rendang Bliss">
+            <div class="menu-item asian" id="item-13">
+                <img src="P17.jpg" alt="Dish 13" />
                 <h3>Sweet Rendang Bliss</h3>
                 <p class="price">RM 20.00</p>
                 <p class="description">Tender beef rendang coated in rich, creamy spices.</p>
@@ -449,14 +415,11 @@
                     <button onclick="decreaseQuantity('qty13')">-</button>
                     <input type="text" value="1" id="qty13" readonly>
                     <button onclick="increaseQuantity('qty13')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(13, 'Sweet Rendang Bliss', 20.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(13, 'Dish 13', 20.00)">Add To Cart</button>
                 </div>
             </div>
-
-            <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Golden Laksa Supreme -->
-            <div class="menu-item" id="item-14">
-                <img src="P14.jpg" alt="Golden Laksa Supreme">
+            <div class="menu-item asian" id="item-14">
+                <img src="P14.jpg" alt="Dish 14" />
                 <h3>Golden Laksa Supreme</h3>
                 <p class="price">RM 7.90</p>
                 <p class="description">Fragrant curry noodles with prawns, tofu, and fresh herbs.</p>
@@ -464,29 +427,24 @@
                     <button onclick="decreaseQuantity('qty14')">-</button>
                     <input type="text" value="1" id="qty14" readonly>
                     <button onclick="increaseQuantity('qty14')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(14, 'Golden Laksa Supreme', 7.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(14, 'Dish 14', 7.90)">Add To Cart</button>
                 </div>
             </div>
-
-            <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Chicken Rice -->
-            <div class="menu-item" id="item-15">
-                <img src="P81.jpg" alt="Chicken Rice">
+            <div class="menu-item asian" id="item-15">
+                <img src="P81.jpg" alt="Dish 15" />
                 <h3>Chicken Rice</h3>
                 <p class="price">RM 8.90</p>
-                <p class="description">Fragrant yellow rice served with spicy grilled chicken and fresh cucumber slices.</p>
+                <p class="description">Fragrant yellow rice served with spicy grilled chicken and
+                     fresh cucumber slices.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty15')">-</button>
                     <input type="text" value="1" id="qty15" readonly>
                     <button onclick="increaseQuantity('qty15')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(15, 'Chicken Rice', 8.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(15, 'Dish 15', 8.90)">Add To Cart</button>
                 </div>
             </div>
-
-            <div class="menu-items" id="asian">
-            <!-- Example Menu Item: Seafood Curry Mee -->
-            <div class="menu-item" id="item-16">
-                <img src="P82.jpg" alt="Seafood Curry Mee">
+            <div class="menu-item asian" id="item-16">
+                <img src="P82.jpg" alt="Dish 16" />
                 <h3>Seafood Curry Mee</h3>
                 <p class="price">RM 7.00</p>
                 <p class="description">Rich curry noodles topped with prawns, squid, egg, and fresh vegetables.</p>
@@ -494,16 +452,13 @@
                     <button onclick="decreaseQuantity('qty16')">-</button>
                     <input type="text" value="1" id="qty16" readonly>
                     <button onclick="increaseQuantity('qty16')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(16, 'Seafood Curry Mee', 7.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(16, 'Dish 16', 7.00)">Add To Cart</button>
                 </div>
             </div>
-        </div>
 
-        <!-- Sweet Desserts Section -->
-        <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Strawberry Dream Pavlova -->
-            <div class="menu-item" id="item-17">
-                <img src="P21.jpg" alt="Strawberry Dream Pavlova">
+              <!-- Sweet Desserts-->
+              <div class="menu-item sweet desserts" id="item-17">
+                <img src="P21.jpg" alt="Dish 17"  />
                 <h3>Strawberry Dream Pavlova</h3>
                 <p class="price">RM 8.00</p>
                 <p class="description">Crispy meringue topped with whipped cream and fresh strawberries.</p>
@@ -511,14 +466,12 @@
                     <button onclick="decreaseQuantity('qty17')">-</button>
                     <input type="text" value="1" id="qty17" readonly>
                     <button onclick="increaseQuantity('qty17')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(17, 'Strawberry Dream Pavlova', 8.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(17, 'Dish 17', 8.00)">Add To Cart</button>
                 </div>
             </div>
-           
-                    <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Molten Choco Bliss -->
-            <div class="menu-item" id="item-18">
-                <img src="P22.jpg" alt="Molten Choco Bliss">
+
+            <div class="menu-item sweet desserts" id="item-18">
+                <img src="P22.jpg" alt="Dish 18" />
                 <h3>Molten Choco Bliss</h3>
                 <p class="price">RM 9.00</p>
                 <p class="description">Warm chocolate lava cake served with a drizzle of chocolate syrup.</p>
@@ -526,29 +479,26 @@
                     <button onclick="decreaseQuantity('qty18')">-</button>
                     <input type="text" value="1" id="qty18" readonly>
                     <button onclick="increaseQuantity('qty18')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(18, 'Molten Choco Bliss', 9.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(18, 'Dish 18', 9.00)">Add To Cart</button>
                 </div>
             </div>
 
-                    <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Fantasy Sundae Boat -->
-            <div class="menu-item" id="item-19">
-                <img src="P24.jpg" alt="Fantasy Sundae Boat">
+            <div class="menu-item sweet desserts" id="item-19">
+                <img src="P24.jpg" alt="Dish 19"/>
                 <h3>Fantasy Sundae Boat</h3>
                 <p class="price">RM 5.50</p>
-                <p class="description">Creamy ice cream topped with berries, sprinkles, and wafer sticks.</p>
+                <p class="description">A mix of rice, grilled fish, sambal, and assorted fresh veggies.
+                                      Creamy ice cream topped with berries, sprinkles, and wafer sticks.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty19')">-</button>
                     <input type="text" value="1" id="qty19" readonly>
                     <button onclick="increaseQuantity('qty19')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(19, 'Fantasy Sundae Boat', 5.50)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(19, 'Dish 19', 5.50)">Add To Cart</button>
                 </div>
             </div>
 
-                    <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Festive Fruit Bundt (3 pcs) -->
-            <div class="menu-item" id="item-20">
-                <img src="P27.jpg" alt="Festive Fruit Bundt (3 pcs)">
+            <div class="menu-item sweet desserts" id="item-20">
+                <img src="P27.jpg" alt="Dish 20"/>
                 <h3>Festive Fruit Bundt (3 pcs)</h3>
                 <p class="price">RM 10.00</p>
                 <p class="description">Mini bundt cakes garnished with pomegranate seeds and glaze.</p>
@@ -556,14 +506,12 @@
                     <button onclick="decreaseQuantity('qty20')">-</button>
                     <input type="text" value="1" id="qty20" readonly>
                     <button onclick="increaseQuantity('qty20')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(20, 'Festive Fruit Bundt (3 pcs)', 10.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(20, 'Dish 20', 10.00)">Add To Cart</button>
                 </div>
             </div>
 
-                    <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Tropical Mango Sago Delight -->
-            <div class="menu-item" id="item-21">
-                <img src="P29.jpg" alt="Tropical Mango Sago Delight">
+            <div class="menu-item sweet desserts" id="item-21">
+                <img src="P29.jpg" alt="Dish 21" />
                 <h3>Tropical Mango Sago Delight</h3>
                 <p class="price">RM 7.00</p>
                 <p class="description">Chilled sago dessert with mango cubes and creamy coconut milk.</p>
@@ -571,14 +519,11 @@
                     <button onclick="decreaseQuantity('qty21')">-</button>
                     <input type="text" value="1" id="qty21" readonly>
                     <button onclick="increaseQuantity('qty21')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(21, 'Tropical Mango Sago Delight', 7.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(21, 'Dish 21', 7.00)">Add To Cart</button>
                 </div>
             </div>
-
-                    <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Caramel Custard Perfection -->
-            <div class="menu-item" id="item-22">
-                <img src="P21.jpg" alt="Caramel Custard Perfection">
+            <div class="menu-item sweet desserts" id="item-22">
+                <img src="P26.jpg" alt="Dish 22"/>
                 <h3>Caramel Custard Perfection</h3>
                 <p class="price">RM 8.30</p>
                 <p class="description">Silky smooth flan topped with golden caramel.</p>
@@ -586,75 +531,69 @@
                     <button onclick="decreaseQuantity('qty22')">-</button>
                     <input type="text" value="1" id="qty22" readonly>
                     <button onclick="increaseQuantity('qty22')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(22, 'Caramel Custard Perfection', 8.30)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(22, 'Dish 22', 8.30)">Add To Cart</button>
                 </div>
             </div>
-
-                    <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Muffins -->
-            <div class="menu-item" id="item-23">
-                <img src="P28.jpg" alt="Muffins">
+            <div class="menu-item sweet desserts" id="item-23">
+                <img src="P28.jpg" alt="Dish 23"/>
                 <h3>Muffins</h3>
                 <p class="price">RM 6.50</p>
-                <p class="description">Soft, fluffy steamed muffins topped with shredded coconut for a delightful tropical treat.</p>
+                <p class="description"> Soft, fluffy steamed muffins topped
+                     with shredded coconut for a delightful tropical treat.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty23')">-</button>
                     <input type="text" value="1" id="qty23" readonly>
                     <button onclick="increaseQuantity('qty23')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(23, 'Muffins', 6.50)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(23, 'Dish 23', 6.50)">Add To Cart</button>
                 </div>
             </div>
-
-                    <div class="menu-items" id="sweet">
-            <!-- Example Menu Item: Mini Chocolate Cheesecakes -->
-            <div class="menu-item" id="item-24">
-                <img src="P23.jpg" alt="Mini Chocolate Cheesecakes">
+            <div class="menu-item sweet desserts" id="item-24">
+                <img src="P23.jpg" alt="Dish 24"/>
                 <h3>Mini Chocolate Cheesecakes</h3>
-                <p class="price">RM 6.50</p>
-                <p class="description">Rich, creamy cheesecakes with a chocolate base, topped with whipped cream, cocoa dust, and chocolate shards for a decadent finish.</p>
+                <p class="price">RM 6.50 </p>
+                <p class="description">Rich, creamy cheesecakes with a chocolate base, topped with whipped cream,
+                     cocoa dust, and chocolate shards for a decadent finish.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty24')">-</button>
                     <input type="text" value="1" id="qty24" readonly>
                     <button onclick="increaseQuantity('qty24')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(24, 'Mini Chocolate Cheesecakes', 6.50)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(24, 'Dish 24', 6.50)">Add To Cart</button>
                 </div>
             </div>
+            
+            
 
-        <!-- Drinks & Coffee Section -->
-        <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Iced Coffee -->
-            <div class="menu-item" id="item-25">
-                <img src="img7.jpg" alt="Iced Coffee">
+             <!-- Drinks & Coffee-->
+             <div class="menu-item drinks" id="item-25">
+                <img src="img7.jpg" alt="Dish 25" />
                 <h3>Iced Coffee</h3>
                 <p class="price">RM 10.90</p>
-                <p class="description">A refreshing and bold iced coffee blend, perfect for a cool and energizing treat during any time of the day.</p>
+                <p class="description">A refreshing and bold iced coffee blend, 
+                     perfect for a cool and energizing treat during any time of the day.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty25')">-</button>
                     <input type="text" value="1" id="qty25" readonly>
                     <button onclick="increaseQuantity('qty25')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(25, 'Iced Coffee', 10.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(25, 'Dish 25', 10.90)">Add To Cart</button>
                 </div>
             </div>
-           
-            <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Coffee Milkshake -->
-            <div class="menu-item" id="item-26">
-                <img src="img8.jpg" alt="Coffee Milkshake">
+
+            <div class="menu-item drinks" id="item-26">
+                <img src="img8.jpg" alt="Dish 26"  />
                 <h3>Coffee Milkshake</h3>
                 <p class="price">RM 13.90</p>
-                <p class="description">A creamy, sweet combination of rich coffee and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
+                <p class="description">A creamy, sweet combination of rich coffee 
+                and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty26')">-</button>
                     <input type="text" value="1" id="qty26" readonly>
                     <button onclick="increaseQuantity('qty26')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(26, 'Coffee Milkshake', 13.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(26, 'Dish 26', 13.90)">Add To Cart</button>
                 </div>
             </div>
 
-            <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Matcha Milkshake -->
-            <div class="menu-item" id="item-27">
-                <img src="img19.jpg" alt="Matcha Milkshake">
+            <div class="menu-item drinks" id="item-27">
+                <img src="img19.jpg" alt="Dish 27" />
                 <h3>Matcha Milkshake</h3>
                 <p class="price">RM 9.90</p>
                 <p class="description">Refreshing blend of creamy milk and premium matcha, topped with whipped cream and a sprinkle of matcha powder.</p>
@@ -662,74 +601,66 @@
                     <button onclick="decreaseQuantity('qty27')">-</button>
                     <input type="text" value="1" id="qty27" readonly>
                     <button onclick="increaseQuantity('qty27')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(27, 'Matcha Milkshake', 9.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(27, 'Dish 27', 9.90)">Add To Cart</button>
                 </div>
             </div>
 
-            <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Hot Espresso -->
-            <div class="menu-item" id="item-28">
-                <img src="img9.jpg" alt="Hot Espresso">
+            <div class="menu-item drinks" id="item-28">
+                <img src="img9.jpg" alt="Dish 28"/>
                 <h3>Hot Espresso</h3>
                 <p class="price">RM 8.90</p>
-                <p class="description">A strong and aromatic espresso, made with the finest beans to offer a bold and invigorating coffee experience.</p>
+                <p class="description">A strong and aromatic espresso, 
+                    made with the finest beans to offer a bold and invigorating coffee experience.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty28')">-</button>
                     <input type="text" value="1" id="qty28" readonly>
                     <button onclick="increaseQuantity('qty28')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(28, 'Hot Espresso', 8.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(28, 'Dish 28', 8.90)">Add To Cart</button>
                 </div>
             </div>
 
-            <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Apple Juice -->
-            <div class="menu-item" id="item-29">
-                <img src="img10.jpg" alt="Apple Juice">
+            <div class="menu-item drinks" id="item-29">
+                <img src="img10.jpg"  alt="Dish 29"/>
                 <h3>Apple Juice</h3>
                 <p class="price">RM 15.00</p>
-                <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, offering a natural and refreshing beverage perfect for any occasion.</p>
+                <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, 
+                    offering a natural and refreshing beverage perfect for any occasion.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty29')">-</button>
                     <input type="text" value="1" id="qty29" readonly>
                     <button onclick="increaseQuantity('qty29')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(29, 'Apple Juice', 15.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(29, 'Dish 29', 15.00)">Add To Cart</button>
                 </div>
             </div>
 
-            <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Pineapple Juice -->
-            <div class="menu-item" id="item-30">
-                <img src="img21.jpg" alt="Pineapple Juice">
+            <div class="menu-item drinks" id="item-30>
+                <img src="img21.jpg" alt="Dish 30" />
                 <h3>Pineapple Juice</h3>
                 <p class="price">RM 13.00</p>
-                <p class="description">A tropical delight with a tangy and sweet flavor, made from fresh pineapples to transport you to a sunny paradise.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty30')">-</button>
-                    <input type="text" value="1" id="qty30" readonly>
-                    <button onclick="increaseQuantity('qty30')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(30, 'Pineapple Juice', 13.00)">Add To Cart</button>
-                </div>
+                <p class="description">A tropical delight with a tangy and sweet flavor,
+                     made from fresh pineapples to transport you to a sunny paradise.</p>
+                     <div class="order-controls">
+                        <button onclick="decreaseQuantity('qty30')">-</button>
+                        <input type="text" value="1" id="qty30" readonly>
+                        <button onclick="increaseQuantity('qty30')">+</button>
+                        <button class="add-to-cart" onclick="addToCart(30, 'Dish 30', 13.00)">Add To Cart</button>
+               </div>
             </div>
 
-            <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Mango Juice -->
-            <div class="menu-item" id="item-31">
-                <img src="img12.jpg" alt="Mango Juice">
+            <div class="menu-item drinks" id="item-31">
+                <img src="img12.jpg" alt="Dish 31" />
                 <h3>Mango Juice</h3>
                 <p class="price">RM 15.00</p>
-                <p class="description">A smooth, sweet, and refreshing mango juice made from ripe, juicy mangoes, perfect for quenching your thirst on a hot day.</p>
+                <p class="description">>A smooth, sweet, and refreshing mango juice made from ripe, 
+                    juicy mangoes, perfect for quenching your thirst on a hot day.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty31')">-</button>
                     <input type="text" value="1" id="qty31" readonly>
                     <button onclick="increaseQuantity('qty31')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(31, 'Mango Juice', 15.00)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(31, 'Dish 31', 15.00)">Add To Cart</button>
                 </div>
-            </div>
-
-            <div class="menu-items" id="drinks">
-            <!-- Example Menu Item: Strawberry Juicee -->
-            <div class="menu-item" id="item-32">
-                <img src="img20.jpg" alt="Strawberry Juice">
+            </div>  <div class="menu-item drinks" id="item-32">
+                <img src="img20.jpg" alt="Dish 32" />
                 <h3>Strawberry Juice</h3>
                 <p class="price">RM 12.90</p>
                 <p class="description">Freshly blended strawberries with a touch of sugar and ice, creating a refreshing and naturally sweet drink.</p>
@@ -737,12 +668,16 @@
                     <button onclick="decreaseQuantity('qty32')">-</button>
                     <input type="text" value="1" id="qty32" readonly>
                     <button onclick="increaseQuantity('qty32')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(32, 'Strawberry Juice', 12.90)">Add To Cart</button>
+                    <button class="add-to-cart" onclick="addToCart(32, 'Dish 32', 12.90)">Add To Cart</button>
+
+                    
+                    <button onclick="window.location.href='Add to Cart.html'">Go to Cart</button>
+
+
                 </div>
             </div>
-       
-        <!-- Link to Go to Cart -->
-        <button onclick="window.location.href='AddtoCart.html'">Go to Cart</button>
+
+        </div>
     </section>
 
     <footer>
@@ -750,6 +685,7 @@
     </footer>
 
     <script>
+
         // Functions to handle quantity changes
         function decreaseQuantity(id) {
             const qtyInput = document.getElementById(id);
@@ -758,37 +694,25 @@
                 qtyInput.value = currentQty - 1;
             }
         }
-
+    
         function increaseQuantity(id) {
             const qtyInput = document.getElementById(id);
             let currentQty = parseInt(qtyInput.value);
             qtyInput.value = currentQty + 1;
         }
-
+    
         // Function to show specific category
         function showCategory(category) {
-            const items = document.querySelectorAll('.menu-items');
+            const items = document.querySelectorAll('.menu-item');
             items.forEach(item => {
-                item.style.display = item.id === category ? 'block' : 'none'; // Show selected category
+                if (item.classList.contains(category)) {
+                    item.style.display = 'block'; // Show items of the selected category
+                } else {
+                    item.style.display = 'none'; // Hide items of other categories
+                }
             });
-        }
-
-        // Add to Cart functionality
-        function addToCart(itemId, name, price) {
-            const qty = document.getElementById(`qty${itemId}`).value;
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            const existingItemIndex = cart.findIndex(item => item.id === itemId);
-            if (existingItemIndex >= 0) {
-                cart[existingItemIndex].quantity += parseInt(qty);
-            } else {
-                cart.push({ id: itemId, name, price, quantity: parseInt(qty) });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-
-        // Update the image based on category
+    
+            // Update the image based on category
             const image = document.getElementById('category-image');
             if (category === 'western') {
                 image.src = 'P65.jpg';
@@ -804,9 +728,36 @@
         document.addEventListener('DOMContentLoaded', () => {
             showCategory('western'); // Default category
         });
-        
-    </script>
 
+        function addToCart(itemId, name, price, quantity) {
+    // Retrieve the cart from localStorage (or create a new one if it doesn't exist)
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Check if the item already exists in the cart
+    const existingItemIndex = cart.findIndex(item => item.id === itemId);
+    
+    if (existingItemIndex >= 0) {
+        // Update quantity if item already exists in the cart
+        cart[existingItemIndex].quantity += quantity;
+    } else {
+        // Add new item to the cart
+        cart.push({ id: itemId, name: name, price: price, quantity: quantity });
+    }
+
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Optional: Update cart count on the page
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById('cart-count').textContent = cartCount;
+}
+
+    </script>
+    <script src="scripts.js" defer></script>
 </body>
 </html>
-
