@@ -28,8 +28,8 @@
             z-index: 1000;
             border-radius: 0 0 0px 0px;
             width: 100%;
-            max-width: 1465px; /* Set max width for the nav */
-            margin: 0 auto; /* Center the nav */
+            max-width: 1465px; 
+            margin: 0 auto; 
         }
 
         nav .logo img {
@@ -146,12 +146,12 @@
             border-radius: 50%;
             display: inline-block;
             transition: background-color 0.6s ease;
-            border: 2px solid whitesmoke; /* Add a border */
+            border: 2px solid whitesmoke; 
         }
 
         .active, .dot:hover {
             background-color: #2d5023;
-            border-color: whitesmoke; /* Change the border color when active or hovered */
+            border-color: whitesmoke; 
         }
 
         @media only screen and (max-width: 300px) {
@@ -179,14 +179,14 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .stats .stat h2 {
-            font-weight: 900; /* Very bold text for headings */
-            color: black; /* Black text color */
-            background: url('P60.jpg') no-repeat center center / cover; /* Add background image */
+            font-weight: 900; 
+            color: black; 
+            background: url('P60.jpg') no-repeat center center / cover; 
         }
 
         .stats .stat p {
-            font-weight: 700; /* Bold text for paragraphs */
-            color: black; /* Black text color */
+            font-weight: 700; 
+            color: black; 
         }
 
         .stat:hover {
@@ -194,14 +194,21 @@
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
         }
 
-        footer {
-            position: relative;
-            bottom: 0;
+        html, body {
+            margin: 0;
+            padding: 0;
             width: 100%;
+            overflow-x: hidden; 
+        }
+
+        footer {
+            margin-top: 100px;
+            width: 100vw; 
             background-color: #092215;
             padding: 20px 0;
             color: #fff;
             text-align: center;
+            box-sizing: border-box; 
         }
 
         footer .social-icons {
@@ -227,22 +234,22 @@
             text-align: center;
             margin: 3rem auto;
             padding: 2rem;
-            background: url('P44.jpg') no-repeat center center / cover; /* Add background image */
+            background: url('P44.jpg') no-repeat center center / cover; 
             border: 4px solid #0c3f19;
             border-radius: 15px;
             max-width: 800px;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-            color: white; /* Ensure text is visible */
+            color: white; 
         }
 
         .main h1 {
-            font-weight: 900; /* Very bold text */
-            color: black; /* Black text color */
+            font-weight: 900; 
+            color: black; 
         }
 
         .main p {
-            font-weight: 700; /* Bold text */
-            color: black; /* Black text color */
+            font-weight: 700; 
+            color: black; 
         }
 
         .btn {
@@ -408,4 +415,3 @@
     </script>
 </body>
 </html>
-
