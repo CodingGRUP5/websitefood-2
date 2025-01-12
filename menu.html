@@ -254,7 +254,7 @@
         <div class="menu-grid">
             <!-- Western Plates -->
                 <div class="menu-item western" id="item-1">
-                    <img src="img1.jpg" alt="Dish 1" />
+                    <img src="img1.jpg" alt="Dish 1"/>
                     <h3>Spaghetti Bolognese</h3>
                     <p class="price">RM 14.90</p>
                     <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
@@ -729,26 +729,23 @@
             showCategory('western'); // Default category
         });
 
-        function addToCart(id, name, price) {
+        function addToCart(itemId, name, price, quantity) {
     // Retrieve the cart from localStorage (or create a new one if it doesn't exist)
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     
     // Check if the item already exists in the cart
-    const existingItem = cart.find(item => item.id === id);
+    const existingItemIndex = cart.findIndex(item => item.id === itemId);
     
-    if (existingItem) {
+    if (existingItemIndex >= 0) {
         // Update quantity if item already exists in the cart
-        existingItem.quantity += 1;
+        cart[existingItemIndex].quantity += quantity;
     } else {
         // Add new item to the cart
-        cart.push({ id: id, name: name, price: price, quantity: 1 });
+        cart.push({ id: itemId, name: name, price: price, quantity: quantity });
     }
 
     // Save updated cart to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-
-    alert(name + " has been added to your cart!");
-    }
 
     // Optional: Update cart count on the page
     updateCartCount();
