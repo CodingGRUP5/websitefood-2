@@ -171,7 +171,7 @@
         <div id="cart-items"></div>
 
         <div class="cart-total">
-            <p>Total: RM <span id="total-price">0.00</span></p>
+            <p>Total : RM <span id="total-price">0.00</span></p>
         </div>
 
         <div class="notes-section">
@@ -195,25 +195,56 @@
             cartItemsContainer.innerHTML = '';
 
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+                cartItemsContainer.innerHTML = '<p>Your cart is empty. Please add some items!</p>';
             } else {
                 let totalPrice = 0;
                 cart.forEach(item => {
                     const itemHTML = 
                         `<div class="cart-item">
-                            <img src="${item.image}" alt="${item.name}">
+                            <img src="img1.jpg{item.image}" alt="Dish 1{item.name}">
                             <div class="item-info">
-                                <p><strong>${item.name}</strong></p>
-                                <p>RM ${item.price.toFixed(2)}</p>
-                                <p>Quantity: <span id="quantity-${item.Id}">${item.quantity}</span></p>
+                                <p><strong>Spaghetti Bolognese{item.name}</strong></p>
+                                <p>RM 14.90{item.price.toFixed(2)}</p>
+                                <p>Quantity: <span id="quantity-1{item.Id}">10{item.quantity}</span></p>
                             </div>
                             <div class="quantity-controls">
-                                <button onclick="updateQuantity('${item.Id)}', -1)">-</button>
-                                <span id="quantity-display-${item.Id)}">${item.quantity}</span>
-                                <button onclick="updateQuantity('${item.Id)}', 1)">+</button>
+                                <button onclick="updateQuantity('1{item.Id)}', -1)">-</button>
+                                <span id="quantity-display-1{item.Id)}">10{item.quantity}</span>
+                                <button onclick="updateQuantity('1{item.Id)}', 1)">+</button>
                             </div>
-                            <button onclick="removeFromCart('${item.id}')">Remove</button>
+                            <button onclick="removeFromCart('1{item.id}')">Remove</button>
                         </div>`;
+
+                    <div class="cart-item">
+                            <img src="img2.jpg{item.image}" alt="Dish 2{item.name}">
+                            <div class="item-info">
+                                <p><strong>Chicken Wings (6 Pcs){item.name}</strong></p>
+                                <p>RM 10.90{item.price.toFixed(2)}</p>
+                                <p>Quantity: <span id="quantity-1{item.Id}">10{item.quantity}</span></p>
+                            </div>
+                            <div class="quantity-controls">
+                                <button onclick="updateQuantity('1{item.Id)}', -1)">-</button>
+                                <span id="quantity-display-1{item.Id)}">10{item.quantity}</span>
+                                <button onclick="updateQuantity('1{item.Id)}', 1)">+</button>
+                            </div>
+                            <button onclick="removeFromCart('1{item.id}')">Remove</button>
+                        </div>`;
+
+                <div class="cart-item">
+                            <img src="img3.jpg{item.image}" alt="Dish 3{item.name}">
+                            <div class="item-info">
+                                <p><strong>Beef Burger with Wedges{item.name}</strong></p>
+                                <p>RM 13.90{item.price.toFixed(2)}</p>
+                                <p>Quantity: <span id="quantity-1{item.Id}">10{item.quantity}</span></p>
+                            </div>
+                            <div class="quantity-controls">
+                                <button onclick="updateQuantity('1{item.Id)}', -1)">-</button>
+                                <span id="quantity-display-1{item.Id)}">10{item.quantity}</span>
+                                <button onclick="updateQuantity('1{item.Id)}', 1)">+</button>
+                            </div>
+                            <button onclick="removeFromCart('1{item.id}')">Remove</button>
+                        </div>`;
+                
                     cartItemsContainer.innerHTML += itemHTML;
                     totalPrice += item.price * item.quantity;
                 });
@@ -222,9 +253,9 @@
         }
 
         // Update item quantity
-        function updateQuantity(iditem, change) {
+        function updateQuantity(itemid, change) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cart.find(i => i.id === itemId);
+            const item = cart.find(i => i.id === item.id);
             if (item) {
                 item.quantity = Math.max(1, item.quantity + change); // Prevent quantity from going below 1
                 localStorage.setItem('cart', JSON.stringify(cart));
@@ -233,9 +264,9 @@
         }
 
         // Remove item from cart
-        function removeFromCart(iditem) {
+        function removeFromCart(itemid) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart = cart.filter(item => item.Id) !== item.Id));
+            cart = cart.filter(item => item.id) !== item.id));
             localStorage.setItem('cart', JSON.stringify(cart));
             displayCart();  // Refresh cart display
         }
