@@ -219,22 +219,22 @@
         <!-- Update only the JavaScript part -->
 <script>
 
-    const loginForm = document.getElementById('login-form');
+    // Handle Login Form Submission
+        const loginForm = document.getElementById('login-form');
 
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevent the form from submitting traditionally
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
 
-        // Perform basic validation (if necessary)
-        const username = loginForm.querySelector('input[name="username"]').value;
-        const email = loginForm.querySelector('input[name="email"]').value;
-        const password = loginForm.querySelector('input[name="password"]').value;
+            const username = loginForm.querySelector('input[name="username"]').value;
+            const email = loginForm.querySelector('input[name="email"]').value;
+            const password = loginForm.querySelector('input[name="password"]').value;
 
-        if (username && email && password) {
-            // Redirect to the homepage
-            window.location.href = 'index.html';
-        } else {
-            alert('Please fill out all fields.');
-        }
+            if (username && email && password) {
+                // Redirect to the homepage
+                window.location.href = 'index.html';
+            } else {
+                alert('Please fill out all fields.');
+            }
 
     const forgotPasswordLink = document.getElementById('forgot-password-link');
     const signupLink = document.getElementById('signup-link');
@@ -297,17 +297,7 @@
         const email = loginForm.querySelector('input[name="email"]').value;
         const password = loginForm.querySelector('input[name="password"]').value;
 
-        // Dummy validation (replace this with real validation logic if needed)
-        if (username && email && password) {
-            // Redirect to the homepage
-            window.location.href = 'index.html';
-        } else {
-            alert('Please fill out all fields correctly.');
-        }
     });
-</script>
-
-
     </script>
 </body>
 </html>
