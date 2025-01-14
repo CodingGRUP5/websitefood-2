@@ -87,15 +87,15 @@
         }
 
         .menu-section {
-    padding: 3rem 2rem;
-    background-image: url('P80.jpg'); 
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-    margin: 2rem auto;
-    max-width: 1200px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+       padding: 3rem 2rem;
+       background-image: url('P80.jpg'); 
+       background-size: cover;
+       background-position: center; 
+       background-repeat: no-repeat;
+      margin: 2rem auto;
+      max-width: 1200px;
+      border-radius: 15px;
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -140,7 +140,6 @@
             max-width: 1000px;
             border-radius: 15px;
         }
-
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -237,75 +236,90 @@
         footer .social-icons a img:hover {
             transform: scale(1.2);
         }
+     /* Sidebar styles with centered and organized content */
+#cart-sidebar {
+    height: 100%;
+    width: 500px; /* Fixed width for the sidebar */
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95); /* Slightly darker background for better contrast */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    transition: 0.5s; /* Smooth transition for opening/closing */
+    padding-top: 60px;
+    z-index: 1000;
+    color: #fff;
+    border-left: 4px solid #ffcc66; /* Add a bolder border to the left */
+    box-shadow: -6px 0 15px rgba(0, 0, 0, 0.7); /* More subtle and deeper shadow */
+    text-align: center; /* Center align all text */
+    font-family: 'Roboto', sans-serif;
+    border-radius: 12px 0 0 12px; /* Rounded top-left and bottom-left corners */
+}
 
-        /* Sidebar styles */
-        #cart-sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            z-index: 1000;
-            color: #fff;
-        }
+/* Cart items and payment section */
+#cart-items {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Light background for cart items */
+    border-radius: 15px; /* Smoother rounded corners */
+    max-height: calc(100% - 150px); /* Allow space for payment section */
+    overflow-y: auto; /* Enable scrolling for cart items */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Softer, larger shadow for depth */
+    border: 1px solid #ffcc66; /* Border color */
+}
 
-        #cart-sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
+/* Payment section */
+#payment-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Light, soft background for the payment box */
+    border-radius: 12px; /* Rounded corners */
+    border: 2px solid #ffcc66; /* Refined border */
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Softer shadow for payment box */
+}
 
-        #cart-sidebar a:hover {
-            color: #ffcc66;
-        } 
-        
-        #cart-sidebar .close-btn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-            color: #ffcc66;
-            cursor: pointer;
-        }
+#payment-section button {
+    background: #32cd32; /* Green background for payment button */
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Larger padding for better button size */
+    border-radius: 25px; /* More rounded button */
+    font-size: 1.2rem; /* Slightly larger text */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
 
-        #cart-items {
-            margin-top: 20px;
-            padding-left: 20px;
-        }
+#payment-section button:hover {
+    background: #28a745;
+    transform: scale(1.1); /* Slight zoom on hover for effect */
+}
 
-        .cart-item {
-            margin-bottom: 1rem;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-        
-        .cart-item button {
-            background: red;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .cart-item button:hover {
-            background: #ff4d4d;
-        }
-    </style>
+/* Close button styles */
+#cart-sidebar .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    color: #ffcc66;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+#cart-sidebar .close-btn:hover {
+    transform: rotate(90deg); /* Rotate close button on hover */
+    color: #fff; /* Change color on hover */
+}
+ </style>
 </head>
 <body>
     <nav>
         <div class="logo">
             <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
         </div>
-
+    
         <ul>
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
             <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
@@ -313,10 +327,10 @@
             <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
             <li><a href="aboutus.html"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
         </ul>
-
+    
         <div class="cart-login">
             <a href="javascript:void(0)" onclick="openCart()"><i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart-count">0</span>)</a>
-            <a href="login.html"><i class="fa-solid fa-user"></i>Login</a>
+            <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
         </div>
     </nav>
     
@@ -328,433 +342,353 @@
             <button onclick="showCategory('desserts')">Sweet Desserts</button>
             <button onclick="showCategory('drinks')">Drinks & Coffee</button>
         </div>
-
+    
+        
         <!-- Image Dynamically Changes Based on Category -->
 <div class="menu-image">
     <img id="category-image" alt="Category Image">
 </div>
 
-        <div class="menu-grid">
-            <!-- Western Plates -->
-                <div class="menu-item western" id="item-1">
-                    <img src="img1.jpg" alt="Spaghetti Bolognese"/>
-                    <h3>Spaghetti Bolognese</h3>
-                    <p class="price">RM 14.90</p>
-                    <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty1')">-</button>
-                        <input type="number" id="qty1" value="0" readonly>
-                        <button onclick="increaseQuantity('qty1')">+</button>
-                        <button onclick="addToCart(1, 'Spaghetti Bolognese', 14.90)">Add to Cart</button>
-                    </div>
-                </div>
+<div class="menu-grid">
+    <!-- Western Plates -->
+    <div class="menu-item western" id="item-1">
+        <img src="img1.jpg" alt="Spaghetti Bolognese"/>
+        <h3>Spaghetti Bolognese</h3>
+        <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
+        <p>Price: RM 14.90</p>
+        <button onclick="addToCart(1, 'Spaghetti Bolognese', 20)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item western" id="item-2">
+        <img src="img2.jpg" alt="Chicken Wings (6 Pcs)"/>
+        <h3>Chicken Wings (6 Pcs)</h3>
+        <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
+        <p>Price: RM 10.90</p>
+        <button onclick="addToCart(2, 'Chicken Wings (6 Pcs)', 10.90)">Add to Cart</button>
+    </div>
     
-                <div class="menu-item western" id="item-2">
-                    <img src="img2.jpg" alt="Chicken Wings (6 Pcs)" />
-                    <h3>Chicken Wings (6 Pcs)</h3>
-                    <p class="price">RM 10.90</p>
-                    <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty2')">-</button>
-                        <input type="text" id="qty2" value="0" readonly>
-                        <button onclick="increaseQuantity('qty2')">+</button>
-                        <button onclick="addToCart(2, 'Chicken Wings (6 Pcs)', 10.90)">Add to Cart</button>
-                    </div>
-                </div>
-    
-                <div class="menu-item western" id="item-3">
-                    <img src="img3.jpg" alt="Beef Burger with Wedges" />
-                    <h3>Beef Burger with Wedges</h3>
-                    <p class="price">RM 13.90</p>
-                    <p class="description">Juicy beef patty served with crispy wedges.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty3')">-</button>
-                        <input type="text" id="qty3" value="0" readonly>
-                        <button onclick="increaseQuantity('qty3')">+</button>
-                        <button onclick="addToCart(3, 'Beef Burger with Wedges', 13.90)">Add To Cart</button>
-                    </div>
-                </div>
-    
-                <div class="menu-item western" id="item-4">
-                    <img src="img4.jpg" alt="Pepperoni Pizza" />
-                    <h3>Pepperoni Pizza</h3>
-                    <p class="price">RM 11.90</p>
-                    <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty4')">-</button>
-                        <input type="text" id="qty4" value="0" readonly>
-                        <button onclick="increaseQuantity('qty4')">+</button>
-                        <button onclick="addToCart(4, 'Pepperoni Pizza', 11.90)">Add To Cart</button>
-                    </div>
-                </div>
-    
-                <div class="menu-item western" id="item-5">
-                    <img src="img5.jpg" alt="Lasagna" />
-                    <h3>Lasagna</h3>
-                    <p class="price">RM 12.90</p>
-                    <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty5')">-</button>
-                        <input type="text" id="qty5" value="0" readonly>
-                        <button onclick="increaseQuantity('qty5')">+</button>
-                        <button onclick="addToCart(5, 'Lasagna', 12.90)">Add To Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item western" id="item-6">
-                    <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes" />
-                    <h3>Roasted Lamb with Mashed Potatoes</h3>
-                    <p class="price">RM 12.00</p>
-                    <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty6')">-</button>
-                        <input type="text" id="qty6" value="0" readonly>
-                        <button onclick="increaseQuantity('qty6')">+</button>
-                        <button onclick="addToCart(6, 'Roasted Lamb with Mashed Potatoes', 12.00)">Add To Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item western" id="item-7">
-                    <img src="img13.jpg" alt="Chicken Tenders"/>
-                    <h3>Chicken Tenders</h3>
-                    <p class="price">RM 12.90</p>
-                    <p class="description">Crispy, golden-brown chicken tenders marinated in spices, served with a side of tangy dipping sauce.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty7')">-</button>
-                        <input type="text" id="qty7" value="0" readonly>
-                        <button onclick="increaseQuantity('qty7')">+</button>
-                        <button onclick="addToCart(7, 'Chicken Tenders', 12.90)">Add To Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item western" id="item-8">
-                    <img src="img14.jpg" alt="Beef Tacos"/>
-                    <h3>Beef Tacos</h3>
-                    <p class="price">RM 14.90</p>
-                    <p class="description">Soft tortillas filled with seasoned minced beef, fresh lettuce, diced tomatoes, onions, grated cheese, and a drizzle of sour cream.</p>
-                    <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty8')">-</button>
-                        <input type="text" id="qty8" value="0" readonly>
-                        <button onclick="increaseQuantity('qty8')">+</button>
-                        <button onclick="addToCart(8, 'Beef Tacos', 14.90)">Add To Cart</button>
-                    </div>
-                </div>
+    <div class="menu-item western" id="item-3">
+        <img src="img3.jpg" alt="Beef Burger with Wedges"/>
+        <h3>Beef Burger with Wedges</h3>
+        <p class="description">Juicy beef patty served with crispy wedges.</p>
+        <p>Price: RM 13.90</p>
+        <button onclick="addToCart(3, 'Beef Burger with Wedges', 13.90)">Add to Cart</button>
+    </div>
 
-            <!-- Asian Choices -->
-            <div class="menu-item asian" id="item-9">
-                <img src="P35.jpg" alt="Nasi Lemak Delight" />
-                <h3>Nasi Lemak Delight</h3>
-                <p class="price">RM 12.00</p>
-                <p class="description">Classic coconut rice served with sambal, boiled egg, peanuts, and anchovies.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty9')">-</button>
-                    <input type="text" id="qty9" value="0" readonly>
-                    <button onclick="increaseQuantity('qty9')">+</button>
-                    <button onclick="addToCart(9, 'Nasi Lemak Delight', 12.00)">Add To Cart</button>
-                </div>
-            </div>
-            <div class="menu-item asian" id="item-10">
-                <img src="P15.jpg" alt="Festive Banana Leaf Treat" />
-                <h3>Festive Banana Leaf Treat</h3>
-                <p class="price">RM 18.90</p>
-                <p class="description">Rice with curries, chutneys, and crispy papadom, served on a banana leaf.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty10')">-</button>
-                    <input type="text" id="qty10" value="0" readonly>
-                    <button onclick="increaseQuantity('qty10')">+</button>
-                    <button onclick="addToCart(10, 'Festive Banana Leaf Treat', 18.90)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item western" id="item-4">
+        <img src="img4.jpg" alt="Pepperoni Pizza"/>
+        <h3>Pepperoni Pizza</h3>
+        <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
+        <p>Price: RM 11.90</p>
+        <button onclick="addToCart(4, 'Pepperoni Pizza', 11.90)">Add to Cart</button>
+    </div>
 
-            <div class="menu-item asian" id="item-11">
-                <img src="P18.jpg" alt="Spicy Kampung Platter"/>
-                <h3>Spicy Kampung Platter</h3>
-                <p class="price">RM 15.00</p>
-                <p class="description">A mix of rice, grilled fish, sambal, and assorted fresh veggies.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty11')">-</button>
-                    <input type="text" id="qty11" value="0" readonly>
-                    <button onclick="increaseQuantity('qty11')">+</button>
-                    <button onclick="addToCart(11, 'Spicy Kampung Platter', 15.00)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item western" id="item-5">
+        <img src="img5.jpg" alt="Lasagna"/>
+        <h3>Lasagna</h3>
+        <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
+        <p>Price: RM 12.90</p>
+        <button onclick="addToCart(5, 'Lasagna', 12.90)">Add to Cart</button>
+    </div>
 
-            <div class="menu-item asian" id="item-12">
-                <img src="P16.jpg" alt="Tangy Asam Pedas Bowl" />
-                <h3>Tangy Asam Pedas Bowl</h3>
-                <p class="price">RM 14.00</p>
-                <p class="description">A spicy and sour fish curry with vibrant flavors.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty12')">-</button>
-                    <input type="text" id="qty12" value="0" readonly>
-                    <button onclick="increaseQuantity('qty12')">+</button>
-                    <button onclick="addToCart(12, 'Tangy Asam Pedas Bowl', 14.00)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item western" id="item-6">
+        <img src="img6.jpg" alt="Roasted Lamb with Mashed Potatoes"/>
+        <h3>Roasted Lamb with Mashed Potatoes</h3>
+        <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
+        <p>Price: RM 12.00</p>
+        <button onclick="addToCart(6, 'Roasted Lamb with Mashed Potatoes', 12.00)">Add to Cart</button>
+    </div>
 
-            <div class="menu-item asian" id="item-13">
-                <img src="P17.jpg" alt="Sweet Rendang Bliss" />
-                <h3>Sweet Rendang Bliss</h3>
-                <p class="price">RM 20.00</p>
-                <p class="description">Tender beef rendang coated in rich, creamy spices.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty13')">-</button>
-                    <input type="text" id="qty13" value="0" readonly>
-                    <button onclick="increaseQuantity('qty13')">+</button>
-                    <button onclick="addToCart(13, 'Sweet Rendang Bliss', 20.00)">Add To Cart</button>
-                </div>
-            </div>
-            <div class="menu-item asian" id="item-14">
-                <img src="P14.jpg" alt="Golden Laksa Supreme" />
-                <h3>Golden Laksa Supreme</h3>
-                <p class="price">RM 7.90</p>
-                <p class="description">Fragrant curry noodles with prawns, tofu, and fresh herbs.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty14')">-</button>
-                    <input type="text" id="qty14" value="0" readonly>
-                    <button onclick="increaseQuantity('qty14')">+</button>
-                    <button onclick="addToCart(14, Golden Laksa Supreme', 7.90)">Add To Cart</button>
-                </div>
-            </div>
-            <div class="menu-item asian" id="item-15">
-                <img src="P81.jpg" alt="Chicken Rice" />
-                <h3>Chicken Rice</h3>
-                <p class="price">RM 8.90</p>
-                <p class="description">Fragrant yellow rice served with spicy grilled chicken and
-                     fresh cucumber slices.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty15')">-</button>
-                    <input type="text" id="qty15" value="0" readonly>
-                    <button onclick="increaseQuantity('qty15')">+</button>
-                    <button onclick="addToCart(15, 'Chicken Rice', 8.90)">Add To Cart</button>
-                </div>
-            </div>
-            <div class="menu-item asian" id="item-16">
-                <img src="P82.jpg" alt="Seafood Curry Mee" />
-                <h3>Seafood Curry Mee</h3>
-                <p class="price">RM 7.00</p>
-                <p class="description">Rich curry noodles topped with prawns, squid, egg, and fresh vegetables.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty16')">-</button>
-                    <input type="text" id="qty16" value="0" readonly>
-                    <button onclick="increaseQuantity('qty16')">+</button>
-                    <button onclick="addToCart(16, 'Seafood Curry Mee', 7.00)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item western" id="item-7">
+        <img src="img13.jpg" alt="Chicken Tenders"/>
+        <h3>Chicken Tenders</h3>
+        <p class="description">Crispy, golden-brown chicken tenders marinated in spices, served with a side of tangy dipping sauce.</p>
+        <p>Price: RM 12.90</p>
+        <button onclick="addToCart(7, 'Chicken Tenders', 12.90)">Add to Cart</button>
+    </div>
 
-              <!-- Sweet Desserts-->
-              <div class="menu-item sweet desserts" id="item-17">
-                <img src="P21.jpg" alt="Strawberry Dream Pavlova"  />
-                <h3>Strawberry Dream Pavlova</h3>
-                <p class="price">RM 8.00</p>
-                <p class="description">Crispy meringue topped with whipped cream and fresh strawberries.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty17')">-</button>
-                    <input type="text" id="qty17" value="0" readonly>
-                    <button onclick="increaseQuantity('qty17')">+</button>
-                    <button onclick="addToCart(17, 'Strawberry Dream Pavlova', 8.00)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item western" id="item-8">
+        <img src="img14.jpg" alt="Beef Tacos"/>
+        <h3>Beef Tacos</h3>
+        <p class="description">Soft tortillas filled with seasoned minced beef, fresh lettuce, diced tomatoes, onions, grated cheese, and a drizzle of sour cream.</p>
+        <p>Price: RM 14.90</p>
+        <button onclick="addToCart(8, 'Beef Tacos', 14.90)">Add to Cart</button>
+    </div>
 
-            <div class="menu-item sweet desserts" id="item-18">
-                <img src="P22.jpg" alt="Molten Choco Bliss" />
-                <h3>Molten Choco Bliss</h3>
-                <p class="price">RM 9.00</p>
-                <p class="description">Warm chocolate lava cake served with a drizzle of chocolate syrup.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty18')">-</button>
-                    <input type="text" id="qty18" value="0" readonly>
-                    <button onclick="increaseQuantity('qty18')">+</button>
-                    <button onclick="addToCart(18, 'Molten Choco Bliss', 9.00)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item western" id="item-9">
+        <img src="img26.jpg" alt="Meatballs"/>
+        <h3>Meatballs</h3>
+        <p class="description">Juicy and flavorful beef or chicken meatballs, served with a rich tomato-based sauce, topped with grated Parmesan cheese, and paired with garlic bread or mashed potatoes.</p>
+        <p>Price: RM 9.90</p>
+        <button onclick="addToCart(9, 'Meatballs', 9.90)">Add to Cart</button>
+    </div>
 
-            <div class="menu-item sweet desserts" id="item-19">
-                <img src="P24.jpg" alt="Fantasy Sundae Boat"/>
-                <h3>Fantasy Sundae Boat</h3>
-                <p class="price">RM 5.50</p>
-                <p class="description">Creamy ice cream topped with berries, sprinkles, and wafer sticks.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty19')">-</button>
-                    <input type="text" id="qty19" value="0" readonly>
-                    <button onclick="increaseQuantity('qty19')">+</button>
-                    <button onclick="addToCart(19, 'Fantasy Sundae Boat', 5.50)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item western" id="item-10">
+        <img src="img27.jpg" alt="Golden Shrimp Delight"/>
+        <h3>Golden Shrimp Delight</h3>
+        <p class="description">Crispy fried shrimps coated in golden breadcrumbs, accompanied by a tangy tartar sauce and a side of fresh salad.</p>
+        <p>Price: RM 15.90</p>
+        <button onclick="addToCart(10, 'Golden Shrimp Delight', 15.90)">Add to Cart</button>
+    </div>
+</div>
 
-            <div class="menu-item sweet desserts" id="item-20">
-                <img src="P27.jpg" alt="Festive Fruit Bundt (3 pcs)"/>
-                <h3>Festive Fruit Bundt (3 pcs)</h3>
-                <p class="price">RM 10.00</p>
-                <p class="description">Mini bundt cakes garnished with pomegranate seeds and glaze.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty20')">-</button>
-                    <input type="text" id="qty20" value="0" readonly>
-                    <button onclick="increaseQuantity('qty20')">+</button>
-                    <button onclick="addToCart(20, 'Festive Fruit Bundt (3 pcs)', 10.00)">Add To Cart</button>
-                </div>
-            </div>
+<div class="menu-grid">
+    <!-- Asian Choices -->
+    <div class="menu-item asian" id="item-11">
+        <img src="P35.jpg" alt="Nasi Lemak Delight"/>
+        <h3>Nasi Lemak Delight</h3>
+        <p class="description">Classic coconut rice served with sambal, boiled egg, peanuts, and anchovies.</p>
+        <p>Price: RM 12.00</p>
+        <button onclick="addToCart(11, 'Nasi Lemak Delight', 12.00)">Add to Cart</button>
+    </div>
 
-            <div class="menu-item sweet desserts" id="item-21">
-                <img src="P29.jpg" alt="Dish Tropical Mango Sago Delight" />
-                <h3>Tropical Mango Sago Delight</h3>
-                <p class="price">RM 7.00</p>
-                <p class="description">Chilled sago dessert with mango cubes and creamy coconut milk.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty21')">-</button>
-                    <input type="text" id="qty21" value="0" readonly>
-                    <button onclick="increaseQuantity('qty21')">+</button>
-                    <button onclick="addToCart(21, 'Tropical Mango Sago Delight', 7.00)">Add To Cart</button>
-                </div>
-            </div>
-            <div class="menu-item sweet desserts" id="item-22">
-                <img src="P26.jpg" alt="Caramel Custard Perfection"/>
-                <h3>Caramel Custard Perfection</h3>
-                <p class="price">RM 8.30</p>
-                <p class="description">Silky smooth flan topped with golden caramel.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty22')">-</button>
-                    <input type="text" id="qty22" value="0" readonly>
-                    <button onclick="increaseQuantity('qty22')">+</button>
-                    <button onclick="addToCart(22, 'Caramel Custard Perfection', 8.30)">Add To Cart</button>
-                </div>
-            </div>
-            <div class="menu-item sweet desserts" id="item-23">
-                <img src="P28.jpg" alt="Muffins"/>
-                <h3>Muffins</h3>
-                <p class="price">RM 6.50</p>
-                <p class="description">Soft, fluffy steamed muffins topped
-                     with shredded coconut for a delightful tropical treat.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty23')">-</button>
-                    <input type="text" id="qty23" value="0" readonly>
-                    <button onclick="increaseQuantity('qty23')">+</button>
-                    <button onclick="addToCart(23, 'Muffins', 6.50)">Add To Cart</button>
-                </div>
-            </div>
-            <div class="menu-item sweet desserts" id="item-24">
-                <img src="P23.jpg" alt="Mini Chocolate Cheesecakes"/>
-                <h3>Mini Chocolate Cheesecakes</h3>
-                <p class="price">RM 6.50 </p>
-                <p class="description">Rich, creamy cheesecakes with a chocolate base, topped with whipped cream,
-                     cocoa dust, and chocolate shards for a decadent finish.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty24')">-</button>
-                    <input type="text" id="qty24" value="0" readonly>
-                    <button onclick="increaseQuantity('qty24')">+</button>
-                    <button onclick="addToCart(24, 'Mini Chocolate Cheesecakes', 6.50)">Add To Cart</button>
-                </div>
-            </div>
-            
-            
+    <div class="menu-item asian" id="item-12">
+        <img src="P15.jpg" alt="Festive Banana Leaf Treat"/>
+        <h3>Festive Banana Leaf Treat</h3>
+        <p class="description">Rice with curries, chutneys, and crispy papadom, served on a banana leaf.</p>
+        <p>Price: RM 18.90</p>
+        <button onclick="addToCart(12, 'Festive Banana Leaf Treat', 18.90)">Add to Cart</button>
+    </div>
 
-             <!-- Drinks & Coffee-->
-             <div class="menu-item drinks" id="item-25">
-                <img src="img7.jpg" alt="Iced Coffee" />
-                <h3>Iced Coffee</h3>
-                <p class="price">RM 10.90</p>
-                <p class="description">A refreshing and bold iced coffee blend, 
-                     perfect for a cool and energizing treat during any time of the day.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty25')">-</button>
-                    <input type="text" id="qty25" value="0" readonly>
-                    <button onclick="increaseQuantity('qty25')">+</button>
-                    <button onclick="addToCart(25, 'Iced Coffee', 10.90)">Add To Cart</button>
-                </div>
-            </div>
+    <div class="menu-item asian" id="item-13">
+        <img src="P18.jpg" alt="Spicy Kampung Platter"/>
+        <h3>Spicy Kampung Platter</h3>
+        <p class="description">A mix of rice, grilled fish, sambal, and assorted fresh veggies.</p>
+        <p>Price: RM 15.00</p>
+        <button onclick="addToCart(13, 'Spicy Kampung Platter', 15.00)">Add to Cart</button>
+    </div>
 
-            <div class="menu-item drinks" id="item-26">
-                <img src="img8.jpg" alt="Coffee Milkshake"  />
-                <h3>Coffee Milkshake</h3>
-                <p class="price">RM 13.90</p>
-                <p class="description">A creamy, sweet combination of rich coffee 
+    <div class="menu-item asian" id="item-14">
+        <img src="P16.jpg" alt="Tangy Asam Pedas Bowl"/>
+        <h3>Tangy Asam Pedas Bowl</h3>
+        <p class="description">A spicy and sour fish curry with vibrant flavors.</p>
+        <p>Price: RM 14.00</p>
+        <button onclick="addToCart(14, 'Tangy Asam Pedas Bowl', 14.00)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item asian" id="item-15">
+        <img src="P17.jpg" alt="Sweet Rendang Bliss"/>
+        <h3>Sweet Rendang Bliss</h3>
+        <p class="description">Tender beef rendang coated in rich, creamy spices.</p>
+        <p>Price: RM 20.00</p>
+        <button onclick="addToCart(15, 'Sweet Rendang Bliss', 20.00)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item asian" id="item-16">
+        <img src="P14.jpg" alt="Golden Laksa Supreme"/>
+        <h3>Golden Laksa Supreme</h3>
+        <p class="description">Fragrant curry noodles with prawns, tofu, and fresh herbs.</p>
+        <p>Price: RM 7.90</p>
+        <button onclick="addToCart(16, 'Golden Laksa Supreme', 7.90)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item asian" id="item-17">
+        <img src="P81.jpg" alt="Chicken Rice"/>
+        <h3>Chicken Rice</h3>
+        <p class="description">Fragrant yellow rice served with spicy grilled chicken and
+            fresh cucumber slices.</p>
+        <p>Price: RM 8.90</p>
+        <button onclick="addToCart(17, 'Chicken Rice', 8.90)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item asian" id="item-18">
+        <img src="P82.jpg" alt="Seafood Curry Mee"/>
+        <h3>Seafood Curry Mee</h3>
+        <p class="description">Rich curry noodles topped with prawns, squid, egg, and fresh vegetables.</p>
+        <p>Price: RM 7.00</p>
+        <button onclick="addToCart(18, 'Seafood Curry Mee', 7.00)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item asian" id="item-19">
+        <img src="img28.jpg" alt="Spice Infusion Fried Rice"/>
+        <h3>Spice Infusion Fried Rice</h3>
+        <p class="description">Fragrant stir-fried rice with mixed vegetables, eggs, and your choice of chicken or seafood, seasoned with soy sauce and spices</p>
+        <p>Price: RM 12.50</p>
+        <button onclick="addToCart(19, 'Spice Infusion Fried Rice', 12.50)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item asian" id="item-20">
+        <img src="img29.jpg" alt="Biryani Rice with Chicken Masala"/>
+        <h3>Biryani Rice with Chicken Masala</h3>
+        <p class="description">Aromatic basmati rice cooked with exotic spices, saffron, and herbs, paired with tender chicken masala in a rich and spicy gravy.</p>
+        <p>Price: RM 18.50</p>
+        <button onclick="addToCart(20, 'Biryani Rice with Chicken Masala', 18.50)">Add to Cart</button>
+    </div>
+</div>
+
+    <div class="menu-grid">
+    <!-- Sweet Desserts -->
+    <div class="menu-item desserts" id="item-21">
+        <img src="P21.jpg" alt="Strawberry Dream Pavlova"/>
+        <h3>Strawberry Dream Pavlova</h3>
+        <p class="description">Crispy meringue topped with whipped cream and fresh strawberries.</p>
+        <p>Price: RM 8.00</p>
+        <button onclick="addToCart(21, 'Strawberry Dream Pavlova', 8.00)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-22">
+        <img src="P22.jpg" alt="Molten Choco Bliss"/>
+        <h3>Molten Choco Bliss</h3>
+        <p class="description">Warm chocolate lava cake served with a drizzle of chocolate syrup.</p>
+        <p>Price: RM 9.00</p>
+        <button onclick="addToCart(22, 'Molten Choco Bliss', 9.00)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-23">
+        <img src="P24.jpg" alt="Fantasy Sundae Boat"/>
+        <h3>Fantasy Sundae Boat</h3>
+        <p class="description">Creamy ice cream topped with berries, sprinkles, and wafer sticks.</p>
+        <p>Price: RM 5.50</p>
+        <button onclick="addToCart(23, 'Fantasy Sundae Boat', 5.50)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-24">
+        <img src="P27.jpg" alt="Festive Fruit Bundt (3 pcs)"/>
+        <h3>Festive Fruit Bundt (3 pcs)</h3>
+        <p class="description">Mini bundt cakes garnished with pomegranate seeds and glaze.</p>
+        <p>Price: RM 10.00</p>
+        <button onclick="addToCart(24, 'Festive Fruit Bundt (3 pcs)', 10.00)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-25">
+        <img src="P29.jpg" alt="Dish Tropical Mango Sago Delight"/>
+        <h3>Dish Tropical Mango Sago Delight</h3>
+        <p class="description">Chilled sago dessert with mango cubes and creamy coconut milk.</p>
+        <p>Price: RM 7.00</p>
+        <button onclick="addToCart(25, 'Dish Tropical Mango Sago Delight', 7.00)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-26">
+        <img src="P26.jpg" alt="Caramel Custard Perfection"/>
+        <h3>Caramel Custard Perfection</h3>
+        <p class="description">Silky smooth flan topped with golden caramel.</p>
+        <p>Price: RM 8.30</p>
+        <button onclick="addToCart(26, 'Caramel Custard Perfection', 8.30)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-27">
+        <img src="P28.jpg" alt="Muffins"/>
+        <h3>Muffins</h3>
+        <p class="description">Soft, fluffy steamed muffins topped
+            with shredded coconut for a delightful tropical treat.</p>
+        <p>Price: RM 6.50</p>
+        <button onclick="addToCart(27, 'Muffins', 6.50)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-28">
+        <img src="P23.jpg" alt="Mini Chocolate Cheesecakes"/>
+        <h3>Mini Chocolate Cheesecakes</h3>
+        <p class="description">Rich, creamy cheesecakes with a chocolate base, topped with whipped cream,
+            cocoa dust, and chocolate shards for a decadent finish.</p>
+        <p>Price: RM 6.50</p>
+        <button onclick="addToCart(28, 'Mini Chocolate Cheesecakes', 6.50)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-29">
+        <img src="img30.jpg" alt="Fudgy Brownies"/>
+        <h3>Fudgy Brownies</h3>
+        <p class="description">Decadent chocolate brownies with a gooey center, crispy edges, and topped with a dusting of cocoa powder or a drizzle of chocolate sauce..</p>
+        <p>Price: RM 8.90</p>
+        <button onclick="addToCart(29, 'Fudgy Brownies', 8.90)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item desserts" id="item-30">
+        <img src="img31.jpg" alt="Tiramisu"/>
+        <h3>Tiramisu</h3>
+        <p class="description">A classic Italian dessert layered with coffee-soaked ladyfingers, mascarpone cheese, and a hint of cocoa powder.</p>
+        <p>Price: RM 12.00</p>
+        <button onclick="addToCart(30, 'Tiramisu', 12.00)">Add to Cart</button>
+    </div>
+</div>
+
+    <div class="menu-grid">
+    <!-- Drinks & Coffee -->
+    <div class="menu-item drinks" id="item-31">
+        <img src="img7.jpg" alt="Iced Coffee"/>
+        <h3>Iced Coffee</h3>
+        <p class="description">A refreshing and bold iced coffee blend, 
+            perfect for a cool and energizing treat during any time of the day.</p>
+        <p>Price: RM 10.90</p>
+        <button onclick="addToCart(31, 'Iced Coffee', 10.90)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item drinks" id="item-32">
+            <img src="img8.jpg" alt="Coffee Milkshake"/>
+            <h3>Coffee Milkshake</h3>
+            <p class="description">A creamy, sweet combination of rich coffee 
                 and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty26')">-</button>
-                    <input type="text" id="qty26" value="0" readonly>
-                    <button onclick="increaseQuantity('qty26')">+</button>
-                    <button onclick="addToCart(26, 'Coffee Milkshake', 13.90)">Add To Cart</button>
-                </div>
+            <p>Price: RM 13.90</p>
+            <button onclick="addToCart(32, 'Coffee Milkshake', 13.90)">Add to Cart</button>
             </div>
 
-            <div class="menu-item drinks" id="item-27">
-                <img src="img19.jpg" alt="Matcha Milkshake" />
-                <h3>Matcha Milkshake</h3>
-                <p class="price">RM 9.90</p>
-                <p class="description">Refreshing blend of creamy milk and premium matcha, topped with whipped cream and a sprinkle of matcha powder.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty27')">-</button>
-                    <input type="text" id="qty27" value="0" readonly>
-                    <button onclick="increaseQuantity('qty27')">+</button>
-                    <button onclick="addToCart(27, 'Matcha Milkshake', 9.90)">Add To Cart</button>
-                </div>
+        <div class="menu-item drinks" id="item-33">
+            <img src="img19.jpg" alt="Matcha Milkshake"/>
+            <h3>Matcha Milkshake</h3>
+            <p class="description">Refreshing blend of creamy milk and premium matcha, topped with whipped cream and a sprinkle of matcha powder.</p>
+            <p>Price: RM 9.90</p>
+            <button onclick="addToCart(33, 'Matcha Milkshake', 9.90)">Add to Cart</button>
             </div>
 
-            <div class="menu-item drinks" id="item-28">
-                <img src="img9.jpg" alt="Hot Espresso"/>
-                <h3>Hot Espresso</h3>
-                <p class="price">RM 8.90</p>
-                <p class="description">A strong and aromatic espresso, 
-                    made with the finest beans to offer a bold and invigorating coffee experience.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty28')">-</button>
-                    <input type="text" id="qty28" value="0" readonly>
-                    <button onclick="increaseQuantity('qty28')">+</button>
-                    <button onclick="addToCart(28, 'Hot Espresso 8.90)">Add To Cart</button>
-                </div>
+        <div class="menu-item drinks" id="item-34">
+            <img src="img9.jpg" alt="Hot Espresso"/>
+            <h3>Hot Espresso</h3>
+            <p class="description">A strong and aromatic espresso, 
+                made with the finest beans to offer a bold and invigorating coffee experience.</p>
+            <p>Price: RM 8.90</p>
+            <button onclick="addToCart(34, 'Hot Espresso', 8.90)">Add to Cart</button>
             </div>
 
-            <div class="menu-item drinks" id="item-29">
-                <img src="img10.jpg"  alt="Apple Juice"/>
-                <h3>Apple Juice</h3>
-                <p class="price">RM 15.00</p>
-                <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, 
-                    offering a natural and refreshing beverage perfect for any occasion.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty29')">-</button>
-                    <input type="text" id="qty29" value="0" readonly>
-                    <button onclick="increaseQuantity('qty29')">+</button>
-                    <button onclick="addToCart(29, 'Apple Juice', 15.00)">Add To Cart</button>
-                </div>
-            </div>
+        <div class="menu-item drinks" id="item-35">
+           <img src="img10.jpg" alt="Apple Juice"/>
+           <h3>Apple Juice</h3>
+           <p class="description">Freshly squeezed apple juice with a crisp, sweet taste, 
+            offering a natural and refreshing beverage perfect for any occasion.</p>
+           <p>Price: RM 15.00</p>
+           <button onclick="addToCart(35, 'Apple Juice', 15.00)">Add to Cart</button>
+           </div>
 
-            <div class="menu-item drinks" id="item-30>
-                <img src="img21.jpg" alt="Pineapple Juice"  />
-                <h3>Pineapple Juice</h3>
-                <p class="price">RM 13.00</p>
-                <p class="description">A tropical delight with a tangy and sweet flavor,
-                     made from fresh pineapples to transport you to a sunny paradise.</p>
-                     <div class="order-controls">
-                        <button onclick="decreaseQuantity('qty30')">-</button>
-                        <input type="text" id="qty30" value="0" readonly>
-                        <button onclick="increaseQuantity('qty30')">+</button>
-                        <button onclick="addToCart(30, 'Pineapple Juice', 13.00)">Add To Cart</button>
-               </div>
-            </div>
+        <div class="menu-item drinks" id="item-36">
+           <img src="img21.jpg" alt="Pineapple Juice"/>
+           <h3>Pineapple Juice</h3>
+           <p class="description">A tropical delight with a tangy and sweet flavor,
+            made from fresh pineapples to transport you to a sunny paradise.</p>
+           <p>Price: RM 13.00</p>
+           <button onclick="addToCart(36, 'Pineapple Juice', 13.00)">Add to Cart</button>
+           </div>
 
-            <div class="menu-item drinks" id="item-31">
-                <img src="img12.jpg" alt="Mango Juice" />
-                <h3>Mango Juice</h3>
-                <p class="price">RM 15.00</p>
-                <p class="description">A smooth, sweet, and refreshing mango juice made from ripe, 
-                    juicy mangoes, perfect for quenching your thirst on a hot day.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty31')">-</button>
-                    <input type="text" id="qty31" value="0" readonly>
-                    <button onclick="increaseQuantity('qty31')">+</button>
-                    <button onclick="addToCart(31, 'Mango Juice', 15.00)">Add To Cart</button>
-                </div>  
-            </div> 
-            
-            <div class="menu-item drinks" id="item-32">
-                <img src="img20.jpg" alt="Strawberry Juice" />
-                <h3>Strawberry Juice</h3>
-                <p class="price">RM 12.90</p>
-                <p class="description">Freshly blended strawberries with a touch of sugar and ice, creating a refreshing and naturally sweet drink.</p>
-                <div class="order-controls">
-                    <button onclick="decreaseQuantity('qty32')">-</button>
-                    <input type="text" id="qty32" value="0" readonly>
-                    <button onclick="increaseQuantity('qty32')">+</button>
-                    <button onclick="addToCart(32, 'Strawberry Juice', 12.90)">Add To Cart</button>
-                </div>  
-            </div>
+        <div class="menu-item drinks" id="item-37">
+           <img src="img12.jpg" alt="Mango Juice"/>
+           <h3>Mango Juice</h3>
+           <p class="description">A smooth, sweet, and refreshing mango juice made from ripe, 
+            juicy mangoes, perfect for quenching your thirst on a hot day.</p>
+           <p>Price: RM 15.00</p>
+           <button onclick="addToCart(37, 'Mango Juice', 15.00)">Add to Cart</button>
+           </div>
+
+        <div class="menu-item drinks" id="item-38">
+           <img src="img20.jpg" alt="Strawberry Juice"/>
+           <h3>Strawberry Juice</h3>
+           <p class="description">Freshly blended strawberries with a touch of sugar and ice, creating a refreshing and naturally sweet drink.</p>
+           <p>Price: RM 12.90</p>
+           <button onclick="addToCart(38, 'Strawberry Juice', 12.90)">Add to Cart</button>
+           </div>
+
+        <div class="menu-item drinks" id="item-39">
+           <img src="img32.jpg" alt="Cappucino"/>
+           <h3>Cappucino</h3>
+           <p class="description">A creamy and frothy coffee drink with a perfect balance of espresso, steamed milk, and foam, often garnished with a sprinkle of cocoa or cinnamon.</p>
+           <p>Price: RM 9.90</p>
+           <button onclick="addToCart(39, 'Cappucino', 9.90)">Add to Cart</button>
+           </div>
+
+        <div class="menu-item drinks" id="item-40">
+           <img src="img33.jpg" alt="Orange Juice"/>
+           <h3>Orange Juice</h3>
+           <p class="description">Freshly squeezed orange juice packed with vitamins and refreshing citrus flavors.</p>
+           <p>Price: RM 8.90</p>
+           <button onclick="addToCart(40, 'Orange Juice', 8.90)">Add to Cart</button>
+           </div>
+        </div>      
     </section>
 
     <!-- Sidebar for Cart -->
@@ -769,11 +703,11 @@
     <div id="payment-options" style="display: none;">
         <h3>Select Payment Method</h3>
         <button onclick="showCreditCardForm()">Credit Card</button>
-        <button onclick="showOnlineBankingForm()">Online Banking</button> 
-    <!-- Credit Card Payment Form -->
-        <div id="credit-card-form" style="display: none;">
+        <button onclick="showOnlineBankingForm()">Online Banking</button>
 
-    <h4>Credit Card Payment</h4>
+        <!-- Credit Card Payment Form -->
+        <div id="credit-card-form" style="display: none;">
+            <h4>Credit Card Payment</h4>
             <form id="credit-card-details">
                 <input type="text" id="card-number" placeholder="Card Number" required><br>
                 <input type="text" id="expiration-date" placeholder="MM/YY" required><br>
@@ -797,10 +731,10 @@
                 <input type="password" id="bank-password" placeholder="Bank Password" required><br>
                 <button type="button" onclick="processOnlineBankingPayment()">Pay with Online Banking</button>
             </form>
-            </div>
+        </div>
     </div>
 
-          <!-- Receipt Section (Visible After Payment) -->
+    <!-- Receipt Section (Visible After Payment) -->
     <div id="receipt" style="display: none;">
         <h3>Receipt</h3>
         <p>Order Number: <span id="order-number"></span></p>
@@ -810,7 +744,7 @@
     </div>
 </div>
 
-    <div id="cart" style="display: none;">
+<div id="cart" style="display: none;">
     <h2>Your Cart</h2>
     <div id="cart-items"></div>
     <p id="cart-total"></p>
@@ -818,246 +752,227 @@
     <button onclick="proceedToPayment()">Pay Now</button>
 </div>
 
-    <footer>
-        <div class="social-icons">
-            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-                <img src="fb.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com" target="_blank">
-                <img src="ig.jpg" alt="Instagram">
-            </a>
-            <a href="https://www.tiktok.com" target="_blank">
-                <img src="tt.png" alt="TikTok">
-            </a>
-            <a href="https://www.twitter.com" target="_blank">
-                <img src="x.png" alt="Twitter">
-            </a>
-        </div>
-        <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
-    </footer>
+<footer>
+    <div class="social-icons">
+        <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo"></a>
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="fb.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="ig.jpg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com" target="_blank">
+            <img src="youtube.jpg" alt="YouTube">
+        </a>
+    </div>
+    <p>© 2025 Chef Kiss Restaurant</p>
+</footer>
 
-    <script>
-
-        // Functions to handle quantity changes
-        function decreaseQuantity(id) {
-            const qtyInput = document.getElementById(id);
-            let currentQty = parseInt(qtyInput.value);
-            if (currentQty > 1) {
-                qtyInput.value = currentQty - 1;
-            }
-        }
-    
-        function increaseQuantity(id) {
-            const qtyInput = document.getElementById(id);
-            let currentQty = parseInt(qtyInput.value);
-            qtyInput.value = currentQty + 1;
-        }
-        
+<script>
     let cart = [];
-    let orderNumber = 0;
-    let tableCounter = 10; // Start table number at 010 (equivalent to 10)
-    let orderDetails = {}; // To store order details after successful payment
+let orderNumber = 0;
+let tableCounter = 10; // Start table number at 010 (equivalent to 10)
+let orderDetails = {}; // To store order details after successful payment
 
-    // Function to open the cart and display its contents
-    function openCart() {
-        document.getElementById("cart-sidebar").style.width = "300px";
-        updateCart();
+// Function to open the cart and display its contents
+function openCart() {
+    document.getElementById("cart-sidebar").style.width = "500px"; // Increase sidebar width
+    updateCart();
+}
+
+// Function to close the cart
+function closeCart() {
+    document.getElementById("cart-sidebar").style.width = "0";
+}
+
+// Function to add an item to the cart
+function addToCart(id, name, price) {
+    // Check if the item already exists in the cart
+    const itemIndex = cart.findIndex(item => item.id === id && item.price === price);
+    
+    // If item is found, increase its quantity
+    if (itemIndex !== -1) {
+        cart[itemIndex].quantity += 1;
+    } else {
+        // If item not found, add it to the cart
+        cart.push({ id, name, price, quantity: 1 });
     }
+    updateCart();
+}
 
-    // Function to close the cart
-    function closeCart() {
-        document.getElementById("cart-sidebar").style.width = "0";
-    }
+// Function to remove an item from the cart
+function removeFromCart(id, price) {
+    cart = cart.filter(item => !(item.id === id && item.price === price));
+    updateCart();
+}
 
-    // Function to add an item to the cart
-    function addToCart(id, name, price) {
-        const quantity = parseInt(document.getElementById(qty${id}).value);
-        if (quantity > 0) {
-            let itemIndex = cart.findIndex(item => item.id === id);
-            if (itemIndex !== -1) {
-                cart[itemIndex].quantity += quantity;
-            } else {
-                cart.push({id, name, price, quantity});
-            }
-            updateCart();
-        } else {
-            alert("Please select a quantity greater than 0.");
+// Function to update the quantity of an item in the cart
+function updateQuantity(id, price, newQuantity) {
+    newQuantity = parseInt(newQuantity);
+    if (newQuantity > 0) {
+        const itemIndex = cart.findIndex(item => item.id === id && item.price === price);
+        if (itemIndex !== -1) {
+            cart[itemIndex].quantity = newQuantity;
         }
     }
+    updateCart();
+}
 
-    // Function to remove an item from the cart
-    function removeFromCart(id) {
-        cart = cart.filter(item => item.id !== id);
-        updateCart();
-    } 
 // Function to update the cart display
-    function updateCart() {
-        const cartItems = document.getElementById("cart-items");
-        cartItems.innerHTML = "";  // Clear the cart display
-        let total = 0;
+function updateCart() {
+    const cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = ""; // Clear the cart display
+    let total = 0;
 
-// Loop through cart items and update the cart display
-        cart.forEach(item => {
-            cartItems.innerHTML += `
-                <div class="cart-item">
-                    <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
-                    <button onclick="removeFromCart(${item.id})">Remove</button>
-                </div>
-            `;
-            total += item.price * item.quantity;
-        });
-        
- // Update the cart total and item count
-        document.getElementById("cart-count").textContent = cart.length;
-        document.getElementById("cart-total").textContent = total.toFixed(2);
-    }
+    // Loop through cart items and update the cart display
+    cart.forEach(item => {
+        cartItems.innerHTML += `
+            <div class="cart-item">
+                <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
+                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, ${item.price}, this.value)" />
+                <button onclick="removeFromCart(${item.id}, ${item.price})">Remove</button>
+            </div>
+        `;
+        total += item.price * item.quantity;
+    });
 
-    // Function to proceed to payment options
-    function proceedToPayment() {
-        if (cart.length === 0) {
-            alert("You must add items to your cart before proceeding with payment.");
-            return;
-        }
-        document.getElementById("payment-options").style.display = "block";
-    }
+    // Update the cart total and item count
+    document.getElementById("cart-count").textContent = cart.length;
+    document.getElementById("cart-total").textContent = total.toFixed(2);
+}
 
-// Function to show the Credit Card payment form
-    function showCreditCardForm() {
-        document.getElementById("credit-card-form").style.display = "block";
-        document.getElementById("online-banking-form").style.display = "none";
+// Function to proceed to payment options
+function proceedToPayment() {
+    if (cart.length === 0) {
+        alert("You must add items to your cart before proceeding with payment.");
+        return;
     }
-
-    // Function to show the Online Banking payment form
-    function showOnlineBankingForm() {
-        document.getElementById("online-banking-form").style.display = "block";
-        document.getElementById("credit-card-form").style.display = "none";
-    }
+    document.getElementById("payment-options").style.display = "block"; // Show payment options
+}
 
 // Function to process credit card payment
-    function processCreditCardPayment() {
-        const cardNumber = document.getElementById("card-number").value;
-        const expirationDate = document.getElementById("expiration-date").value;
-        const cvv = document.getElementById("cvv").value;
+function processCreditCardPayment() {
+    const cardNumber = document.getElementById("card-number").value;
+    const expirationDate = document.getElementById("expiration-date").value;
+    const cvv = document.getElementById("cvv").value;
 
-        if (!cardNumber  !expirationDate  !cvv) {
-            alert("Please fill in all credit card details.");
-            return;
-        }
-
-// Simulate successful payment
-        alert("Credit Card payment successful!");
-        orderNumber++;
-        updateTableNumber();
-        storeOrderDetails();
-        resetCart();
-        document.getElementById("payment-options").style.display = "none";
-        displayReceipt();
+    if (!cardNumber || !expirationDate || !cvv) {
+        alert("Please fill in all credit card details.");
+        return;
     }
 
-    // Function to process online banking payment
-    function processOnlineBankingPayment() {
-        const bankSelect = document.getElementById("bank-select").value;
-        const bankUsername = document.getElementById("bank-username").value;
-        const bankPassword = document.getElementById("bank-password").value;
+    // Simulate successful payment
+    alert("Credit Card payment successful!");
+    orderNumber++;
+    updateTableNumber();
+    storeOrderDetails();
+    resetCart();
+    document.getElementById("payment-options").style.display = "none";
+    displayReceipt();
+}
 
- if (!bankSelect  !bankUsername  !bankPassword) {
-            alert("Please fill in all online banking details.");
-            return;
-        }
+// Function to process online banking payment
+function processOnlineBankingPayment() {
+    const bankSelect = document.getElementById("bank-select").value;
+    const bankUsername = document.getElementById("bank-username").value;
+    const bankPassword = document.getElementById("bank-password").value;
 
-        // Simulate successful payment
-        alert("Online Banking payment successful!");
-        orderNumber++;
-        updateTableNumber();
-        storeOrderDetails();
-        resetCart();
-        document.getElementById("payment-options").style.display = "none";
-        displayReceipt();
+    if (!bankSelect || !bankUsername || !bankPassword) {
+        alert("Please fill in all online banking details.");
+        return;
     }
+
+    // Simulate successful payment
+    alert("Online Banking payment successful!");
+    orderNumber++;
+    updateTableNumber();
+    storeOrderDetails();
+    resetCart();
+    document.getElementById("payment-options").style.display = "none";
+    displayReceipt();
+}
 
 // Function to reset the cart after payment
-    function resetCart() {
-        cart = []; // Clear the cart
-        document.getElementById("cart-count").textContent = "0"; // Reset cart count
-        document.getElementById("cart-items").innerHTML = ""; // Clear the cart items display
-        document.getElementById("cart-total").textContent = "0.00"; // Reset total to 0
-        closeCart(); // Close the cart sidebar
-    }
+function resetCart() {
+    cart = []; // Clear the cart
+    document.getElementById("cart-count").textContent = "0"; // Reset cart count
+    document.getElementById("cart-items").innerHTML = ""; // Clear the cart items display
+    document.getElementById("cart-total").textContent = "0.00"; // Reset total to 0
+    closeCart(); // Close the cart sidebar
+}
 
-    // Function to update the table number (for tracking orders)
-    function updateTableNumber() {
-        // Increment table number by 10 and display the table number
-        tableCounter += 10;
-        document.getElementById("table-number").textContent = formatTableNumber(tableCounter);
-    } 
+// Function to update the table number (for tracking orders)
+function updateTableNumber() {
+    tableCounter += 10;
+    document.getElementById("table-number").textContent = formatTableNumber(tableCounter);
+}
 
 // Function to format the table number as a 3-digit string
-    function formatTableNumber(number) {
-        return number.toString().padStart(3, '0');
-    }
+function formatTableNumber(number) {
+    return number.toString().padStart(3, '0');
+}
 
-    // Function to store order details after payment
-    function storeOrderDetails() {
-        orderDetails = {
-            orderNumber: orderNumber,
-            tableNumber: formatTableNumber(tableCounter),
-            items: [...cart], // Make a copy of the current cart items
-        };
-    }
+// Function to store order details after payment
+function storeOrderDetails() {
+    orderDetails = {
+        orderNumber: orderNumber,
+        tableNumber: formatTableNumber(tableCounter),
+        items: [...cart], // Make a copy of the current cart items
+    };
+}
 
 // Function to display the receipt after payment
-    function displayReceipt() {
-        document.getElementById("receipt").style.display = "block";
-        document.getElementById("order-number").textContent = orderDetails.orderNumber;
-        document.getElementById("table-number").textContent = orderDetails.tableNumber;
+function displayReceipt() {
+    document.getElementById("receipt").style.display = "block";
+    document.getElementById("order-number").textContent = orderDetails.orderNumber;
+    document.getElementById("table-number").textContent = orderDetails.tableNumber;
 
-        const receiptItems = document.getElementById("receipt-items");
-        receiptItems.innerHTML = "";
-        orderDetails.items.forEach(item => {
-            receiptItems.innerHTML += `
-                <div class="receipt-item">
-                    <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
-                </div>
-            `;
-        });
-    }
+    const receiptItems = document.getElementById("receipt-items");
+    receiptItems.innerHTML = "";
+    orderDetails.items.forEach(item => {
+        receiptItems.innerHTML += `
+            <div class="receipt-item">
+                <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
+            </div>
+        `;
+    });
+}
+
+// Function to show the payment method options
+function showCreditCardForm() {
+    document.getElementById("credit-card-form").style.display = "block";
+    document.getElementById("online-banking-form").style.display = "none";
+}
+
+function showOnlineBankingForm() {
+    document.getElementById("credit-card-form").style.display = "none";
+    document.getElementById("online-banking-form").style.display = "block";
+}
+
+// Initially show Western Plates
+showCategory('western');
 
 // Function to show menu categories (Western, Asian, etc.)
-    function showCategory(category) {
-        document.querySelectorAll(".menu-item").forEach(item => {
-            item.style.display = item.classList.contains(category) ? "block" : "none";
-        });
-const image = document.getElementById('category-image');
-        if (category === 'western') {
-            image.src = 'P65.jpg';
-        } else if (category === 'asian') {
-            image.src = 'P66.jpg';
-        } else if (category === 'desserts') {
-            image.src = 'P64.jpg';
-        } else if (category === 'drinks') {
-            image.src = 'P67.jpg';
-        }
-    }
+function showCategory(category) {
+    document.querySelectorAll(".menu-item").forEach(item => {
+        item.style.display = item.classList.contains(category) ? "block" : "none";
+    });
 
-    // Initially show Western Plates
-    showCategory('western');
-
-// Function to increase the quantity of an item in the menu
-    function increaseQuantity(id) {
-        const quantityField = document.getElementById(id);
-        quantityField.value = parseInt(quantityField.value) + 1;
+    const image = document.getElementById('category-image');
+    if (category === 'western') {
+        image.src = 'P65.jpg';
+    } else if (category === 'asian') {
+        image.src = 'P66.jpg';
+    } else if (category === 'desserts') {
+        image.src = 'P64.jpg';
+    } else if (category === 'drinks') {
+        image.src = 'P67.jpg';
     }
+}
 
-    // Function to decrease the quantity of an item in the menu
-    function decreaseQuantity(id) {
-        const quantityField = document.getElementById(id);
-        if (parseInt(quantityField.value) > 0) {
-            quantityField.value = parseInt(quantityField.value) - 1;
-        }
-    }
-        
-    </script>
+</script>
+
+
+
 </body>
 </html>
