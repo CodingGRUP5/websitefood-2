@@ -159,14 +159,14 @@
 <body>
 
     <!-- Login Form -->
-    <div class="form-container" id="login-form">
-        <h2>Login</h2>
-        <form action="login-action.php" method="POST">
-            <input type="text" placeholder="Enter Username" name="username" required>
-            <input type="email" placeholder="Enter Email" name="email" required>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <button type="submit">Sign In</button>
-        </form>
+    <!-- Login Form -->
+    <form id="login-form">
+    <input type="text" placeholder="Enter Username" name="username" required>
+    <input type="email" placeholder="Enter Email" name="email" required>
+    <input type="password" placeholder="Enter Password" name="password" required>
+    <button type="submit">Sign In</button>
+</form>
+
         
         <div class="links">
             <a href="#" id="forgot-password-link">Forgot Password?</a><br>
@@ -218,6 +218,24 @@
     
         <!-- Update only the JavaScript part -->
 <script>
+
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Prevent the form from submitting traditionally
+
+        // Perform basic validation (if necessary)
+        const username = loginForm.querySelector('input[name="username"]').value;
+        const email = loginForm.querySelector('input[name="email"]').value;
+        const password = loginForm.querySelector('input[name="password"]').value;
+
+        if (username && email && password) {
+            // Redirect to the homepage
+            window.location.href = 'index.html';
+        } else {
+            alert('Please fill out all fields.');
+        }
+
     const forgotPasswordLink = document.getElementById('forgot-password-link');
     const signupLink = document.getElementById('signup-link');
     const backToLoginFromForgot = document.getElementById('back-to-login-from-forgot');
