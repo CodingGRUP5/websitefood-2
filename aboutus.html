@@ -270,7 +270,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 20px; 
-            flex-wrap: nowrap; /
+            flex-wrap: nowrap;
         }
 
         .contact-info {
@@ -345,37 +345,43 @@
         }
 
         .contact-image {
-            width: 100%; /* Ensure image is responsive */
-            max-width: 90%; /* Restrict maximum width of the image */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 10px; /* Rounded corners for elegance */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+            width: 100%;
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
         }
 
         .contact-image:hover {
             transform: scale(1.1);
-            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4); 
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 768px) {
-        .contact-container {
-            flex-direction: column; /* Stack sections vertically */
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info, .contact-picture {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .contact-picture {
+                margin-top: 20px;
+            }
+
+            .contact-image {
+                max-width: 100%;
+            }
         }
 
-        .contact-info, .contact-picture {
-            flex: 1 1 100%; /* Full width for both sections */
-            max-width: 100%;
+        .success-message {
+            display: none;
+            color: green;
+            font-weight: bold;
         }
-
-        .contact-picture {
-            margin-top: 20px;
-        }
-
-        .contact-image {
-            max-width: 100%; /* Image adapts to smaller screens */
-  }
-}
 
         .hero-section {
             position: relative;
@@ -476,6 +482,7 @@
         transform: scale(1.2);
         }
         
+
     </style>
 </head>
 <body>
@@ -493,7 +500,7 @@
             <ul>
                 <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="#menu"><i class="fa-solid fa-utensils"></i> Menu</a></li>
-                <li><a href="promotion.html"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+                <li><a href="#"><i class="fa-solid fa-tags"></i> Promotion</a></li>
                 <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
                 <li><a href="aboutus.html"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
             </ul>
@@ -559,37 +566,38 @@
         </div>
       </section>
 
-      <section class="contact-us">
-        <h2>CONTACT US</h2>
-        <div class="contact-container">
-          <div class="contact-info">
+     <section class="contact-us">
+    <h2>CONTACT US</h2>
+    <div class="contact-container">
+        <div class="contact-info">
             <div class="contact-details">
-              <p><strong>Address:</strong>  23 Jalan Kiara 5, Mont Kiara, 50480 Kuala Lumpur, Malaysia</p>
-              <p><strong>Phone:</strong> +05 042 345 621</p>
-              <p><strong>Email:</strong> chefkissrestaurant@gmail.com</p>
-              <p><strong>Working Hours:</strong> Monday - Saturday: 10:00 AM - 10:00 PM. Closed on Sunday</p> 
+                <p><strong>Address:</strong> 23 Jalan Kiara 5, Mont Kiara, 50480 Kuala Lumpur, Malaysia</p>
+                <p><strong>Phone:</strong> +05 042 345 621</p>
+                <p><strong>Email:</strong> chefkissrestaurant@gmail.com</p>
+                <p><strong>Working Hours:</strong> Monday - Saturday: 10:00 AM - 10:00 PM. Closed on Sunday</p> 
             </div>
             <div class="contact-form">
-              <form action="#" method="post">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-      
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
-      
-                <button type="submit" class="submit-btn">Send Message</button>
-              </form>
+                <form id="messageForm" onsubmit="showSuccessMessage(event)">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <div id="successMessage" class="success-message">Message sent successfully!</div>
             </div>
-          </div>
-      
-          <div class="contact-picture">
-            <img src="contact.jpg" alt="Chef Kiss Restaurant" class="contact-image" />
-          </div>
         </div>
-      </section>      
+
+        <div class="contact-picture">
+            <img src="contact.jpg" alt="Chef Kiss Restaurant" class="contact-image" />
+        </div>
+    </div>
+</section>
     
       <footer>
         <div class="social-icons">
@@ -629,6 +637,13 @@
         
                 observer.observe(heroContent);
             });
-        </script>
+
+            function showSuccessMessage(event) {
+        event.preventDefault();  
+        document.getElementById('successMessage').style.display = 'block';  
+        document.getElementById('messageForm').reset();  
+    }
+    </script>
+       
 </body>
 </html>
