@@ -237,6 +237,67 @@
         footer .social-icons a img:hover {
             transform: scale(1.2);
         }
+
+        /* Sidebar styles */
+        #cart-sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+            color: #fff;
+        }
+
+        #cart-sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #cart-sidebar a:hover {
+            color: #ffcc66;
+        } 
+        
+        #cart-sidebar .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            color: #ffcc66;
+            cursor: pointer;
+        }
+
+        #cart-items {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+
+        .cart-item {
+            margin-bottom: 1rem;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .cart-item button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-item button:hover {
+            background: #ff4d4d;
+        }
     </style>
 </head>
 <body>
@@ -249,15 +310,16 @@
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
             <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
             <li><a href="promotion.html"><i class="fa-solid fa-tags"></i> Promotion</a></li>
-            <li><a href="style reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+            <li><a href="reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
             <li><a href="aboutus.html"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
         </ul>
 
         <div class="cart-login">
-            <a href="Add to Cart.html"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</a>
+            <a href="javascript:void(0)" onclick="openCart()"><i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart-count">0</span>)</a>
             <a href="login.html"><i class="fa-solid fa-user"></i>Login</a>
         </div>
     </nav>
+    
     <section class="menu-section" id="menu">
         <h2>OUR MENU</h2>
         <div class="menu-categories">
@@ -281,9 +343,9 @@
                     <p class="description">Classic Italian pasta with a rich, hearty sauce.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty1')">-</button>
-                        <input type="text" value="1" id="qty1" readonly>
+                        <input type="number" id="qty1" value="0" readonly>
                         <button onclick="increaseQuantity('qty1')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(1, 'Spaghetti Bolognese', 14.90)">Add to Cart</button>
+                        <button onclick="addToCart(1, 'Spaghetti Bolognese', 14.90)">Add to Cart</button>
                     </div>
                 </div>
     
@@ -294,9 +356,9 @@
                     <p class="description">Crispy and flavorful chicken wings, perfect for sharing.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty2')">-</button>
-                        <input type="text" value="1" id="qty2" readonly>
+                        <input type="text" id="qty2" value="0" readonly>
                         <button onclick="increaseQuantity('qty2')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(2, 'Chicken Wings (6 Pcs)', 10.90)">Add to Cart</button>
+                        <button onclick="addToCart(2, 'Chicken Wings (6 Pcs)', 10.90)">Add to Cart</button>
                     </div>
                 </div>
     
@@ -307,9 +369,9 @@
                     <p class="description">Juicy beef patty served with crispy wedges.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty3')">-</button>
-                        <input type="text" value="1" id="qty3" readonly>
+                        <input type="text" id="qty3" value="0" readonly>
                         <button onclick="increaseQuantity('qty3')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(3, 'Beef Burger with Wedges', 13.90)">Add To Cart</button>
+                        <button onclick="addToCart(3, 'Beef Burger with Wedges', 13.90)">Add To Cart</button>
                     </div>
                 </div>
     
@@ -320,9 +382,9 @@
                     <p class="description">A classic pizza topped with pepperoni, mozzarella, and tomato sauce.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty4')">-</button>
-                        <input type="text" value="1" id="qty4" readonly>
+                        <input type="text" id="qty4" value="0" readonly>
                         <button onclick="increaseQuantity('qty4')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(4, 'Pepperoni Pizza', 11.90)">Add To Cart</button>
+                        <button onclick="addToCart(4, 'Pepperoni Pizza', 11.90)">Add To Cart</button>
                     </div>
                 </div>
     
@@ -333,9 +395,9 @@
                     <p class="description">A rich and flavorful lasagna with layers of pasta, meat, and cheese.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty5')">-</button>
-                        <input type="text" value="1" id="qty5" readonly>
+                        <input type="text" id="qty5" value="0" readonly>
                         <button onclick="increaseQuantity('qty5')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(5, 'Lasagna', 12.90)">Add To Cart</button>
+                        <button onclick="addToCart(5, 'Lasagna', 12.90)">Add To Cart</button>
                     </div>
                 </div>
                 <div class="menu-item western" id="item-6">
@@ -345,9 +407,9 @@
                     <p class="description">Tender roasted lamb served with creamy mashed potatoes and gravy.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty6')">-</button>
-                        <input type="text" value="1" id="qty6" readonly>
+                        <input type="text" id="qty6" value="0" readonly>
                         <button onclick="increaseQuantity('qty6')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(6, 'Roasted Lamb with Mashed Potatoes', 12.00)">Add To Cart</button>
+                        <button onclick="addToCart(6, 'Roasted Lamb with Mashed Potatoes', 12.00)">Add To Cart</button>
                     </div>
                 </div>
                 <div class="menu-item western" id="item-7">
@@ -357,9 +419,9 @@
                     <p class="description">Crispy, golden-brown chicken tenders marinated in spices, served with a side of tangy dipping sauce.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty7')">-</button>
-                        <input type="text" value="1" id="qty7" readonly>
+                        <input type="text" id="qty7" value="0" readonly>
                         <button onclick="increaseQuantity('qty7')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(7, 'Chicken Tenders', 12.90)">Add To Cart</button>
+                        <button onclick="addToCart(7, 'Chicken Tenders', 12.90)">Add To Cart</button>
                     </div>
                 </div>
                 <div class="menu-item western" id="item-8">
@@ -369,9 +431,9 @@
                     <p class="description">Soft tortillas filled with seasoned minced beef, fresh lettuce, diced tomatoes, onions, grated cheese, and a drizzle of sour cream.</p>
                     <div class="order-controls">
                         <button onclick="decreaseQuantity('qty8')">-</button>
-                        <input type="text" value="1" id="qty8" readonly>
+                        <input type="text" id="qty8" value="0" readonly>
                         <button onclick="increaseQuantity('qty8')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(8, 'Beef Tacos', 14.90)">Add To Cart</button>
+                        <button onclick="addToCart(8, 'Beef Tacos', 14.90)">Add To Cart</button>
                     </div>
                 </div>
 
@@ -383,9 +445,9 @@
                 <p class="description">Classic coconut rice served with sambal, boiled egg, peanuts, and anchovies.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty9')">-</button>
-                    <input type="text" value="1" id="qty9" readonly>
+                    <input type="text" id="qty9" value="0" readonly>
                     <button onclick="increaseQuantity('qty9')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(9, 'Nasi Lemak Delight', 12.00)">Add To Cart</button>
+                    <button onclick="addToCart(9, 'Nasi Lemak Delight', 12.00)">Add To Cart</button>
                 </div>
             </div>
             <div class="menu-item asian" id="item-10">
@@ -395,9 +457,9 @@
                 <p class="description">Rice with curries, chutneys, and crispy papadom, served on a banana leaf.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty10')">-</button>
-                    <input type="text" value="1" id="qty10" readonly>
+                    <input type="text" id="qty10" value="0" readonly>
                     <button onclick="increaseQuantity('qty10')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(10, 'Festive Banana Leaf Treat', 18.90)">Add To Cart</button>
+                    <button onclick="addToCart(10, 'Festive Banana Leaf Treat', 18.90)">Add To Cart</button>
                 </div>
             </div>
 
@@ -408,9 +470,9 @@
                 <p class="description">A mix of rice, grilled fish, sambal, and assorted fresh veggies.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty11')">-</button>
-                    <input type="text" value="1" id="qty11" readonly>
+                    <input type="text" id="qty11" value="0" readonly>
                     <button onclick="increaseQuantity('qty11')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(11, 'Spicy Kampung Platter', 15.00)">Add To Cart</button>
+                    <button onclick="addToCart(11, 'Spicy Kampung Platter', 15.00)">Add To Cart</button>
                 </div>
             </div>
 
@@ -421,9 +483,9 @@
                 <p class="description">A spicy and sour fish curry with vibrant flavors.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty12')">-</button>
-                    <input type="text" value="1" id="qty12" readonly>
+                    <input type="text" id="qty12" value="0" readonly>
                     <button onclick="increaseQuantity('qty12')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(12, 'Tangy Asam Pedas Bowl', 14.00)">Add To Cart</button>
+                    <button onclick="addToCart(12, 'Tangy Asam Pedas Bowl', 14.00)">Add To Cart</button>
                 </div>
             </div>
 
@@ -434,9 +496,9 @@
                 <p class="description">Tender beef rendang coated in rich, creamy spices.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty13')">-</button>
-                    <input type="text" value="1" id="qty13" readonly>
+                    <input type="text" id="qty13" value="0" readonly>
                     <button onclick="increaseQuantity('qty13')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(13, 'Sweet Rendang Bliss', 20.00)">Add To Cart</button>
+                    <button onclick="addToCart(13, 'Sweet Rendang Bliss', 20.00)">Add To Cart</button>
                 </div>
             </div>
             <div class="menu-item asian" id="item-14">
@@ -446,9 +508,9 @@
                 <p class="description">Fragrant curry noodles with prawns, tofu, and fresh herbs.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty14')">-</button>
-                    <input type="text" value="1" id="qty14" readonly>
+                    <input type="text" id="qty14" value="0" readonly>
                     <button onclick="increaseQuantity('qty14')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(14, Golden Laksa Supreme', 7.90)">Add To Cart</button>
+                    <button onclick="addToCart(14, Golden Laksa Supreme', 7.90)">Add To Cart</button>
                 </div>
             </div>
             <div class="menu-item asian" id="item-15">
@@ -459,9 +521,9 @@
                      fresh cucumber slices.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty15')">-</button>
-                    <input type="text" value="1" id="qty15" readonly>
+                    <input type="text" id="qty15" value="0" readonly>
                     <button onclick="increaseQuantity('qty15')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(15, 'Chicken Rice', 8.90)">Add To Cart</button>
+                    <button onclick="addToCart(15, 'Chicken Rice', 8.90)">Add To Cart</button>
                 </div>
             </div>
             <div class="menu-item asian" id="item-16">
@@ -471,9 +533,9 @@
                 <p class="description">Rich curry noodles topped with prawns, squid, egg, and fresh vegetables.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty16')">-</button>
-                    <input type="text" value="1" id="qty16" readonly>
+                    <input type="text" id="qty16" value="0" readonly>
                     <button onclick="increaseQuantity('qty16')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(16, 'Seafood Curry Mee', 7.00)">Add To Cart</button>
+                    <button onclick="addToCart(16, 'Seafood Curry Mee', 7.00)">Add To Cart</button>
                 </div>
             </div>
 
@@ -485,9 +547,9 @@
                 <p class="description">Crispy meringue topped with whipped cream and fresh strawberries.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty17')">-</button>
-                    <input type="text" value="1" id="qty17" readonly>
+                    <input type="text" id="qty17" value="0" readonly>
                     <button onclick="increaseQuantity('qty17')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(17, 'Strawberry Dream Pavlova', 8.00)">Add To Cart</button>
+                    <button onclick="addToCart(17, 'Strawberry Dream Pavlova', 8.00)">Add To Cart</button>
                 </div>
             </div>
 
@@ -498,9 +560,9 @@
                 <p class="description">Warm chocolate lava cake served with a drizzle of chocolate syrup.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty18')">-</button>
-                    <input type="text" value="1" id="qty18" readonly>
+                    <input type="text" id="qty18" value="0" readonly>
                     <button onclick="increaseQuantity('qty18')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(18, 'Molten Choco Bliss', 9.00)">Add To Cart</button>
+                    <button onclick="addToCart(18, 'Molten Choco Bliss', 9.00)">Add To Cart</button>
                 </div>
             </div>
 
@@ -511,9 +573,9 @@
                 <p class="description">Creamy ice cream topped with berries, sprinkles, and wafer sticks.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty19')">-</button>
-                    <input type="text" value="1" id="qty19" readonly>
+                    <input type="text" id="qty19" value="0" readonly>
                     <button onclick="increaseQuantity('qty19')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(19, 'Fantasy Sundae Boat', 5.50)">Add To Cart</button>
+                    <button onclick="addToCart(19, 'Fantasy Sundae Boat', 5.50)">Add To Cart</button>
                 </div>
             </div>
 
@@ -524,9 +586,9 @@
                 <p class="description">Mini bundt cakes garnished with pomegranate seeds and glaze.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty20')">-</button>
-                    <input type="text" value="1" id="qty20" readonly>
+                    <input type="text" id="qty20" value="0" readonly>
                     <button onclick="increaseQuantity('qty20')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(20, 'Festive Fruit Bundt (3 pcs)', 10.00)">Add To Cart</button>
+                    <button onclick="addToCart(20, 'Festive Fruit Bundt (3 pcs)', 10.00)">Add To Cart</button>
                 </div>
             </div>
 
@@ -537,9 +599,9 @@
                 <p class="description">Chilled sago dessert with mango cubes and creamy coconut milk.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty21')">-</button>
-                    <input type="text" value="1" id="qty21" readonly>
+                    <input type="text" id="qty21" value="0" readonly>
                     <button onclick="increaseQuantity('qty21')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(21, 'Tropical Mango Sago Delight', 7.00)">Add To Cart</button>
+                    <button onclick="addToCart(21, 'Tropical Mango Sago Delight', 7.00)">Add To Cart</button>
                 </div>
             </div>
             <div class="menu-item sweet desserts" id="item-22">
@@ -549,9 +611,9 @@
                 <p class="description">Silky smooth flan topped with golden caramel.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty22')">-</button>
-                    <input type="text" value="1" id="qty22" readonly>
+                    <input type="text" id="qty22" value="0" readonly>
                     <button onclick="increaseQuantity('qty22')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(22, 'Caramel Custard Perfection', 8.30)">Add To Cart</button>
+                    <button onclick="addToCart(22, 'Caramel Custard Perfection', 8.30)">Add To Cart</button>
                 </div>
             </div>
             <div class="menu-item sweet desserts" id="item-23">
@@ -562,9 +624,9 @@
                      with shredded coconut for a delightful tropical treat.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty23')">-</button>
-                    <input type="text" value="1" id="qty23" readonly>
+                    <input type="text" id="qty23" value="0" readonly>
                     <button onclick="increaseQuantity('qty23')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(23, 'Muffins', 6.50)">Add To Cart</button>
+                    <button onclick="addToCart(23, 'Muffins', 6.50)">Add To Cart</button>
                 </div>
             </div>
             <div class="menu-item sweet desserts" id="item-24">
@@ -575,9 +637,9 @@
                      cocoa dust, and chocolate shards for a decadent finish.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty24')">-</button>
-                    <input type="text" value="1" id="qty24" readonly>
+                    <input type="text" id="qty24" value="0" readonly>
                     <button onclick="increaseQuantity('qty24')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(24, 'Mini Chocolate Cheesecakes', 6.50)">Add To Cart</button>
+                    <button onclick="addToCart(24, 'Mini Chocolate Cheesecakes', 6.50)">Add To Cart</button>
                 </div>
             </div>
             
@@ -592,9 +654,9 @@
                      perfect for a cool and energizing treat during any time of the day.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty25')">-</button>
-                    <input type="text" value="1" id="qty25" readonly>
+                    <input type="text" id="qty25" value="0" readonly>
                     <button onclick="increaseQuantity('qty25')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(25, 'Iced Coffee', 10.90)">Add To Cart</button>
+                    <button onclick="addToCart(25, 'Iced Coffee', 10.90)">Add To Cart</button>
                 </div>
             </div>
 
@@ -606,9 +668,9 @@
                 and smooth milkshake flavors, delivering a deliciously indulgent experience.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty26')">-</button>
-                    <input type="text" value="1" id="qty26" readonly>
+                    <input type="text" id="qty26" value="0" readonly>
                     <button onclick="increaseQuantity('qty26')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(26, 'Coffee Milkshake', 13.90)">Add To Cart</button>
+                    <button onclick="addToCart(26, 'Coffee Milkshake', 13.90)">Add To Cart</button>
                 </div>
             </div>
 
@@ -619,9 +681,9 @@
                 <p class="description">Refreshing blend of creamy milk and premium matcha, topped with whipped cream and a sprinkle of matcha powder.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty27')">-</button>
-                    <input type="text" value="1" id="qty27" readonly>
+                    <input type="text" id="qty27" value="0" readonly>
                     <button onclick="increaseQuantity('qty27')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(27, 'Matcha Milkshake', 9.90)">Add To Cart</button>
+                    <button onclick="addToCart(27, 'Matcha Milkshake', 9.90)">Add To Cart</button>
                 </div>
             </div>
 
@@ -633,9 +695,9 @@
                     made with the finest beans to offer a bold and invigorating coffee experience.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty28')">-</button>
-                    <input type="text" value="1" id="qty28" readonly>
+                    <input type="text" id="qty28" value="0" readonly>
                     <button onclick="increaseQuantity('qty28')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(28, 'Hot Espresso 8.90)">Add To Cart</button>
+                    <button onclick="addToCart(28, 'Hot Espresso 8.90)">Add To Cart</button>
                 </div>
             </div>
 
@@ -647,9 +709,9 @@
                     offering a natural and refreshing beverage perfect for any occasion.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty29')">-</button>
-                    <input type="text" value="1" id="qty29" readonly>
+                    <input type="text" id="qty29" value="0" readonly>
                     <button onclick="increaseQuantity('qty29')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(29, 'Apple Juice', 15.00)">Add To Cart</button>
+                    <button onclick="addToCart(29, 'Apple Juice', 15.00)">Add To Cart</button>
                 </div>
             </div>
 
@@ -661,9 +723,9 @@
                      made from fresh pineapples to transport you to a sunny paradise.</p>
                      <div class="order-controls">
                         <button onclick="decreaseQuantity('qty30')">-</button>
-                        <input type="text" value="1" id="qty30" readonly>
+                        <input type="text" id="qty30" value="0" readonly>
                         <button onclick="increaseQuantity('qty30')">+</button>
-                        <button class="add-to-cart" onclick="addToCart(30, 'Pineapple Juice', 13.00)">Add To Cart</button>
+                        <button onclick="addToCart(30, 'Pineapple Juice', 13.00)">Add To Cart</button>
                </div>
             </div>
 
@@ -675,9 +737,9 @@
                     juicy mangoes, perfect for quenching your thirst on a hot day.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty31')">-</button>
-                    <input type="text" value="1" id="qty31" readonly>
+                    <input type="text" id="qty31" value="0" readonly>
                     <button onclick="increaseQuantity('qty31')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(31, 'Mango Juice', 15.00)">Add To Cart</button>
+                    <button onclick="addToCart(31, 'Mango Juice', 15.00)">Add To Cart</button>
                 </div>  
             </div> 
             
@@ -688,18 +750,73 @@
                 <p class="description">Freshly blended strawberries with a touch of sugar and ice, creating a refreshing and naturally sweet drink.</p>
                 <div class="order-controls">
                     <button onclick="decreaseQuantity('qty32')">-</button>
-                    <input type="text" value="1" id="qty32" readonly>
+                    <input type="text" id="qty32" value="0" readonly>
                     <button onclick="increaseQuantity('qty32')">+</button>
-                    <button class="add-to-cart" onclick="addToCart(32, 'Strawberry Juice', 12.90)">Add To Cart</button>
+                    <button onclick="addToCart(32, 'Strawberry Juice', 12.90)">Add To Cart</button>
                 </div>  
-            </div> 
-
-                    <button onclick="window.location.href='Add to Cart.html'">Go to Cart</button>
-            
-                </div>
             </div>
-
     </section>
+
+    <!-- Sidebar for Cart -->
+<div id="cart-sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeCart()">&times;</a>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p>Total: RM <span id="cart-total">0.00</span></p>
+    <button onclick="proceedToPayment()">Pay Now</button>
+
+    <!-- Payment Options (Credit Card and Online Banking) -->
+    <div id="payment-options" style="display: none;">
+        <h3>Select Payment Method</h3>
+        <button onclick="showCreditCardForm()">Credit Card</button>
+        <button onclick="showOnlineBankingForm()">Online Banking</button> 
+    <!-- Credit Card Payment Form -->
+        <div id="credit-card-form" style="display: none;">
+
+    <h4>Credit Card Payment</h4>
+            <form id="credit-card-details">
+                <input type="text" id="card-number" placeholder="Card Number" required><br>
+                <input type="text" id="expiration-date" placeholder="MM/YY" required><br>
+                <input type="text" id="cvv" placeholder="CVV" required><br>
+                <button type="button" onclick="processCreditCardPayment()">Pay with Credit Card</button>
+            </form>
+        </div>
+
+        <!-- Online Banking Payment Form -->
+        <div id="online-banking-form" style="display: none;">
+            <h4>Online Banking Payment</h4>
+            <form id="bank-details">
+                <select id="bank-select" required>
+                    <option value="" disabled selected>Select Bank</option>
+                    <option value="Maybank">Maybank</option>
+                    <option value="CIMB">CIMB</option>
+                    <option value="Public Bank">Public Bank</option>
+                    <option value="RHB Bank">RHB Bank</option>
+                </select><br>
+                <input type="text" id="bank-username" placeholder="Bank Login Username" required><br>
+                <input type="password" id="bank-password" placeholder="Bank Password" required><br>
+                <button type="button" onclick="processOnlineBankingPayment()">Pay with Online Banking</button>
+            </form>
+            </div>
+    </div>
+
+          <!-- Receipt Section (Visible After Payment) -->
+    <div id="receipt" style="display: none;">
+        <h3>Receipt</h3>
+        <p>Order Number: <span id="order-number"></span></p>
+        <p>Table Number: <span id="table-number"></span></p>
+        <div id="receipt-items"></div>
+        <button onclick="closeCart()">Close</button>
+    </div>
+</div>
+
+    <div id="cart" style="display: none;">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+    <button onclick="clearCart()">Clear Cart</button>
+    <button onclick="proceedToPayment()">Pay Now</button>
+</div>
 
     <footer>
         <div class="social-icons">
@@ -737,64 +854,210 @@
             let currentQty = parseInt(qtyInput.value);
             qtyInput.value = currentQty + 1;
         }
-    
-        // Function to show specific category
-        function showCategory(category) {
-            const items = document.querySelectorAll('.menu-item');
-            items.forEach(item => {
-                if (item.classList.contains(category)) {
-                    item.style.display = 'block'; // Show items of the selected category
-                } else {
-                    item.style.display = 'none'; // Hide items of other categories
-                }
-            });
-    
-            // Update the image based on category
-            const image = document.getElementById('category-image');
-            if (category === 'western') {
-                image.src = 'P65.jpg';
-            } else if (category === 'asian') {
-                image.src = 'P66.jpg';
-            } else if (category === 'desserts') {
-                image.src = 'P64.jpg';
-            } else if (category === 'drinks') {
-                image.src = 'P67.jpg';
-            }
-        }
-        // Set default view for the menu
-        document.addEventListener('DOMContentLoaded', () => {
-            showCategory('western'); // Default category
-        });
+        
+    let cart = [];
+    let orderNumber = 0;
+    let tableCounter = 10; // Start table number at 010 (equivalent to 10)
+    let orderDetails = {}; // To store order details after successful payment
 
-       function addToCart(itemId, name, price, quantity) {
-    // Retrieve the cart from localStorage (or create a new one if it doesn't exist)
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // Check if the item already exists in the cart
-    const existingItemIndex = cart.findIndex(item => item.id === itemId);
-    
-    if (existingItemIndex >= 0) {
-        // Update quantity if item already exists in the cart
-        cart[existingItemIndex].quantity += quantity;
-    } else {
-        // Add new item to the cart
-        cart.push({ id: itemId, name: name, price: price, quantity: quantity });
+    // Function to open the cart and display its contents
+    function openCart() {
+        document.getElementById("cart-sidebar").style.width = "300px";
+        updateCart();
     }
 
-    // Save updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
+    // Function to close the cart
+    function closeCart() {
+        document.getElementById("cart-sidebar").style.width = "0";
+    }
 
-    // Optional: Update cart count on the page
-    updateCartCount();
-}
+    // Function to add an item to the cart
+    function addToCart(id, name, price) {
+        const quantity = parseInt(document.getElementById(qty${id}).value);
+        if (quantity > 0) {
+            let itemIndex = cart.findIndex(item => item.id === id);
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += quantity;
+            } else {
+                cart.push({id, name, price, quantity});
+            }
+            updateCart();
+        } else {
+            alert("Please select a quantity greater than 0.");
+        }
+    }
 
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-    document.getElementById('cart-count').textContent = cartCount;
-}
+    // Function to remove an item from the cart
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);
+        updateCart();
+    } 
+// Function to update the cart display
+    function updateCart() {
+        const cartItems = document.getElementById("cart-items");
+        cartItems.innerHTML = "";  // Clear the cart display
+        let total = 0;
 
+// Loop through cart items and update the cart display
+        cart.forEach(item => {
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
+                    <button onclick="removeFromCart(${item.id})">Remove</button>
+                </div>
+            `;
+            total += item.price * item.quantity;
+        });
+        
+ // Update the cart total and item count
+        document.getElementById("cart-count").textContent = cart.length;
+        document.getElementById("cart-total").textContent = total.toFixed(2);
+    }
+
+    // Function to proceed to payment options
+    function proceedToPayment() {
+        if (cart.length === 0) {
+            alert("You must add items to your cart before proceeding with payment.");
+            return;
+        }
+        document.getElementById("payment-options").style.display = "block";
+    }
+
+// Function to show the Credit Card payment form
+    function showCreditCardForm() {
+        document.getElementById("credit-card-form").style.display = "block";
+        document.getElementById("online-banking-form").style.display = "none";
+    }
+
+    // Function to show the Online Banking payment form
+    function showOnlineBankingForm() {
+        document.getElementById("online-banking-form").style.display = "block";
+        document.getElementById("credit-card-form").style.display = "none";
+    }
+
+// Function to process credit card payment
+    function processCreditCardPayment() {
+        const cardNumber = document.getElementById("card-number").value;
+        const expirationDate = document.getElementById("expiration-date").value;
+        const cvv = document.getElementById("cvv").value;
+
+        if (!cardNumber  !expirationDate  !cvv) {
+            alert("Please fill in all credit card details.");
+            return;
+        }
+
+// Simulate successful payment
+        alert("Credit Card payment successful!");
+        orderNumber++;
+        updateTableNumber();
+        storeOrderDetails();
+        resetCart();
+        document.getElementById("payment-options").style.display = "none";
+        displayReceipt();
+    }
+
+    // Function to process online banking payment
+    function processOnlineBankingPayment() {
+        const bankSelect = document.getElementById("bank-select").value;
+        const bankUsername = document.getElementById("bank-username").value;
+        const bankPassword = document.getElementById("bank-password").value;
+
+ if (!bankSelect  !bankUsername  !bankPassword) {
+            alert("Please fill in all online banking details.");
+            return;
+        }
+
+        // Simulate successful payment
+        alert("Online Banking payment successful!");
+        orderNumber++;
+        updateTableNumber();
+        storeOrderDetails();
+        resetCart();
+        document.getElementById("payment-options").style.display = "none";
+        displayReceipt();
+    }
+
+// Function to reset the cart after payment
+    function resetCart() {
+        cart = []; // Clear the cart
+        document.getElementById("cart-count").textContent = "0"; // Reset cart count
+        document.getElementById("cart-items").innerHTML = ""; // Clear the cart items display
+        document.getElementById("cart-total").textContent = "0.00"; // Reset total to 0
+        closeCart(); // Close the cart sidebar
+    }
+
+    // Function to update the table number (for tracking orders)
+    function updateTableNumber() {
+        // Increment table number by 10 and display the table number
+        tableCounter += 10;
+        document.getElementById("table-number").textContent = formatTableNumber(tableCounter);
+    } 
+
+// Function to format the table number as a 3-digit string
+    function formatTableNumber(number) {
+        return number.toString().padStart(3, '0');
+    }
+
+    // Function to store order details after payment
+    function storeOrderDetails() {
+        orderDetails = {
+            orderNumber: orderNumber,
+            tableNumber: formatTableNumber(tableCounter),
+            items: [...cart], // Make a copy of the current cart items
+        };
+    }
+
+// Function to display the receipt after payment
+    function displayReceipt() {
+        document.getElementById("receipt").style.display = "block";
+        document.getElementById("order-number").textContent = orderDetails.orderNumber;
+        document.getElementById("table-number").textContent = orderDetails.tableNumber;
+
+        const receiptItems = document.getElementById("receipt-items");
+        receiptItems.innerHTML = "";
+        orderDetails.items.forEach(item => {
+            receiptItems.innerHTML += `
+                <div class="receipt-item">
+                    <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `;
+        });
+    }
+
+// Function to show menu categories (Western, Asian, etc.)
+    function showCategory(category) {
+        document.querySelectorAll(".menu-item").forEach(item => {
+            item.style.display = item.classList.contains(category) ? "block" : "none";
+        });
+const image = document.getElementById('category-image');
+        if (category === 'western') {
+            image.src = 'P65.jpg';
+        } else if (category === 'asian') {
+            image.src = 'P66.jpg';
+        } else if (category === 'desserts') {
+            image.src = 'P64.jpg';
+        } else if (category === 'drinks') {
+            image.src = 'P67.jpg';
+        }
+    }
+
+    // Initially show Western Plates
+    showCategory('western');
+
+// Function to increase the quantity of an item in the menu
+    function increaseQuantity(id) {
+        const quantityField = document.getElementById(id);
+        quantityField.value = parseInt(quantityField.value) + 1;
+    }
+
+    // Function to decrease the quantity of an item in the menu
+    function decreaseQuantity(id) {
+        const quantityField = document.getElementById(id);
+        if (parseInt(quantityField.value) > 0) {
+            quantityField.value = parseInt(quantityField.value) - 1;
+        }
+    }
+        
     </script>
-    <script src="scripts.js" defer></script>
 </body>
 </html>
