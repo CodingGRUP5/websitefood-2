@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresh Flavors - Food for Every Mood</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -106,7 +108,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 720px; /* Adjust to the maximum desired width */
+            max-width: 720px; 
             margin: auto;
         }
 
@@ -140,7 +142,7 @@
         }
 
         .text {
-            color: #2d5023;
+            color: whitesmoke;
             font-size: 15px;
             padding: 8px 12px;
             position: absolute;
@@ -182,7 +184,7 @@
         .stat {
             background: rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
-            border: 3px solid #0c3f19;
+            border: 3px solid whitesmoke;
             border-radius: 15px;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
             max-width: 300px;
@@ -240,23 +242,32 @@
 
         footer .social-icons a img:hover {
             transform: scale(1.2);
+            filter: brightness(0) invert(1); 
         }
+
 
         .main {
             text-align: center;
             margin: 3rem auto;
             padding: 2rem;
             background: url('P44.jpg') no-repeat center center / cover; 
-            border: 4px solid #0c3f19;
+            border: 4px solid whitesmoke;
             border-radius: 15px;
             max-width: 800px;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
             color: white; 
         }
-
+        
         .main h1 {
-            font-weight: 900; 
-            color: black; 
+            font-family: 'Vogue', serif;
+            font-size: 3.5rem;
+            color: #F8F1E5; 
+            margin-top: 1rem; 
+            margin-bottom: 1rem; 
+            text-align: center;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); 
+            line-height: 1.4; 
+            letter-spacing: 0.05em;
         }
 
         .main p {
@@ -285,24 +296,26 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
-        </div>
-
-        <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
-            <li><a href="promotion.html"><i class="fa-solid fa-tags"></i> Promotion</a></li>
-            <li><a href="style reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
-            <li><a href="aboutus.html"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
-        </ul>
-
-       <div class="cart-login">
-            <a href="javascript:void(0)" onclick="openCart()"><i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart-count">0</span>)</a>
-            <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="P1.jpg" alt="Logo"></a>
+            </div>
+    
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="promotion.html"><i class="fa-solid fa-tags"></i> Promotion</a></li>
+                <li><a href="style reward.html"><i class="fa-solid fa-gift"></i> Reward</a></li>
+                <li><a href="aboutus.html"><i class="fa-solid fa-info-circle"></i> About Us</a></li>
+            </ul>
+    
+            <div class="cart-login">
+                <a href="javascript:void(0)" onclick="openCart()"><i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart-count">0</span>)</a>
+                <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+            </div>
+        </nav>
+    </header>
 
     <div class="slideshow-container">
 
@@ -380,8 +393,7 @@
 
     <footer>
         <div class="social-icons">
-            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
-            </a>
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo"></a>
             <a href="https://www.facebook.com" target="_blank">
                 <img src="fb.png" alt="Facebook">
             </a>
@@ -394,9 +406,12 @@
             <a href="https://www.twitter.com" target="_blank">
                 <img src="x.png" alt="Twitter">
             </a>
+            <a href="https://www.islam.gov.my/ms/hukum-undang-undang/semakan-status-halal" target="_blank">
+                <img src="halal.png" alt="Halal Logo">
+            </a>
         </div>
         <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
-    </footer>
+    </footer>    
 
     <script>
         let slideIndex = 1;
@@ -428,5 +443,4 @@
     </script>
 </body>
 </html>
-
 
