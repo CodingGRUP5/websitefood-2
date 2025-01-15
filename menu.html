@@ -241,7 +241,7 @@
         footer .social-icons a img:hover {
             transform: scale(1.2);
         }
-     /* Sidebar styles with centered and organized content */
+    /* Sidebar styles with centered and organized content */
 #cart-sidebar {
     height: 100%;
     width: 500px; /* Fixed width for the sidebar */
@@ -262,16 +262,51 @@
     border-radius: 12px 0 0 12px; /* Rounded top-left and bottom-left corners */
 }
 
-/* Cart items and payment section */
+/* Cart items table styles */
+#cart-items table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Remove gaps between table cells */
+    color: #f9f9f9; /* Text color */
+    margin-top: 10px; /* Space above the table */
+}
+
+#cart-items th,
+#cart-items td {
+    padding: 10px; /* Space inside cells */
+    text-align: center; /* Center align text */
+    border-bottom: 1px solid #ffcc66; /* Line separating rows */
+}
+
+#cart-items th {
+    background: rgba(255, 255, 255, 0.2); /* Slightly darker background for the header */
+    font-size: 1.2rem; /* Larger text for the header */
+    color: #ffcc66; /* Header text color */
+    text-transform: uppercase; /* Uppercase header text */
+}
+
+#cart-items td {
+    background: rgba(255, 255, 255, 0.1); /* Lighter background for rows */
+    font-size: 1rem; /* Standard size for table rows */
+}
+
+#cart-items .remove-btn {
+    background: #e63946; /* Red background for remove button */
+    color: #fff; /* White text */
+    padding: 5px 10px; /* Button size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 0.9rem; /* Slightly smaller text */
+}
+
+#cart-items .remove-btn:hover {
+    background: #ff4040; /* Lighter red on hover */
+}
+
+/* Ensure the table fits within the container */
 #cart-items {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1); /* Light background for cart items */
-    border-radius: 15px; /* Smoother rounded corners */
-    max-height: calc(100% - 150px); /* Allow space for payment section */
-    overflow-y: auto; /* Enable scrolling for cart items */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Softer, larger shadow for depth */
-    border: 1px solid #ffcc66; /* Border color */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+    max-height: calc(100% - 150px); /* Leave space for payment section */
 }
 
 /* Payment section */
@@ -317,6 +352,47 @@
     transform: rotate(90deg); /* Rotate close button on hover */
     color: #fff; /* Change color on hover */
 }
+        /* Style for the receipt notification */
+.receipt-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #6b9105;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000; /* Make sure it stays on top */
+}
+
+.receipt-notification.show {
+    opacity: 1; /* Make the receipt visible */
+}
+
+.receipt-notification h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.receipt-notification p {
+    margin: 5px 0;
+}
+
+.receipt-notification button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.receipt-notification button:hover {
+    background-color: #555;
+}
+
  </style>
 </head>
 <body>
@@ -715,208 +791,226 @@
         <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
     </footer>
 
-<script>
-    let cart = [];
-let orderNumber = 0;
-let tableCounter = 10; // Start table number at 010 (equivalent to 10)
-let orderDetails = {}; // To store order details after successful payment
-
-// Function to open the cart and display its contents
-function openCart() {
-    document.getElementById("cart-sidebar").style.width = "500px"; // Increase sidebar width
-    updateCart();
-}
-
-// Function to close the cart
-function closeCart() {
-    document.getElementById("cart-sidebar").style.width = "0";
-}
-
-// Function to add an item to the cart
-function addToCart(id, name, price) {
-    // Check if the item already exists in the cart
-    const itemIndex = cart.findIndex(item => item.id === id && item.price === price);
+    <script>
+        let cart = [];
+        let orderNumber = 0;
+        let tableCounter = 10; // Start table number at 010 (equivalent to 10)
+        let orderDetails = {}; // To store order details after successful payment
     
-    // If item is found, increase its quantity
-    if (itemIndex !== -1) {
-        cart[itemIndex].quantity += 1;
-    } else {
-        // If item not found, add it to the cart
-        cart.push({ id, name, price, quantity: 1 });
-    }
-    updateCart();
-}
-
-// Function to remove an item from the cart
-function removeFromCart(id, price) {
-    cart = cart.filter(item => !(item.id === id && item.price === price));
-    updateCart();
-}
-
-// Function to update the quantity of an item in the cart
-function updateQuantity(id, price, newQuantity) {
-    newQuantity = parseInt(newQuantity);
-    if (newQuantity > 0) {
-        const itemIndex = cart.findIndex(item => item.id === id && item.price === price);
-        if (itemIndex !== -1) {
-            cart[itemIndex].quantity = newQuantity;
+        // Function to open the cart and display its contents
+        function openCart() {
+            document.getElementById("cart-sidebar").style.width = "400px"; // Increase sidebar width
+            updateCart();
         }
-    }
-    updateCart();
-}
-
-// Function to update the cart display
-function updateCart() {
-    const cartItems = document.getElementById("cart-items");
-    cartItems.innerHTML = ""; // Clear the cart display
-    let total = 0;
-
-    // Loop through cart items and update the cart display
-    cart.forEach(item => {
-        cartItems.innerHTML += `
-            <div class="cart-item">
-                <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
-                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, ${item.price}, this.value)" />
-                <button onclick="removeFromCart(${item.id}, ${item.price})">Remove</button>
-            </div>
-        `;
-        total += item.price * item.quantity;
-    });
-
-    // Update the cart total and item count
-    document.getElementById("cart-count").textContent = cart.length;
-    document.getElementById("cart-total").textContent = total.toFixed(2);
-}
-
-// Function to proceed to payment options
-function proceedToPayment() {
-    if (cart.length === 0) {
-        alert("You must add items to your cart before proceeding with payment.");
-        return;
-    }
-    document.getElementById("payment-options").style.display = "block"; // Show payment options
-}
-
-// Function to process credit card payment
-function processCreditCardPayment() {
-    const cardNumber = document.getElementById("card-number").value;
-    const expirationDate = document.getElementById("expiration-date").value;
-    const cvv = document.getElementById("cvv").value;
-
-    if (!cardNumber || !expirationDate || !cvv) {
-        alert("Please fill in all credit card details.");
-        return;
-    }
-
-    // Simulate successful payment
-    alert("Credit Card payment successful!");
-    orderNumber++;
-    updateTableNumber();
-    storeOrderDetails();
-    resetCart();
-    document.getElementById("payment-options").style.display = "none";
-    displayReceipt();
-}
-
-// Function to process online banking payment
-function processOnlineBankingPayment() {
-    const bankSelect = document.getElementById("bank-select").value;
-    const bankUsername = document.getElementById("bank-username").value;
-    const bankPassword = document.getElementById("bank-password").value;
-
-    if (!bankSelect || !bankUsername || !bankPassword) {
-        alert("Please fill in all online banking details.");
-        return;
-    }
-
-    // Simulate successful payment
-    alert("Online Banking payment successful!");
-    orderNumber++;
-    updateTableNumber();
-    storeOrderDetails();
-    resetCart();
-    document.getElementById("payment-options").style.display = "none";
-    displayReceipt();
-}
-
-// Function to reset the cart after payment
-function resetCart() {
-    cart = []; // Clear the cart
-    document.getElementById("cart-count").textContent = "0"; // Reset cart count
-    document.getElementById("cart-items").innerHTML = ""; // Clear the cart items display
-    document.getElementById("cart-total").textContent = "0.00"; // Reset total to 0
-    closeCart(); // Close the cart sidebar
-}
-
-// Function to update the table number (for tracking orders)
-function updateTableNumber() {
-    tableCounter += 10;
-    document.getElementById("table-number").textContent = formatTableNumber(tableCounter);
-}
-
-// Function to format the table number as a 3-digit string
-function formatTableNumber(number) {
-    return number.toString().padStart(3, '0');
-}
-
-// Function to store order details after payment
-function storeOrderDetails() {
-    orderDetails = {
-        orderNumber: orderNumber,
-        tableNumber: formatTableNumber(tableCounter),
-        items: [...cart], // Make a copy of the current cart items
-    };
-}
-
-// Function to display the receipt after payment
-function displayReceipt() {
-    document.getElementById("receipt").style.display = "block";
-    document.getElementById("order-number").textContent = orderDetails.orderNumber;
-    document.getElementById("table-number").textContent = orderDetails.tableNumber;
-
-    const receiptItems = document.getElementById("receipt-items");
-    receiptItems.innerHTML = "";
-    orderDetails.items.forEach(item => {
-        receiptItems.innerHTML += `
-            <div class="receipt-item">
-                <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
-            </div>
-        `;
-    });
-}
-
-// Function to show the payment method options
-function showCreditCardForm() {
-    document.getElementById("credit-card-form").style.display = "block";
-    document.getElementById("online-banking-form").style.display = "none";
-}
-
-function showOnlineBankingForm() {
-    document.getElementById("credit-card-form").style.display = "none";
-    document.getElementById("online-banking-form").style.display = "block";
-}
-
-// Initially show Western Plates
-showCategory('western');
-
-// Function to show menu categories (Western, Asian, etc.)
-function showCategory(category) {
-    document.querySelectorAll(".menu-item").forEach(item => {
-        item.style.display = item.classList.contains(category) ? "block" : "none";
-    });
-
-    const image = document.getElementById('category-image');
-    if (category === 'western') {
-        image.src = 'P65.jpg';
-    } else if (category === 'asian') {
-        image.src = 'P66.jpg';
-    } else if (category === 'desserts') {
-        image.src = 'P64.jpg';
-    } else if (category === 'drinks') {
-        image.src = 'P67.jpg';
-    }
-}
-
-</script>
+    
+        // Function to close the cart
+        function closeCart() {
+            document.getElementById("cart-sidebar").style.width = "0";
+        }
+    
+        // Function to add an item to the cart
+        function addToCart(id, name, price) {
+            const itemIndex = cart.findIndex(item => item.id === id && item.price === price);
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += 1;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+            updateCart();
+        }
+    
+        // Function to remove an item from the cart
+        function removeFromCart(id, price) {
+            cart = cart.filter(item => !(item.id === id && item.price === price));
+            updateCart();
+        }
+    
+        // Function to update the quantity of an item in the cart
+        function updateQuantity(id, price, newQuantity) {
+            newQuantity = parseInt(newQuantity);
+            if (newQuantity > 0) {
+                const itemIndex = cart.findIndex(item => item.id === id && item.price === price);
+                if (itemIndex !== -1) {
+                    cart[itemIndex].quantity = newQuantity;
+                }
+            }
+            updateCart();
+        }
+    
+        // Function to update the cart display with a table layout
+        function updateCart() {
+            const cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = "";
+            let total = 0;
+    
+            const table = document.createElement("table");
+            const tableHeader = document.createElement("tr");
+            tableHeader.innerHTML = `
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Remove</th>
+            `;
+            table.appendChild(tableHeader);
+    
+            cart.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>
+                        <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, ${item.price}, this.value)" />
+                    </td>
+                    <td>RM ${item.price.toFixed(2)}</td>
+                    <td><button onclick="removeFromCart(${item.id}, ${item.price})">Remove</button></td>
+                `;
+                table.appendChild(row);
+                total += item.price * item.quantity;
+            });
+    
+            cartItems.appendChild(table);
+    
+            document.getElementById("cart-count").textContent = cart.length;
+            document.getElementById("cart-total").textContent = total.toFixed(2);
+        }
+    
+        // Function to proceed to payment options
+        function proceedToPayment() {
+            if (cart.length === 0) {
+                alert("You must add items to your cart before proceeding with payment.");
+                return;
+            }
+            document.getElementById("payment-options").style.display = "block"; // Show payment options
+        }
+    
+        // Function to process credit card payment
+        function processCreditCardPayment() {
+            const cardNumber = document.getElementById("card-number").value;
+            const expirationDate = document.getElementById("expiration-date").value;
+            const cvv = document.getElementById("cvv").value;
+    
+            if (!cardNumber || !expirationDate || !cvv) {
+                alert("Please fill in all credit card details.");
+                return;
+            }
+    
+            alert("Credit Card payment successful!");
+            orderNumber++;
+            updateTableNumber();
+            storeOrderDetails();
+            resetCart();
+            document.getElementById("payment-options").style.display = "none";
+            displayReceipt();
+        }
+    
+        // Function to process online banking payment
+        function processOnlineBankingPayment() {
+            const bankSelect = document.getElementById("bank-select").value;
+            const bankUsername = document.getElementById("bank-username").value;
+            const bankPassword = document.getElementById("bank-password").value;
+    
+            if (!bankSelect || !bankUsername || !bankPassword) {
+                alert("Please fill in all online banking details.");
+                return;
+            }
+    
+            alert("Online Banking payment successful!");
+            orderNumber++;
+            updateTableNumber();
+            storeOrderDetails();
+            resetCart();
+            document.getElementById("payment-options").style.display = "none";
+            displayReceipt();
+        }
+    
+        // Function to reset the cart after payment
+        function resetCart() {
+            cart = [];
+            document.getElementById("cart-count").textContent = "0";
+            document.getElementById("cart-items").innerHTML = "";
+            document.getElementById("cart-total").textContent = "0.00";
+            closeCart();
+        }
+    
+        // Function to update the table number (for tracking orders)
+        function updateTableNumber() {
+            tableCounter += 10;
+            document.getElementById("table-number").textContent = formatTableNumber(tableCounter);
+        }
+    
+        // Function to format the table number as a 3-digit string
+        function formatTableNumber(number) {
+            return number.toString().padStart(3, '0');
+        }
+    
+        // Function to store order details after payment
+        function storeOrderDetails() {
+            orderDetails = {
+                orderNumber: orderNumber,
+                tableNumber: formatTableNumber(tableCounter),
+                items: [...cart],
+            };
+        }
+    
+        // Function to display the receipt after payment
+        function displayReceipt() {
+            const receiptElement = document.getElementById("receipt");
+            receiptElement.style.display = "block";
+            receiptElement.classList.add("show");
+    
+            document.getElementById("order-number").textContent = orderDetails.orderNumber;
+            document.getElementById("table-number").textContent = orderDetails.tableNumber;
+    
+            const receiptItems = document.getElementById("receipt-items");
+            receiptItems.innerHTML = "";
+            orderDetails.items.forEach(item => {
+                receiptItems.innerHTML += `
+                    <div class="receipt-item">
+                        <span>${item.name} x${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                `;
+            });
+        }
+    
+        // Function to close the receipt
+        function closeReceipt() {
+            const receiptElement = document.getElementById("receipt");
+            receiptElement.classList.remove("show");
+            setTimeout(() => {
+                receiptElement.style.display = "none";
+            }, 500); // Wait for the animation to complete
+        }
+    
+        // Function to show the payment method options
+        function showCreditCardForm() {
+            document.getElementById("credit-card-form").style.display = "block";
+            document.getElementById("online-banking-form").style.display = "none";
+        }
+    
+        function showOnlineBankingForm() {
+            document.getElementById("credit-card-form").style.display = "none";
+            document.getElementById("online-banking-form").style.display = "block";
+        }
+    
+        // Initially show Western Plates
+        showCategory('western');
+    
+        // Function to show menu categories (Western, Asian, etc.)
+        function showCategory(category) {
+            document.querySelectorAll(".menu-item").forEach(item => {
+                item.style.display = item.classList.contains(category) ? "block" : "none";
+            });
+    
+            const image = document.getElementById('category-image');
+            if (category === 'western') {
+                image.src = 'P65.jpg';
+            } else if (category === 'asian') {
+                image.src = 'P66.jpg';
+            } else if (category === 'desserts') {
+                image.src = 'P64.jpg';
+            } else if (category === 'drinks') {
+                image.src = 'P67.jpg';
+            }
+        }
+    </script>
 </body>
 </html>
