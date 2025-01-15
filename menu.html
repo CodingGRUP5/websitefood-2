@@ -174,32 +174,37 @@
         }
 
         .menu-item h3 {
-            margin: 1rem 0 0.5rem;
-            font-size: 1.5rem;
-            color: #ffcc66;
-        }
+    margin: 0.5rem 0; /* Keep consistent spacing */
+    text-align: center; /* Ensure text is centered */
+    min-height: 40px; /* Fix height for title alignment */
+    color: #ffcc00;
+}
 
-        .menu-item p {
-            font-size: 1rem;
-            color: #fff;
-        }
+.menu-item p {
+    margin: 0.5rem 0; /* Keep consistent spacing */
+    text-align: center; /* Ensure text is centered */
+    min-height: 60px; /* Fix height for description alignment */
+    color: white;
+}
 
-        .menu-item .price {
-            font-size: 1.2rem;
-            color: #c9c612;
-            font-weight: bold;
-        }
+.menu-item .price {
+    margin: 0.5rem 0; /* Keep consistent spacing */
+    text-align: center; /* Ensure text is centered */
+    min-height: 30px; /* Fix height for price alignment */
+}
 
-        .menu-item button {
-            padding: 0.5rem 1rem;
-            background: #41571d;
-            color: white;
-            font-weight: bold;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.menu-item button {
+    padding: 0.5rem 1rem;
+    background: #41571d;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: auto; /* Align button to the bottom */
+}
+
         .order-controls input {
             width: 40px; /* Set the width to be shorter */
             text-align: center;
@@ -235,9 +240,7 @@
 
         footer .social-icons a img:hover {
             transform: scale(1.2);
-            filter: brightness(0) invert(1); 
         }
-        
      /* Sidebar styles with centered and organized content */
 #cart-sidebar {
     height: 100%;
@@ -404,7 +407,7 @@
     <div class="menu-item western" id="item-7">
         <img src="img13.jpg" alt="Chicken Tenders"/>
         <h3>Chicken Tenders</h3>
-        <p class="description">Crispy, golden-brown chicken tenders marinated in spices, served with a side of tangy dipping sauce.</p>
+        <p class="description">Crispy chicken tenders marinated in spices, served with tangy dipping sauce.</p>
         <p>Price: RM 12.90</p>
         <button onclick="addToCart(7, 'Chicken Tenders', 12.90)">Add to Cart</button>
     </div>
@@ -412,7 +415,7 @@
     <div class="menu-item western" id="item-8">
         <img src="img14.jpg" alt="Beef Tacos"/>
         <h3>Beef Tacos</h3>
-        <p class="description">Soft tortillas filled with seasoned minced beef, fresh lettuce, diced tomatoes, onions, grated cheese, and a drizzle of sour cream.</p>
+        <p class="description">Soft tortillas with seasoned beef, lettuce, tomatoes, onions, cheese, and sour cream.</p>
         <p>Price: RM 14.90</p>
         <button onclick="addToCart(8, 'Beef Tacos', 14.90)">Add to Cart</button>
     </div>
@@ -548,8 +551,7 @@
     <div class="menu-item desserts" id="item-24">
         <img src="P23.jpg" alt="Mini Chocolate Cheesecakes"/>
         <h3>Mini Chocolate Cheesecakes</h3>
-        <p class="description">Rich, creamy cheesecakes with a chocolate base, topped with whipped cream,
-            cocoa dust, and chocolate shards for a decadent finish.</p>
+        <p class="description">Rich cheesecakes with a chocolate base, cocoa dust, and chocolate shards.</p>
         <p>Price: RM 6.50</p>
         <button onclick="addToCart(28, 'Mini Chocolate Cheesecakes', 6.50)">Add to Cart</button>
     </div>
@@ -691,8 +693,9 @@
 </div>
 
 <footer>
-        <div class="social-icons">
-            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo"></a>
+  <div class="social-icons">
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
+            </a>
             <a href="https://www.facebook.com" target="_blank">
                 <img src="fb.png" alt="Facebook">
             </a>
@@ -705,12 +708,9 @@
             <a href="https://www.twitter.com" target="_blank">
                 <img src="x.png" alt="Twitter">
             </a>
-            <a href="https://www.islam.gov.my/ms/hukum-undang-undang/semakan-status-halal" target="_blank">
-                <img src="halal.png" alt="Halal Logo">
-            </a>
         </div>
         <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
-    </footer>    
+    </footer>
 
 <script>
     let cart = [];
