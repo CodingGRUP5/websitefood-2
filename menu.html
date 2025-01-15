@@ -235,7 +235,9 @@
 
         footer .social-icons a img:hover {
             transform: scale(1.2);
+            filter: brightness(0) invert(1); 
         }
+        
      /* Sidebar styles with centered and organized content */
 #cart-sidebar {
     height: 100%;
@@ -689,9 +691,8 @@
 </div>
 
 <footer>
-  <div class="social-icons">
-            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo">
-            </a>
+        <div class="social-icons">
+            <a href="#"><img src="logo.jpg" alt="Chef Kiss Logo"></a>
             <a href="https://www.facebook.com" target="_blank">
                 <img src="fb.png" alt="Facebook">
             </a>
@@ -704,9 +705,12 @@
             <a href="https://www.twitter.com" target="_blank">
                 <img src="x.png" alt="Twitter">
             </a>
+            <a href="https://www.islam.gov.my/ms/hukum-undang-undang/semakan-status-halal" target="_blank">
+                <img src="halal.png" alt="Halal Logo">
+            </a>
         </div>
         <p>&copy; 2025 Chef Kiss Restaurant. All Rights Reserved.</p>
-    </footer>
+    </footer>    
 
 <script>
     let cart = [];
